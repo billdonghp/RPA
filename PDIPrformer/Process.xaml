@@ -1,0 +1,237 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ProcessTransaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>814.4,2126.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="44">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="794.4,2026.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="64" Name="code" />
+      <Variable x:TypeArguments="x:String" Default="2020-01-01" Name="bdt" />
+      <Variable x:TypeArguments="x:String" Default="2020-01-08" Name="edt" />
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="dcsDB" />
+      <Variable x:TypeArguments="sd:DataTable" Name="pidDt" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:DatabaseConnect DatabaseConnection="[dcsDB]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=DCS;uid=dcs;pwd=dcsweb!@34;dbq=DOODCS;dba=W;apa=T;exc=F;fen=T;qto=T;frc=10;fdl=10;lob=T;rst=T;btd=F;bnf=F;bam=IfAllSuccessful;num=NLS;dpm=F;mts=T;mdi=F;csr=F;fwc=F;fbs=64000;tlo=O;mld=0;oda=F;tsz=8192" />
+    <Assign DisplayName="代理商CODE" sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[code]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Code").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="开始日期" sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[bdt]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Bdt").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="首款结算日期" sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[edt]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Edt").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[pidDt]" DisplayName="Execute Query" ExistingDbConnection="[dcsDB]" sap:VirtualizedContainerService.HintSize="752.8,89.6" sap2010:WorkflowViewState.IdRef="ExecuteQuery_4" Sql="[&quot;select count(1) pdicnt from cc_serrpt_ak0003 t,cp_branch br where t.BRANCHID = br.id &quot;+&#xA;&quot;And t.CHTDONED Between TO_DATE('&quot;+bdt+&quot;', 'YYYY-MM-DD') And TO_DATE('&quot;+edt+&quot;', 'YYYY-MM-DD') &quot;+&#xA;&quot;And t.MachineClassID = 10000 And t.fee_status = 1 And t.callin_status = 0 And br.code = '&quot;+code+&quot;'&quot;]">
+      <ui:ExecuteQuery.Parameters>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:ExecuteQuery.Parameters>
+    </ui:ExecuteQuery>
+    <If Condition="[Integer.Parse(pidDt.Rows(0).item(&quot;pdicnt&quot;).ToString) &gt; 0]" sap:VirtualizedContainerService.HintSize="752.8,1297.6" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="375.2,1148" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'iexplore.exe'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:ClickImage.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickImage.CursorPosition>
+            <ui:ClickImage.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD4AAAAZCAYAAABpaJ3KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQWSURBVFhH5ZfbTxtHFIf5E/sfVOpzH/vSPlTpRVGrSFRR1SgpVWgDBQwYascYDMFcbfAVOySBgpRENCEGXwCTpL7Or2dsrT1zvDvElaJVlJU+zezszDn7+cyu7YEXlzV8jPSIJ5PJDoFsAaFMHotEKF3AQiqP+UQewVgegegJ/JEcfBuvMLt6DG/4BTwPjhCM72sxODyfWxjFlx4D5bJA+UICXJwLnEvOgFJJoFgE8nmB0xOBXE7g4GkDI39fYib9RIujwvO5hVn8Efo6zl43cCt9jqEjgaE1+8rzfG5hFF98CAghWsiD963WonRZx/WVAr5JVvCZv4ivx1NIJD5A8VCmf/Evft3H53cO8engHj75Not7vg9QfGGn5XblIT+CJlGjzvOXAtk9gR1iLiQw4ctoMXk+tzCKz6e61WwJsr7VNok6UaHzN9SWCXr/IZoWmAk81GLyfCoDAwO24xJ+TT03XXPCLJ5o9MhqfWo70sQbOm9JEwXqb6abJJ7VYvJ8EnmjHD5ut4bP4fA1KkbxYLwuHW2PljQhZ7QqTZQJWWkpTd9wWE824b3//7e66eata+ocp74dRvG57aptxTuVprZVacLa3gVqT4jjBrCWaGLav6PF5Pkk/CbtpDjqHD5fHXPCKB7YqtiKtypNrfZME+1KS2mBf2rASryBKV9ai8nzWfCbt/oqdmPWuN1aq2+HUfx+5G2PuFZpajvShNzebWmBZ1VgOdbA5GxKi8nzqQIq1jW1VVGvOcHXqBjF/ZtSrXtc9UzL7S0rLaUP/wUWt+vwzHTjSXg+FX6z1rmdxFViV2EU962/7t3eRKfSUppadXs/qwqSFtijSQvROia8cS0mzyeREhxrXG1V1DFrjYo61w6z+Gr5nd7evNJS+hFNCkbqGJ+OaTF5PhV+w9a5nYg65rTOhFF8Nnzh+OOk95mWlZbSgqQFMudAYKOG8cltLSbPJ+GCTq2KHFOvc/h8jlF8ZvnM8ceJ9ZXVlW5v77a0QLIE+NerGJvc0mLyfOpNvmtfPefX7c7tMIp7l0p9b29Z6RRJx2jiX2tV/DkR1WLyfBaqUL8i1loVu3kqRvHpUNHxx4n1ldWudHd7J0uCpAUip4B3pYrR8YgWk+dzC6P41ELeZnurb2/1mW5v77a0wFoOmApXMDK2qcXk+dzCKD4ZPO17e8tKS+kHx4BnuYJ7oxtaTJ7PLYzinrkT5KnCubrAS5I9om399K3AAQnvUZV36VPJFKnSeYFt+mQ2XwGr9H986Uhg/jkwFqpg+PcVLSbP5xZG8cG7uxieOsSw5wB3x/bx2+gT3PnjMW4P7+LWUBY/397BzV/SGLyZxI2f4vjxRgzXf9jCd99Hce3aBr76MoyRkbAWk+dzC6P4+4Dnc4ca/gMH22YP4oH2WgAAAABJRU5ErkJggg==" />
+            </ui:ClickImage.Image>
+            <ui:ClickImage.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html title='斗山工程机械（中国）有限公司 DOOSIM 2.0' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ClickImage.Target>
+          </ui:ClickImage>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text'" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[code+&quot;[k(tab)][k(tab)][k(tab)]&quot;]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b7c47b564dd310fc5e4719c96beb1dc3" Selector="&lt;html title='斗山工程机械（中国）有限公司 DOOSIM 2.0' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java role='page tab list' /&gt;&lt;java name='PDI费用单 &amp;lt;- 序时簿' role='page tab' /&gt;&lt;java idx='1' role='text' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text'" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[bdt+&quot;[k(tab)]&quot;]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2501316e98468f7cf6c17e77f4acfa15" Selector="&lt;html title='斗山工程机械（中国）有限公司 DOOSIM 2.0' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java role='page tab list' /&gt;&lt;java name='PDI费用单 &amp;lt;- 序时簿' role='page tab' /&gt;&lt;java role='combo box' /&gt;&lt;java role='text' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text'" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[edt]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d2de3bd58c547e56a2e1cbea630ba302" Selector="&lt;html title='斗山工程机械（中国）有限公司 DOOSIM 2.0' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java role='page tab list' /&gt;&lt;java name='PDI费用单 &amp;lt;- 序时簿' role='page tab' /&gt;&lt;java role='combo box' /&gt;&lt;java role='text' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'iexplore.exe'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ClickImage_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:ClickImage.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickImage.CursorPosition>
+            <ui:ClickImage.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGoAAAAUCAYAAABlCagmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH4SURBVGhD7ZPdSgNBDIX3/d9Cb30UvdCLYkEFC/5LVZRqtdpKChkOZzPJjKjMxSx8bE7OSbYQOuzs7m067bM9VH/af9Kh1ut1p2HSoVarr07DpEMtl5/VDMNg9qx+RMkMZv7jG16P0cxPflcJ6VCLxWqEfJRhHzXieTmiGfS5RrTPcE7hDGqvV0LtDOaRdKjnl48QWeRpxvP1h5Xg5dXDvVoznqdwxvqGhZXL7SrVSDrU49N7iCzyNOP50ayCudqaiTxEe5xhHcH5Go2kQ83nbyP0Ywj7qBH1vEwt+huU2r6FZnEG3wz2rTo3J4gXYc0J6VB3968jZNDqK56vXi4j/VJw5qe1BfuieZ6x8hGY53lPI+lQ1zeLETJo9RXPVy/agZR8D8F+VFuwL1rBfgTmrZ0lnqWRdKjLq5cRMsiwjzrXz+UE9LyckMtKjVgZCyvLM94+0SXU5HE/kg51PnsIkUWezvVzOQE9qRnPE6wd0QyiWZzBd673HxpJhzo5vQ2RRZ7O9Ur7uUzEb+xQrF38Zv+vNJIOdTy9CJFFNZrJ5fmdA/2auiRr9aKsIp76Wlt57kUaSYeaTGYm+lHB8qzaQ3OcF53DyuOMpTnPOatGLe8c7OM8wnn2Fc25GT3U4dFZp2HSofYPpp2G2R6q0z7D9u/Un8afzeYbXHlr0VbOzWEAAAAASUVORK5CYII=" />
+            </ui:ClickImage.Image>
+            <ui:ClickImage.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html title='斗山工程机械（中国）有限公司 DOOSIM 2.0' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ClickImage.Target>
+          </ui:ClickImage>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcsPDI workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DCS\DcsPDI.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'iexplore.exe'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ClickImage_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:ClickImage.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickImage.CursorPosition>
+            <ui:ClickImage.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="1.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAADsAAAAaCAYAAAAJ1SQgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAKISURBVFhH5Zihd+IwGMD5E04iTkycmJhAIk5MICYQiBOIiZOICcQEYqICgaiorEBUICpOTCAmKipOICoqEBOICgSiou/N9M1816+8r/vIkrTl2IA38XtJvyRNfk2TBhrrl1f4Knxd2cUi+FB4X8dAKmvbPnR/uQdh5nqnKzufe9BsPcKtk4L1uM5x/8YFjp8wdssIbDOcruHajKF56YDnnaisaT7Bz7sQJn4KwTIGP9xAkqYQx7tEm/cxgh5S5yGA7x2/mF3e1zEolUXSTLaO8HQe5eDMnoWs4e3KElWkSbY3Tc9btoowvcZ1ZBuNhjSuo26bk5lZGjimImJdQlcmQyl7P08hjJK9ZpZkO3Y1WT5oUUAsqwq/R9GeX8hkEVG2TBg/SQjKXnUPJ1slrkMq2x0uS2URlXAdWRy0KCvC61MdnhfhdTlaWVqzq7UeqoeEz1Ehe23qZWlgsgFqB60o07VBtLIigz9v3LqM7LRF4KZEtK16rzGmKnhdfs3jYkxEKosnH53oO1lBmEvXXbNVYjxVwdsRSlku1p9kG5adzbYAnn+JnrGBi34C7fF2Rol9ZEsHLYmr6nIqyZqzZbb5xFrwU/PtJoGr/5SlvJhyqsZEpLK9hzCXpFfUcMJcaDTxleK2G0Ezm1kui/lWv96aFWNiXnatiokoZfl6HNkLWK2i/ICAmxfmRaxM9sfdVpbTriFbFiNk8oeTtUIIghVc3DznspgXwRnfV/azUMuynXU4DvMf4JhOrEUhiPUJlMXN6Wxl6fMxyHZjlNWBsvkh4pxkceCttpMLE7+HT/lD0DEYbXdxPFdzLlsG+L5/mrII/g9ljGcHAe9F9+V9HQOp7EfB+/p8XuEf2dRgZ9GumicAAAAASUVORK5CYII=" />
+            </ui:ClickImage.Image>
+            <ui:ClickImage.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html title='斗山工程机械（中国）有限公司 DOOSIM 2.0' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ClickImage.Target>
+          </ui:ClickImage>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[code +&quot;: PDI结算完毕&quot;]" />
+      </If.Else>
+    </If>
+    <ui:DatabaseDisconnect DatabaseConnection="[dcsDB]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="752.8,22.4" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+  </Sequence>
+</Activity>
