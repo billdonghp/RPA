@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>875.2,1195.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>875.2,1235.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CbitDataTable_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -190,10 +190,18 @@
                   </ui:InvokeWorkflowFile>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CompleteInfo workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="CBIT\CompleteInfo.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_validDate">[row.item("validDate").ToString]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_model">[row.item("model").ToString]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">[row.item("uniqueCode").ToString]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_matterDesc">[matterDesc]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_validDate">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;validDate&quot;).ToString" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_model">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;model&quot;).ToString" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;uniqueCode&quot;).ToString" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_matterDesc">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="matterDesc" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
