@@ -1,11 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="CbitDataTable" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_DataTable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_fileName" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>875.2,1235.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>875.2,1348.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CbitDataTable_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -66,29 +67,28 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CbitDataTable" sap:VirtualizedContainerService.HintSize="885.6,1130.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CbitDataTable" sap:VirtualizedContainerService.HintSize="885.6,1284" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_DataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="844,1037.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_DataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="844,1191.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="794.4,888.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="794.4,1042.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="752.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;customerContractCode: &quot;+row.item(&quot;customerContractCode&quot;).ToString]" />
-            <If Condition="[row.item(&quot;contractStatus&quot;).equals(&quot;起租&quot;)]" sap:VirtualizedContainerService.HintSize="752.8,663.2" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[row.item(&quot;contractStatus&quot;).equals(&quot;起租&quot;)]" sap:VirtualizedContainerService.HintSize="752.8,816.8" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -96,7 +96,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="375.2,513.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="375.2,667.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="matterDesc" />
                   </Sequence.Variables>
@@ -107,101 +107,50 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Contract workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CBIT\Contract.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseTerm">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseTerm&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_conEffectDate">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;conEffectDate&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_lessee">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;lessee&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_cardId">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;cardId&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_lesseeType">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;lesseeType&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_legalrepresentative">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;legalrepresentative&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseMode">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseMode&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_rentAmount">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;rentAmount&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseAmount">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseAmount&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;customerContractCode&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_lesseeBusiness">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;lesseeBusiness&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_enterScale">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;enterScale&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseServiceCharge">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseServiceCharge&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseModeMan">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseModeMan&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_matterPriceAmount">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;matterPriceAmount&quot;).ToString" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseTerm">[row.item("leaseTerm").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_conEffectDate">[row.item("conEffectDate").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_lessee">[row.item("lessee").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_cardId">[row.item("cardId").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_lesseeType">[row.item("lesseeType").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_legalrepresentative">[row.item("legalrepresentative").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseMode">[row.item("leaseMode").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_rentAmount">[row.item("rentAmount").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseAmount">[row.item("leaseAmount").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[row.item("customerContractCode").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_lesseeBusiness">[row.item("lesseeBusiness").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_enterScale">[row.item("enterScale").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseServiceCharge">[row.item("leaseServiceCharge").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseModeMan">[row.item("leaseModeMan").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_matterPriceAmount">[row.item("matterPriceAmount").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetMatterDesc workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="CBIT\GetMatterDesc.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseName">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseName&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseType">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseType&quot;).ToString" />
-                      </InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_matterDesc">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="matterDesc" />
-                      </OutArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseTerm">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseTerm&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_engineNo">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;engineNo&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_model">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;model&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_machineNumber">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;machineNumber&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_deliveryDate">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;deliveryDate&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_certificateNo">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;certificateNo&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;uniqueCode&quot;).ToString" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseName">[row.item("leaseName").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseType">[row.item("leaseType").ToString]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_matterDesc">[matterDesc]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseTerm">[row.item("leaseTerm").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_engineNo">[row.item("engineNo").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_model">[row.item("model").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_machineNumber">[row.item("machineNumber").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_deliveryDate">[row.item("deliveryDate").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_certificateNo">[row.item("certificateNo").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">[row.item("uniqueCode").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CompleteInfo workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="CBIT\CompleteInfo.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_validDate">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;validDate&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_model">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;model&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;uniqueCode&quot;).ToString" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_matterDesc">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="matterDesc" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_validDate">[row.item("validDate").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_model">[row.item("model").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">[row.item("uniqueCode").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_matterDesc">[matterDesc]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_leaseType">[row.item("leaseType").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="out_registerNo" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitPublicity workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="CBIT\CbitPublicity.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_publicityNo" />
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
@@ -209,7 +158,8 @@
               <If.Else>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitUnregister workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CBIT\CbitUnregister.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_publishcode">160344184701500</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_publishcode" />
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_unpublicityNo" />
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </If.Else>
