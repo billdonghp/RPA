@@ -1,9 +1,9 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CbitCompleteInfoTryCatch" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CbitCompleteInfoTryCatch" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_customerContractCode" Type="InArgument(x:String)" />
     <x:Property Name="out_registerNo" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>904.8,1785.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>806.4,1613.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -63,7 +63,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="512,1720.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
+  <Sequence sap:VirtualizedContainerService.HintSize="600,1548.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="：" Name="registerNo" />
     </Sequence.Variables>
@@ -72,7 +72,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" ContinueOnError="True" DisplayName="Attach Window '如需登记公示该租赁物'" sap:VirtualizedContainerService.HintSize="470.4,347.2" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="edd09bf667ba510e43b3028a75112def" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" ContinueOnError="True" DisplayName="Attach Window '如需登记公示该租赁物'" sap:VirtualizedContainerService.HintSize="558.4,347.2" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="edd09bf667ba510e43b3028a75112def" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -107,19 +107,22 @@
         </ActivityAction>
       </ui:WindowScope.Body>
     </ui:WindowScope>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" ContinueOnError="True" DisplayName="Attach Browser 'iexplore.exe  全国融资租赁企业管...'" sap:VirtualizedContainerService.HintSize="470.4,494.4" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="11e12c8713c86b6f81b01c10a98951e8" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" ContinueOnError="True" DisplayName="Attach Browser 'iexplore.exe  全国融资租赁企业管...'" sap:VirtualizedContainerService.HintSize="558.4,968.8" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="11e12c8713c86b6f81b01c10a98951e8" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,347.2" sap2010:WorkflowViewState.IdRef="Sequence_28">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="524.8,821.6" sap2010:WorkflowViewState.IdRef="Sequence_28">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="el" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetValue ContinueOnError="True" DisplayName="Get Text '合同登记编号'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_4">
+            <ui:GetValue ContinueOnError="True" DisplayName="Get Text '合同登记编号'" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="GetValue_4">
               <ui:GetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="91029ec9-2df3-4e79-9346-c44f2169381f" InformativeScreenshot="dec99e444041ab8c3d120a006b56165d" Selector="&lt;webctrl parentid='userForm' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' innertext='合同登记表编号：*' /&gt;" TimeoutMS="3000">
                   <ui:Target.WaitForReady>
@@ -131,7 +134,7 @@
                 <OutArgument x:TypeArguments="x:String">[registerNo]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '完善租赁物明细'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '完善租赁物明细'" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -150,6 +153,29 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
+            <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="483.2,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <ui:UiElementExists DisplayName="Element Exists" Exists="[el]" sap:VirtualizedContainerService.HintSize="483.2,68.8" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4caee0a1-c93e-46fb-8c95-a2317d9dd7fd" Selector="&lt;webctrl tag='INPUT' type='text' name='listDetailMatter[0].manufacturer' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <If Condition="[el]" sap:VirtualizedContainerService.HintSize="483.2,263.2" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Else>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitQueryContract workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CBIT\CbitQueryContract.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[in_customerContractCode]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_registerNo">[out_registerNo]</OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </If.Else>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
@@ -160,7 +186,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <Assign sap:VirtualizedContainerService.HintSize="470.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign sap:VirtualizedContainerService.HintSize="558.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_registerNo]</OutArgument>
       </Assign.To>
@@ -168,84 +194,5 @@
         <InArgument x:TypeArguments="x:String">[registerNo.split("："c)(1)]</InArgument>
       </Assign.Value>
     </Assign>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="470.4,606.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-      <TryCatch.Variables>
-        <Variable x:TypeArguments="s:Exception" Name="processError" />
-      </TryCatch.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <TryCatch.Try>
-        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" ContinueOnError="True" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="433.6,375.2" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="76d2120c9abf9efc5a8cbf74381b2c04" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
-          <ui:BrowserScope.Body>
-            <ActivityAction x:TypeArguments="x:Object">
-              <ActivityAction.Argument>
-                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-              </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,228" sap2010:WorkflowViewState.IdRef="Sequence_29">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="x:String" Name="valid" />
-                  <Variable x:TypeArguments="x:Int32" Name="months" />
-                  <Variable x:TypeArguments="x:Boolean" Name="matterEl" />
-                </Sequence.Variables>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="厂商" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="斗山工程机械（中国）有限公司">
-                  <ui:TypeInto.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07c181a3-61ce-40f1-a602-a0b2e1a55fb8" InformativeScreenshot="6271934c3f9f3521b1f40dbda8c5febe" Selector="&lt;webctrl tag='INPUT' type='text' name='listDetailMatter[0].manufacturer' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
-                  </ui:TypeInto.Target>
-                </ui:TypeInto>
-              </Sequence>
-            </ActivityAction>
-          </ui:BrowserScope.Body>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </ui:BrowserScope>
-      </TryCatch.Try>
-      <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="436.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_8">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ActivityAction x:TypeArguments="s:Exception">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-            </ActivityAction.Argument>
-            <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_8">
-              <Assign.To>
-                <OutArgument x:TypeArguments="s:Exception">[processError]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="s:Exception">[exception]</InArgument>
-              </Assign.Value>
-            </Assign>
-          </ActivityAction>
-        </Catch>
-      </TryCatch.Catches>
-      <TryCatch.Finally>
-        <If Condition="[processError isNot Nothing]" sap:VirtualizedContainerService.HintSize="483.2,263.2" sap2010:WorkflowViewState.IdRef="If_3">
-          <If.Then>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitQueryContract workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="CBIT\CbitQueryContract.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[in_customerContractCode]</InArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="out_registerNo">[out_registerNo]</OutArgument>
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-          </If.Then>
-        </If>
-      </TryCatch.Finally>
-    </TryCatch>
   </Sequence>
 </Activity>
