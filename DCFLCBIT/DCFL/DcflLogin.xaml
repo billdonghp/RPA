@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DcflLogin" this:DcflLogin.in_dcflUrl="http://10.40.128.182:8080/core/login" this:DcflLogin.in_dcflUsername="dcfl.tax" this:DcflLogin.in_dcflPassword="123qwer@" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DcflLogin" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dcflUrl" Type="InArgument(x:String)" />
     <x:Property Name="in_dcflUsername" Type="InArgument(x:String)" />
@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>698.666666666667,1544.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>948.8,1516</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflLogin_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -40,7 +40,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -60,27 +60,35 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DcflLogin" sap:VirtualizedContainerService.HintSize="508.666666666667,1440" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DcflLogin" sap:VirtualizedContainerService.HintSize="508,1451.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.666666666667,216" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_dcflUrl]">
+    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.4,217.6" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_dcflUrl+&quot;login&quot;]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="DO" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="DO" sap:VirtualizedContainerService.HintSize="241.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
           </Sequence>
         </ActivityAction>
       </ui:OpenBrowser.Body>
@@ -91,13 +99,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OpenBrowser>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe  斗山融资租赁'" sap:VirtualizedContainerService.HintSize="466.666666666667,1092" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="78b39634f1f5e7a836165c242896b226" Selector="&lt;html title='斗山融资租赁' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe  斗山融资租赁'" sap:VirtualizedContainerService.HintSize="466.4,1100.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="78b39634f1f5e7a836165c242896b226" Selector="&lt;html title='斗山融资租赁' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,946" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,953.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:UiElement" Name="logo" />
             </Sequence.Variables>
@@ -106,7 +114,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:WaitImageAppear DisplayName="Find Image 'iexplore.exe  斗山融资租赁'" FoundElement="[logo]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_1">
+            <ui:WaitImageAppear DisplayName="Find Image 'iexplore.exe  斗山融资租赁'" FoundElement="[logo]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitImageAppear_1">
               <ui:WaitImageAppear.Image>
                 <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="1.5" Profile="Basic" TargetImageBase64="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" />
               </ui:WaitImageAppear.Image>
@@ -121,7 +129,7 @@
                 </ui:Target>
               </ui:WaitImageAppear.Target>
             </ui:WaitImageAppear>
-            <ui:Highlight Color="Red" HighlightTime="1000" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Highlight_1">
+            <ui:Highlight Color="Red" HighlightTime="1000" sap:VirtualizedContainerService.HintSize="333.6,68.8" sap2010:WorkflowViewState.IdRef="Highlight_1">
               <ui:Highlight.Target>
                 <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[logo]" Id="d822e38e-63cf-45bb-b848-c3ce6b39982e">
                   <ui:Target.TimeoutMS>
@@ -133,31 +141,25 @@
                 </ui:Target>
               </ui:Highlight.Target>
             </ui:Highlight>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 用户名" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SimulateType="True" Text="[in_dcflUsername]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 用户名" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_4" SimulateType="True" Text="[in_dcflUsername]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6c7a7eef-8a45-4920-bb16-a594d9312f99" InformativeScreenshot="b184965e80be0e46d365954649cec009" Selector="&lt;webctrl idx='1' tag='INPUT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6c7a7eef-8a45-4920-bb16-a594d9312f99" InformativeScreenshot="b184965e80be0e46d365954649cec009" Selector="&lt;webctrl idx='1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 密码" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="[in_dcflPassword]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 密码" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="[in_dcflPassword]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="54633864-3152-46da-95d8-630035cf2106" InformativeScreenshot="b2ff88411fc321839e0cfbf9af0ecac4" Selector="&lt;html title='斗山融资租赁' /&gt;&lt;webctrl id='password' tag='INPUT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="54633864-3152-46da-95d8-630035cf2106" InformativeScreenshot="b2ff88411fc321839e0cfbf9af0ecac4" Selector="&lt;html title='斗山融资租赁' /&gt;&lt;webctrl id='password' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '登录'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '登录'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -169,17 +171,14 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b7635512-182d-4d5b-ab2b-e684c5c82cfa" InformativeScreenshot="902958452e87022c362837b46c3ac6f2" Selector="&lt;html title='斗山融资租赁' /&gt;&lt;webctrl tag='BUTTON' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b7635512-182d-4d5b-ab2b-e684c5c82cfa" InformativeScreenshot="902958452e87022c362837b46c3ac6f2" Selector="&lt;html title='斗山融资租赁' /&gt;&lt;webctrl tag='BUTTON' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '登录'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '登录'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -191,13 +190,10 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="56fa7ac4-8a98-4eec-b547-2b9e09fc4998" InformativeScreenshot="04fec7a0fa99ab67c44e5ca3e91818d7" Selector="&lt;webctrl idx='1' tag='BUTTON' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="56fa7ac4-8a98-4eec-b547-2b9e09fc4998" InformativeScreenshot="04fec7a0fa99ab67c44e5ca3e91818d7" Selector="&lt;webctrl idx='1' tag='BUTTON' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>

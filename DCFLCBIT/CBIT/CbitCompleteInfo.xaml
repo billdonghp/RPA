@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1288,3494</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1040.8,3379.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CompleteInfo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -71,19 +71,19 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CompleteInfo" sap:VirtualizedContainerService.HintSize="831,3429" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CompleteInfo" sap:VirtualizedContainerService.HintSize="829.6,3314.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="789,3337" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="76d2120c9abf9efc5a8cbf74381b2c04" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="788,3221.6" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="76d2120c9abf9efc5a8cbf74381b2c04" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="755,3191" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="754.4,3074.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="valid" />
               <Variable x:TypeArguments="x:Int32" Name="months" />
@@ -93,9 +93,9 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[Not &quot;装载机&quot;.equals(in_leaseType)]" sap:VirtualizedContainerService.HintSize="713,285" sap2010:WorkflowViewState.IdRef="If_1">
-              <If.Then>
-                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="厂商" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="斗山工程机械（中国）有限公司">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_leaseType]" sap:VirtualizedContainerService.HintSize="712.8,164" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Switch.Default>
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="厂商" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_9" SimulateType="True" Text="斗山工程机械（中国）有限公司">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07c181a3-61ce-40f1-a602-a0b2e1a55fb8" InformativeScreenshot="6271934c3f9f3521b1f40dbda8c5febe" Selector="&lt;webctrl tag='INPUT' type='text' name='listDetailMatter[0].manufacturer' /&gt;" WaitForReady="COMPLETE">
                       <ui:Target.TimeoutMS>
@@ -104,20 +104,27 @@
                     </ui:Target>
                   </ui:TypeInto.Target>
                 </ui:TypeInto>
-              </If.Then>
-              <If.Else>
-                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="厂商" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" SimulateType="True" Text="斗山工程机械（山东）有限公司">
-                  <ui:TypeInto.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07c181a3-61ce-40f1-a602-a0b2e1a55fb8" InformativeScreenshot="56432e31e348924b8fb52cafe6a6e407" Selector="&lt;webctrl tag='INPUT' type='text' name='listDetailMatter[0].manufacturer' /&gt;" WaitForReady="COMPLETE">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                    </ui:Target>
-                  </ui:TypeInto.Target>
-                </ui:TypeInto>
-              </If.Else>
-            </If>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="机型" EmptyField="True" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[in_model]">
+              </Switch.Default>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" x:Key="装载机" Activate="True" DisplayName="厂商" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_7" SimulateType="True" Text="斗山工程机械（山东）有限公司">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07c181a3-61ce-40f1-a602-a0b2e1a55fb8" InformativeScreenshot="56432e31e348924b8fb52cafe6a6e407" Selector="&lt;webctrl tag='INPUT' type='text' name='listDetailMatter[0].manufacturer' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" x:Key="叉车" Activate="True" DisplayName="厂商" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_8" SimulateType="True" Text="斗山叉车（烟台）有限公司">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07c181a3-61ce-40f1-a602-a0b2e1a55fb8" InformativeScreenshot="56432e31e348924b8fb52cafe6a6e407" Selector="&lt;webctrl tag='INPUT' type='text' name='listDetailMatter[0].manufacturer' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+            </Switch>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="机型" EmptyField="True" sap:VirtualizedContainerService.HintSize="712.8,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[in_model]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eada508b-a321-46ef-a675-efda215ac6dd" InformativeScreenshot="3e6f2502e97fd7efd611cb9a472cb572" Selector="&lt;webctrl name='listDetailMatter[0].model' tag='INPUT' type='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -129,7 +136,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="唯一识别码" EmptyField="True" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SimulateType="True" Text="[in_uniqueCode]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="唯一识别码" EmptyField="True" sap:VirtualizedContainerService.HintSize="712.8,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_4" SimulateType="True" Text="[in_uniqueCode]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f27e31c6-6731-453a-8239-3a7185278402" InformativeScreenshot="96ec87b3e767576c39368940a539cb37" Selector="&lt;webctrl name='listDetailMatter[0].uniqueCode' tag='INPUT' type='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -141,7 +148,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入识别码名称" EmptyField="True" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="装备号">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入识别码名称" EmptyField="True" sap:VirtualizedContainerService.HintSize="712.8,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="装备号">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="49578f8a-0be8-4aea-b414-376f49f00a73" InformativeScreenshot="6628a1f65e031167ba747b4be0328c91" Selector="&lt;webctrl id='uniqueMemo0' tag='INPUT' type='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -153,7 +160,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入租赁物详情描述" EmptyField="True" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" SimulateType="True" Text="[in_matterDesc]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入租赁物详情描述" EmptyField="True" sap:VirtualizedContainerService.HintSize="712.8,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_6" SimulateType="True" Text="[in_matterDesc]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="655bcc89-fc10-4e51-98ca-8726e4bcf643" InformativeScreenshot="8514b335572b9556637f4000e68989fe" Selector="&lt;webctrl tag='TEXTAREA' /&gt;">
                   <ui:Target.TimeoutMS>

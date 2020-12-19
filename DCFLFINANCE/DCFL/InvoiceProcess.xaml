@@ -5,10 +5,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>846,6280.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>912.8,5568.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SequenceTest_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="31">
+    <scg:List x:TypeArguments="x:String" Capacity="62">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -40,6 +40,7 @@
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -74,7 +75,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SequenceTest" sap:VirtualizedContainerService.HintSize="856,6216" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="dt_invoiceE  电子发票&#xD;&#xA;dt_invoiceP  纸质发票&#xD;&#xA;dt_invoiceEDetail 电子发票明细&#xD;&#xA;dt_invoicePDetail 纸质发票明细&#xD;&#xA;" DisplayName="InvoiceProcess" sap:VirtualizedContainerService.HintSize="616,5464" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_invoiceP" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_invoiceDcfl" />
@@ -87,16 +88,20 @@
       <Variable x:TypeArguments="sd:DataTable" Name="dt_invalidDcfl" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_invalidP" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_redInfo" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dt_new" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_invoicePDetail" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_invoiceEDetail" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange AddHeaders="True" DataTable="[dt_invoiceDcfl]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="814,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_3" Range="A1" SheetName="Sheet0" WorkbookPath="[in_fileName]" />
-    <ui:ReadRange AddHeaders="True" DataTable="[dt_redInfo]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="814,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_4" Range="A1" SheetName="Sheet1" WorkbookPath="D:\UiPath\finance\（approved）红字信息表 截止2020.11.03.xlsx" />
-    <Assign sap:VirtualizedContainerService.HintSize="814,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_invoiceDcfl]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="574.4,88" sap2010:WorkflowViewState.IdRef="ReadRange_3" Range="A1" SheetName="Sheet0" WorkbookPath="[in_fileName]" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_invoicePDetail]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="574.4,88" sap2010:WorkflowViewState.IdRef="ReadRange_5" Range="A6" SheetName="sheet1" WorkbookPath="D:\UiPath\finance\2.1（金税导出）增值税专普发票数据导出20200401~27 全-（纸票 发票行项目别）.xlsx" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_invoiceEDetail]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="574.4,88" sap2010:WorkflowViewState.IdRef="ReadRange_6" Range="A2" SheetName="发票明细表" WorkbookPath="D:\UiPath\finance\2.3 91110000717868202R发票明细 20200401~27（电票 发票行项目别）.xlsx" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_redInfo]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="574.4,88" sap2010:WorkflowViewState.IdRef="ReadRange_4" Range="A1" SheetName="Sheet1" WorkbookPath="D:\UiPath\finance\（approved）红字信息表 截止2020.11.03.xlsx" />
+    <Assign sap:VirtualizedContainerService.HintSize="574.4,60" sap2010:WorkflowViewState.IdRef="Assign_11">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[dt_invalidDcfl]</OutArgument>
       </Assign.To>
@@ -104,10 +109,10 @@
         <InArgument x:TypeArguments="sd:DataTable">[dt_invoiceDcfl.Select("作废标志='已作废'").CopyToDataTable]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="flag" DataTable="[dt_invalidDcfl]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="814,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="814,62" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;DCFL系统作废发票数量：&quot;+dt_invalidDcfl.Rows.Count.ToString]" />
-    <ui:ReadRange AddHeaders="True" DataTable="[dt_invoiceP]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="814,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="A1" SheetName="发票别" WorkbookPath="D:\UiPath\finance\2 （金税导出）截止2020.4.27开票明细-纸票-发票别.xlsx" />
-    <Assign sap:VirtualizedContainerService.HintSize="814,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
+    <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="flag" DataTable="[dt_invalidDcfl]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="574.4,22.4" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="574.4,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;DCFL系统作废发票数量：&quot;+dt_invalidDcfl.Rows.Count.ToString]" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_invoiceP]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="574.4,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="A1" SheetName="发票别" WorkbookPath="D:\UiPath\finance\2 （金税导出）截止2020.4.27开票明细-纸票-发票别.xlsx" />
+    <Assign sap:VirtualizedContainerService.HintSize="574.4,60" sap2010:WorkflowViewState.IdRef="Assign_14">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[dt_invalidP]</OutArgument>
       </Assign.To>
@@ -115,13 +120,13 @@
         <InArgument x:TypeArguments="sd:DataTable">[dt_invoiceP.Select("作废标志='是'").CopyToDataTable]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="814,1166.66666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[books]" WorkbookPath="D:\UiPath\finance\2 （金税导出）截止2020.4.27开票明细-电票-发票别.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="574.4,1170.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[books]" WorkbookPath="D:\UiPath\finance\2 （金税导出）截止2020.4.27开票明细-电票-发票别.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454.666666666667,1058" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="452,1060.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Name="sheets" />
             </Sequence.Variables>
@@ -130,8 +135,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="412.666666666667,22" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[sheets]" />
-            <Assign sap:VirtualizedContainerService.HintSize="412.666666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="410.4,22.4" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[sheets]" />
+            <Assign sap:VirtualizedContainerService.HintSize="410.4,60" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataTable">[dt_invalidE]</OutArgument>
               </Assign.To>
@@ -139,7 +144,7 @@
                 <InArgument x:TypeArguments="sd:DataTable">[new DataTable]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="412.666666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign sap:VirtualizedContainerService.HintSize="410.4,60" sap2010:WorkflowViewState.IdRef="Assign_9">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataTable">[dt_invoiceE]</OutArgument>
               </Assign.To>
@@ -147,27 +152,27 @@
                 <InArgument x:TypeArguments="sd:DataTable">[new DataTable]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412.666666666667,701.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[sheets]">
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="410.4,705.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[sheets]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="sheet" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,566.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="375.2,571.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;begin Sheet:&quot;+sheet.ToString]" />
-                    <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_temp]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[sheet.ToString]">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;begin Sheet:&quot;+sheet.ToString]" />
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_temp]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[sheet.ToString]">
                       <ui:ExcelReadRange.Range>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
                         </InArgument>
                       </ui:ExcelReadRange.Range>
                     </ui:ExcelReadRange>
-                    <ui:FilterDataTable DataTable="[dt_temp]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_temp]" SelectColumnsMode="Keep">
+                    <ui:FilterDataTable DataTable="[dt_temp]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_temp]" SelectColumnsMode="Keep">
                       <ui:FilterDataTable.Filters>
                         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                           <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -191,7 +196,7 @@
                         </scg:List>
                       </ui:FilterDataTable.SelectColumns>
                     </ui:FilterDataTable>
-                    <If Condition="[dt_invoiceE.Rows.Count=0]" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If Condition="[dt_invoiceE.Rows.Count=0]" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="If_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -212,7 +217,7 @@
                         <ui:MergeDataTable Destination="[dt_invoiceE]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[dt_temp]" />
                       </If.Else>
                     </If>
-                    <If Condition="[dt_invalidE.rows.count = 0]" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[dt_invalidE.rows.count = 0]" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="If_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -263,7 +268,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Assign sap:VirtualizedContainerService.HintSize="814,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign sap:VirtualizedContainerService.HintSize="574.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[int_invoiceCount]</OutArgument>
       </Assign.To>
@@ -271,7 +276,7 @@
         <InArgument x:TypeArguments="x:Int32">[dt_invoiceE.Select("请求流水号 &lt;&gt;'总体统计'").count]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="814,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="574.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[str_filter]</OutArgument>
       </Assign.To>
@@ -279,138 +284,161 @@
         <InArgument x:TypeArguments="x:String">[String.Format("{0}='{1}'","取消标志","未取消")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="814,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;金税纸质发票数量：&quot;+dt_invoiceP.rows.count.ToString]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="814,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;金税电子发票数量：&quot;+int_invoiceCount.ToString]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="814,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;DCFL系统该周期发票数量：&quot;+dt_invoiceDcfl.Select(str_filter).Groupby(function(x)  x(&quot;单据编号&quot;).toString).count.ToString]" />
-    <ui:Comment sap:VirtualizedContainerService.HintSize="814,132.666666666667" sap2010:WorkflowViewState.IdRef="Comment_2" Text="金税电子发票作废标记确认&#xA;1.金税作废电子发票在DCFL系统未检索到时需要确认&#xA;2.DCFL作废标记发票校验通过flag=True&#xA;3.DCFL作废标记未校验人工手动确认  生成列表" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_invalidE]" DisplayName="For Each Row电子作废发票" sap:VirtualizedContainerService.HintSize="814,686" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
-      <ui:ForEachRow.Body>
-        <ActivityAction x:TypeArguments="sd:DataRow">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="763.333333333333,534.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_26">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[dt_invalidDcfl.Select(&quot;发票号码 = '&quot;+row.item(&quot;发票号码&quot;).ToString+&quot;' And   发票代码 like '%&quot;+row.item(&quot;发票代码&quot;).ToString.Substring(1)+&quot;%'&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="721.333333333333,442.666666666667" sap2010:WorkflowViewState.IdRef="If_4">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If.Then>
-                <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="341.333333333333,290.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dt_invalidDcfl.Select(&quot;发票号码 = '&quot;+row.item(&quot;发票号码&quot;).ToString+&quot;' And   发票代码 like '%&quot;+row.item(&quot;发票代码&quot;).ToString.Substring(1)+&quot;%'&quot;)]">
-                  <ui:ForEach.Body>
-                    <ActivityAction x:TypeArguments="sd:DataRow">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304.666666666667,153.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="262.666666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:Object">[item("flag")]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:Object">["True"]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                      </Sequence>
-                    </ActivityAction>
-                  </ui:ForEach.Body>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ForEach>
-              </If.Then>
-              <If.Else>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn" Message="[&quot;电子发票(&quot;+row(&quot;发票号码&quot;).ToString+&quot;)作废标志异常，请确认&quot;]" />
-              </If.Else>
-            </If>
-          </Sequence>
-        </ActivityAction>
-      </ui:ForEachRow.Body>
-    </ui:ForEachRow>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_invalidP]" DisplayName="For Each Row纸质发票作废标志" sap:VirtualizedContainerService.HintSize="814,686" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
-      <ui:ForEachRow.Body>
-        <ActivityAction x:TypeArguments="sd:DataRow">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="763.333333333333,534.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[dt_invalidDcfl.Select(&quot;发票号码 = '&quot;+row.item(&quot;发票号码&quot;).ToString+&quot;' And   发票代码 like '%&quot;+row.item(&quot;发票代码&quot;).ToString.Substring(1)+&quot;%'&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="721.333333333333,442.666666666667" sap2010:WorkflowViewState.IdRef="If_5">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If.Then>
-                <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="341.333333333333,290.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[dt_invalidDcfl.Select(&quot;发票号码 = '&quot;+row.item(&quot;发票号码&quot;).ToString+&quot;' And   发票代码 like '%&quot;+row.item(&quot;发票代码&quot;).ToString.Substring(1)+&quot;%'&quot;)]">
-                  <ui:ForEach.Body>
-                    <ActivityAction x:TypeArguments="sd:DataRow">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304.666666666667,153.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_31">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="262.666666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:Object">[item("flag")]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:Object">["True"]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                      </Sequence>
-                    </ActivityAction>
-                  </ui:ForEach.Body>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ForEach>
-              </If.Then>
-              <If.Else>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Warn" Message="[&quot;纸质发票(&quot;+row(&quot;发票号码&quot;).ToString+&quot;)作废标志异常，请确认&quot;]" />
-              </If.Else>
-            </If>
-          </Sequence>
-        </ActivityAction>
-      </ui:ForEachRow.Body>
-    </ui:ForEachRow>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="814,55.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 修改需要打印的DataTable" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="814,284" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="574.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;金税纸质发票数量：&quot;+dt_invoiceP.rows.count.ToString]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="574.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;金税电子发票数量：&quot;+int_invoiceCount.ToString]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="574.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;DCFL系统该周期发票数量：&quot;+dt_invoiceDcfl.Select(str_filter).Groupby(function(x)  x(&quot;单据编号&quot;).toString).count.ToString]" />
+    <ui:Comment sap:VirtualizedContainerService.HintSize="574.4,132.8" sap2010:WorkflowViewState.IdRef="Comment_2" Text="金税电子发票作废标记确认&#xA;1.金税作废电子发票在DCFL系统未检索到时需要确认&#xA;2.DCFL作废标记发票校验通过flag=True&#xA;3.DCFL作废标记未校验人工手动确认  生成列表" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="574.4,224" sap2010:WorkflowViewState.IdRef="CommentOut_9">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,205.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_34">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,145.6" sap2010:WorkflowViewState.IdRef="Sequence_35">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PrintDataTable workflow" sap:VirtualizedContainerService.HintSize="334,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="DCFL\PrintDataTable.xaml">
+          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_invalidE]" DisplayName="For Each Row电子作废发票" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="759.2,529.6" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[dt_invalidDcfl.Select(&quot;发票号码 = '&quot;+row.item(&quot;发票号码&quot;).ToString+&quot;' And   发票代码 like '%&quot;+row.item(&quot;发票代码&quot;).ToString.Substring(1)+&quot;%'&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="717.6,436.8" sap2010:WorkflowViewState.IdRef="If_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="340,287.2" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dt_invalidDcfl.Select(&quot;发票号码 = '&quot;+row.item(&quot;发票号码&quot;).ToString+&quot;' And   发票代码 like '%&quot;+row.item(&quot;发票代码&quot;).ToString.Substring(1)+&quot;%'&quot;)]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="sd:DataRow">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304.8,152.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Object">[item("flag")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Object">["True"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:ForEach>
+                    </If.Then>
+                    <If.Else>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn" Message="[&quot;电子发票(&quot;+row(&quot;发票号码&quot;).ToString+&quot;)作废标志异常，请确认&quot;]" />
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEachRow>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_invalidP]" DisplayName="For Each Row纸质发票作废标志" sap:VirtualizedContainerService.HintSize="574.4,52.8" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="759.2,529.6" sap2010:WorkflowViewState.IdRef="Sequence_32">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[dt_invalidDcfl.Select(&quot;发票号码 = '&quot;+row.item(&quot;发票号码&quot;).ToString+&quot;' And   发票代码 like '%&quot;+row.item(&quot;发票代码&quot;).ToString.Substring(1)+&quot;%'&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="717.6,436.8" sap2010:WorkflowViewState.IdRef="If_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="340,287.2" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[dt_invalidDcfl.Select(&quot;发票号码 = '&quot;+row.item(&quot;发票号码&quot;).ToString+&quot;' And   发票代码 like '%&quot;+row.item(&quot;发票代码&quot;).ToString.Substring(1)+&quot;%'&quot;)]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="sd:DataRow">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304.8,152.8" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Object">[item("flag")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Object">["True"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ForEach>
+              </If.Then>
+              <If.Else>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Warn" Message="[&quot;纸质发票(&quot;+row(&quot;发票号码&quot;).ToString+&quot;)作废标志异常，请确认&quot;]" />
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="574.4,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 修改需要打印的DataTable" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="574.4,284.8" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,206.4" sap2010:WorkflowViewState.IdRef="Sequence_34">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PrintDataTable workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="DCFL\PrintDataTable.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt">[dt_invalidDcfl]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
@@ -418,25 +446,25 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="814,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;begin check invoice_ele&quot;]" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_invoiceE]" DisplayName="For Each Row电子发票" sap:VirtualizedContainerService.HintSize="814,608.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="574.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;begin check invoice_ele&quot;]" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_invoiceE]" DisplayName="For Each Row电子发票" sap:VirtualizedContainerService.HintSize="574.4,604.8" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,457.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_23">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,456" sap2010:WorkflowViewState.IdRef="Sequence_23">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[&quot;57813343&quot;.equals(row(&quot;发票号码&quot;))]" sap:VirtualizedContainerService.HintSize="484,212" sap2010:WorkflowViewState.IdRef="If_6">
+            <If Condition="[&quot;57813343&quot;.equals(row(&quot;发票号码&quot;))]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_6">
               <If.Then>
-                <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_1" />
               </If.Then>
             </If>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InvoiceCheck workflow" sap:VirtualizedContainerService.HintSize="484,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="DCFL\InvoiceCheck.xaml">
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InvoiceCheck workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="DCFL\InvoiceCheck.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="dcflDt">
                   <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_invoiceDcfl" />
@@ -450,6 +478,12 @@
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="in_redInfo">
                   <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_redInfo" />
                 </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_invoicePDetail">
+                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_invoicePDetail" />
+                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_invoiceEDetail">
+                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_invoiceEDetail" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -462,25 +496,25 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="814,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;begin check invoice_pap&quot;]" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_invoiceP]" DisplayName="For Each Row纸质发票" sap:VirtualizedContainerService.HintSize="814,608.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="574.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;begin check invoice_pap&quot;]" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_invoiceP]" DisplayName="For Each Row纸质发票" sap:VirtualizedContainerService.HintSize="574.4,604.8" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,457.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,456" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[&quot;78398629&quot;.equals(row(&quot;发票号码&quot;))]" sap:VirtualizedContainerService.HintSize="484,212" sap2010:WorkflowViewState.IdRef="If_7">
+            <If Condition="[&quot;78398629&quot;.equals(row(&quot;发票号码&quot;))]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_7">
               <If.Then>
-                <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+                <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_2" />
               </If.Then>
             </If>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InvoiceCheck workflow" sap:VirtualizedContainerService.HintSize="484,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\InvoiceCheck.xaml">
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InvoiceCheck workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\InvoiceCheck.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="dcflDt">
                   <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_invoiceDcfl" />
@@ -494,11 +528,23 @@
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="in_redInfo">
                   <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_redInfo" />
                 </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_invoicePDetail">
+                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_invoicePDetail" />
+                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_invoiceEDetail">
+                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_invoiceEDetail" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
   </Sequence>
 </Activity>

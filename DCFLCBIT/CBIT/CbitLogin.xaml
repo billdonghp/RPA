@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_username" Type="InArgument(x:String)" />
@@ -7,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>864,2548.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>948.8,2548.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -130,25 +131,19 @@
                   </ui:Click>
                   <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入用户名" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_username]">
                     <ui:TypeInto.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f482715-1a80-4845-b23e-4c105d7f509e" InformativeScreenshot="0c2802d68ce9f62e3904abdd79482739" Selector="&lt;webctrl idx='1' tag='INPUT' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f482715-1a80-4845-b23e-4c105d7f509e" InformativeScreenshot="0c2802d68ce9f62e3904abdd79482739" Selector="&lt;webctrl idx='1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
                   <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入密码" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_password]">
                     <ui:TypeInto.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4dd9f28b-c325-46ab-82bd-ca71fe36e9e2" InformativeScreenshot="62092d876c22055e2d41a5fd77da03af" Selector="&lt;webctrl tag='INPUT' type='password' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4dd9f28b-c325-46ab-82bd-ca71fe36e9e2" InformativeScreenshot="62092d876c22055e2d41a5fd77da03af" Selector="&lt;webctrl tag='INPUT' type='password' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
@@ -176,17 +171,14 @@
                   </ui:Click>
                   <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot 'IMG  verifyImg'" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[img]">
                     <ui:TakeScreenshot.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be3aa573-1078-40ae-b622-85afafee6cde" InformativeScreenshot="d56b2c7ec46bdb1ce23cbf3aa4cec607" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;table' parentid='form1' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tag='TD' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be3aa573-1078-40ae-b622-85afafee6cde" InformativeScreenshot="d56b2c7ec46bdb1ce23cbf3aa4cec607" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;table' parentid='form1' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tag='TD' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
                       </ui:Target>
                     </ui:TakeScreenshot.Target>
                   </ui:TakeScreenshot>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Verification workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CBIT\Verification.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Verification workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CBIT\GetVerification.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="ui:Image" x:Key="in_img">[img]</InArgument>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_words">[words]</OutArgument>
@@ -194,13 +186,10 @@
                   </ui:InvokeWorkflowFile>
                   <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入验证码" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[words.Replace(&quot; &quot;,&quot;&quot;)]">
                     <ui:TypeInto.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3203aae8-4e39-46ad-bc02-1db1cdc4f475" InformativeScreenshot="1927dd192b9f013128e6f0ed1349e442" Selector="&lt;webctrl id='j_verifycode2' tag='INPUT' type='text' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3203aae8-4e39-46ad-bc02-1db1cdc4f475" InformativeScreenshot="1927dd192b9f013128e6f0ed1349e442" Selector="&lt;webctrl id='j_verifycode2' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
@@ -216,13 +205,10 @@
                       </ui:CursorPosition>
                     </ui:Click.CursorPosition>
                     <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="14b70a54-b878-42bf-9093-af7a1cb517d7" InformativeScreenshot="fe77ae694f7574e744726341b56ca15b" Selector="&lt;webctrl idx='1' tag='INPUT' type='button' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="14b70a54-b878-42bf-9093-af7a1cb517d7" InformativeScreenshot="fe77ae694f7574e744726341b56ca15b" Selector="&lt;webctrl idx='1' tag='INPUT' type='button' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
