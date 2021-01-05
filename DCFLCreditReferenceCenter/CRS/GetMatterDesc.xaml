@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetMatterDesc" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetMatterDesc" this:GetMatterDesc.in_leaseName="履带式液压挖掘机" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_leaseName" Type="InArgument(x:String)" />
     <x:Property Name="in_leaseType" Type="InArgument(x:String)" />
@@ -12,7 +12,7 @@
     <x:Property Name="in_uniqueCode" Type="InArgument(x:String)" />
     <x:Property Name="out_identificationCode" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>792.8,614.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>902.4,614.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -71,10 +71,9 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="612,502.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="612,505.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -102,12 +101,21 @@
         </Assign>
       </If.Else>
     </If>
-    <Assign sap:VirtualizedContainerService.HintSize="570.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="570.4,63.2" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_matterDesc]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["租赁财产名称： "+in_leaseName+" 租赁财产类型： "+in_leaseType+" 租赁财产数量： 1台 租赁财产租赁期限： "+in_leaseTerm+"个月 租赁财产合格证序号："+in_certificateNo+" 租赁财产标准号："+in_uniqueCode+" 租赁财产机型："+in_model+" 租赁财产编号（机号）："+in_machineNumber+" 租赁财产发动机编号："+in_engineNo+" 租赁财产交付日期："+in_deliveryDate]</InArgument>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">["租赁财产名称： "+in_leaseName+chr(10)+
+"租赁财产类型： "+in_leaseType+chr(10)+
+"租赁财产数量： 1台 "+chr(10)+
+"租赁财产租赁期限： "+in_leaseTerm+"个月 "+chr(10)+
+"租赁财产合格证序号："+in_certificateNo+chr(10)+
+"租赁财产标准号："+in_uniqueCode+chr(10)+
+"租赁财产机型："+in_model+chr(10)+
+"租赁财产编号（机号）："+in_machineNumber+chr(10)+
+"租赁财产发动机编号："+in_engineNo+chr(10)+
+"租赁财产交付日期："+in_deliveryDate+chr(10)]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="570.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">

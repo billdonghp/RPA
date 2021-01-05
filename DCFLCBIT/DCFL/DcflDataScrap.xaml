@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>948.8,2145.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>936.8,1725.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflDataScrap_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -74,19 +74,19 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DcflDataScrap" sap:VirtualizedContainerService.HintSize="640,2040.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DcflDataScrap" sap:VirtualizedContainerService.HintSize="640,1620.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '    Page'" sap:VirtualizedContainerService.HintSize="598.4,1948" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="64ce2633c6ce69ef769b15ffdf496c4c" Selector="&lt;html title='斗山融资租赁' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '    Page'" sap:VirtualizedContainerService.HintSize="598.4,1528" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="64ce2633c6ce69ef769b15ffdf496c4c" Selector="&lt;html title='斗山融资租赁' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="564.8,1800.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="564.8,1380.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="curPage" />
               <Variable x:TypeArguments="x:String" Name="pages" />
@@ -172,12 +172,13 @@
                 <InArgument x:TypeArguments="sd:DataTable">[new System.Data.DataTable]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[in_TransactionNumber &gt; Integer.parse(pages)]" sap:VirtualizedContainerService.HintSize="523.2,638.4" sap2010:WorkflowViewState.IdRef="If_4">
-              <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="375.2,488.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
+            <If Condition="[Not in_TransactionNumber &gt; Integer.parse(pages)]" sap:VirtualizedContainerService.HintSize="523.2,218.4" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;No.&quot;+curPage+&quot; begin data scraping&quot;]" />
@@ -198,7 +199,7 @@
                   </ui:ExtractData>
                   <ui:WriteRange AddHeaders="True" DataTable="[out_DataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[&quot;Result\&quot;+now.ToString(&quot;yyyyMMdd&quot;)+&quot;_&quot;+in_TransactionNumber.ToString+&quot;.xlsx&quot;]" />
                 </Sequence>
-              </If.Else>
+              </If.Then>
             </If>
           </Sequence>
         </ActivityAction>
