@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1472,1983.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1472,1632</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -73,22 +73,23 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1482.4,1878.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1482.4,1567.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1440.8,1754.4" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1440.8,1443.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1391.2,1605.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1391.2,1294.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(of String)from{&quot;正常结清&quot;,&quot;提前结清完成&quot;,&quot;代理商垫款结清&quot;,&quot;损失担保结清&quot;,&quot;回购结清&quot;}]" Name="regTypeList" />
               <Variable x:TypeArguments="x:String" Name="matterDesc" />
@@ -99,11 +100,11 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[&quot;起租&quot;.Equals(row.item(&quot;contractStatus&quot;))]" sap:VirtualizedContainerService.HintSize="1349.6,945.6" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[&quot;起租&quot;.Equals(row.item(&quot;contractStatus&quot;))]" sap:VirtualizedContainerService.HintSize="1349.6,1201.6" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
-                <If Condition="[&quot;&quot;.Equals(row.item(&quot;registerType&quot;)) And &quot;&quot;.Equals(row.item(&quot;registerNo&quot;))]" sap:VirtualizedContainerService.HintSize="652.8,796" sap2010:WorkflowViewState.IdRef="If_5">
+                <If Condition="[&quot;&quot;.Equals(row.item(&quot;registerType&quot;)) And &quot;&quot;.Equals(row.item(&quot;registerNo&quot;))]" sap:VirtualizedContainerService.HintSize="652.8,1052" sap2010:WorkflowViewState.IdRef="If_5">
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="375.2,646.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <Sequence sap:VirtualizedContainerService.HintSize="375.2,902.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -117,48 +118,27 @@
                       </ui:InvokeWorkflowFile>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetMatterDesc workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="CRS\GetMatterDesc.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_leaseName">
-                            <Literal x:TypeArguments="x:String">履带式液压挖掘机</Literal>
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_leaseType">
-                            <Literal x:TypeArguments="x:String">新机</Literal>
-                          </InArgument>
-                          <OutArgument x:TypeArguments="x:String" x:Key="out_matterDesc">
-                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="matterDesc" />
-                          </OutArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_leaseTerm">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;leaseTerm&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_engineNo">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;engineNo&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_model">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;model&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_machineNumber">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;machineNumber&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_deliveryDate">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;deliveryDate&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_certificateNo">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;certificateNo&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;uniqueCode&quot;).ToString" />
-                          </InArgument>
-                          <OutArgument x:TypeArguments="x:String" x:Key="out_identificationCode">
-                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="identificationCode" />
-                          </OutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_leaseName">[row.item("leaseName").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_leaseType">[row.item("leaseType").ToString]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_matterDesc">[matterDesc]</OutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_leaseTerm">[row.item("leaseTerm").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_engineNo">[row.item("engineNo").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_model">[row.item("model").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_machineNumber">[row.item("machineNumber").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_deliveryDate">[row.item("deliveryDate").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_certificateNo">[row.item("certificateNo").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">[row.item("uniqueCode").ToString]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_identificationCode">[identificationCode]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
+                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[matterDesc]" />
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke input workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="CRS/CrsLeaseInput.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[row.item("customerContractCode").ToString]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_lesseeType">[row.item("lesseeType").ToString]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_leaseMode">[row.item("leaseMode").ToString]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_conEffectDate">[row.item("conEffectDate").ToString]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_validDate">[row.item("validDate").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_validDate">[DateTime.parse(row.item("conEffectDate").ToString).AddMonths(Integer.Parse(row.Item("leaseTerm").ToString)).ToString("yyyy-MM-dd")]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_matterPriceAmount">[row.item("matterPriceAmount").ToString]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_lessee">[row.item("lessee").ToString]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_cardId">[row.item("cardId").ToString]</InArgument>
@@ -168,6 +148,16 @@
                           <InArgument x:TypeArguments="x:String" x:Key="in_address">[row.item("address").ToString]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_matterDesc">[matterDesc]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_identificationCode">[identificationCode]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CRSComplete workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="CRS\CrsComplete.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FileName">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FileName" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.item(&quot;customerContractCode&quot;).ToString" />
+                          </InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -202,46 +192,6 @@
                 </If>
               </If.Else>
             </If>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1349.6,527.2" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="564.8,448.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[Not &quot;已完成&quot;.Equals(row.Item(&quot;flag&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="523.2,356" sap2010:WorkflowViewState.IdRef="If_2">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="375.2,206.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CRSComplete workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="CRS\CrsComplete.xaml">
-                          <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[in_FileName]</InArgument>
-                          </ui:InvokeWorkflowFile.Arguments>
-                        </ui:InvokeWorkflowFile>
-                      </Sequence>
-                    </If.Then>
-                  </If>
-                </Sequence>
-              </ui:CommentOut.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:CommentOut>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
