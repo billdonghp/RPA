@@ -19,7 +19,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1073.6,5969.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1073.6,6006.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Contract_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -81,19 +81,19 @@
       <AssemblyReference>UiPath.Python</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Contract" sap:VirtualizedContainerService.HintSize="1084,5904.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Contract" sap:VirtualizedContainerService.HintSize="1084,5901.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="1042.4,5812" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7eccf5f5ddc9e11b283b7e813eb9142d" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="1042.4,5808.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7eccf5f5ddc9e11b283b7e813eb9142d" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1008.8,5664.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1008.8,5661.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="leaseMode" />
               <Variable x:TypeArguments="s:Exception" Name="processError" />
@@ -245,7 +245,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <If Condition="[&quot;自然人&quot;.Equals(in_lesseeType)]" sap:VirtualizedContainerService.HintSize="967.2,1244.8" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[&quot;自然人&quot;.Equals(in_lesseeType)]" sap:VirtualizedContainerService.HintSize="967.2,1235.2" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="375.2,375.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
@@ -277,7 +277,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="544.8,1095.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <Sequence sap:VirtualizedContainerService.HintSize="544.8,1085.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="enterScale" />
                   </Sequence.Variables>
@@ -322,7 +322,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_enterScale]" sap:VirtualizedContainerService.HintSize="503.2,210.4" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                  <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_enterScale]" sap:VirtualizedContainerService.HintSize="503.2,200.8" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                     <Assign x:Key="大" sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[enterScale]</OutArgument>
@@ -506,9 +506,9 @@
                 </ui:Target>
               </ui:Check.Target>
             </ui:Check>
-            <If Condition="[in_lessee.StartsWith(&quot;斗山工程机械&quot;)]" sap:VirtualizedContainerService.HintSize="967.2,255.2" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[in_lessee.StartsWith(&quot;斗山工程机械&quot;)]" sap:VirtualizedContainerService.HintSize="967.2,256.8" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
-                <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="是否关联方" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_8">
+                <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="是否关联方" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Check_8">
                   <ui:Check.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e02eb88-62ad-45a3-b7cd-add879fff7e8" InformativeScreenshot="5985faee06c8339bb17d66dd71740609" Selector="&lt;webctrl id='relatedTrade1' tag='INPUT' type='checkbox' /&gt;">
                       <ui:Target.TimeoutMS>
@@ -522,7 +522,7 @@
                 </ui:Check>
               </If.Then>
               <If.Else>
-                <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="是否关联方" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_5">
+                <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="是否关联方" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Check_5">
                   <ui:Check.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e02eb88-62ad-45a3-b7cd-add879fff7e8" InformativeScreenshot="363b67219d4f9d2e570471a709c9edbc" Selector="&lt;webctrl id='relatedTrade2' tag='INPUT' type='checkbox' /&gt;">
                       <ui:Target.TimeoutMS>
@@ -536,7 +536,7 @@
                 </ui:Check>
               </If.Else>
             </If>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_leaseMode]" sap:VirtualizedContainerService.HintSize="967.2,159.2" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_leaseMode]" sap:VirtualizedContainerService.HintSize="967.2,164" sap2010:WorkflowViewState.IdRef="Switch`1_1">
               <Switch.Default>
                 <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_8">
                   <Assign.To>
@@ -547,7 +547,7 @@
                   </Assign.Value>
                 </Assign>
               </Switch.Default>
-              <Assign x:Key="直接租赁" sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign x:Key="直接租赁" sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[leaseMode]</OutArgument>
                 </Assign.To>
@@ -555,7 +555,7 @@
                   <InArgument x:TypeArguments="x:String">1</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign x:Key="售后租回" sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign x:Key="售后租回" sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[leaseMode]</OutArgument>
                 </Assign.To>
