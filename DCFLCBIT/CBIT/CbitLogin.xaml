@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Activity mc:Ignorable="sap sap2010" x:Class="Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Login" this:Login.in_username="1100000229" this:Login.in_password="Qasdf12345" this:Login.in_url="http://leasing.cbit.com.cn/" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_username" Type="InArgument(x:String)" />
     <x:Property Name="in_password" Type="InArgument(x:String)" />
@@ -8,10 +7,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>948.8,2548.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>712,3053.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="52">
+    <scg:List x:TypeArguments="x:String" Capacity="35">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -40,10 +39,17 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -72,25 +78,30 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="676.8,2484" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="716.8,2988.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="635.2,2391.2" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_url]">
+    <ui:OpenBrowser BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="675.2,2896" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_url]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="601.6,2288.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="641.6,2793.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:Image" Name="img" />
               <Variable x:TypeArguments="x:String" Name="words" />
               <Variable x:TypeArguments="x:Boolean" Name="loginFaild" />
+              <Variable x:TypeArguments="x:String" Name="token" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -98,16 +109,19 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="560,22.4" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-            <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="560,2133.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="600,22.4" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+            <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="600,2638.4" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
               <ui:InterruptibleDoWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,1966.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="564.8,2471.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="res" />
+                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="关闭提示窗口" sap:VirtualizedContainerService.HintSize="483.2,68.8" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="关闭提示窗口" sap:VirtualizedContainerService.HintSize="523.2,68.8" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -129,7 +143,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入用户名" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_username]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入用户名" EmptyField="True" sap:VirtualizedContainerService.HintSize="523.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_username]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f482715-1a80-4845-b23e-4c105d7f509e" InformativeScreenshot="0c2802d68ce9f62e3904abdd79482739" Selector="&lt;webctrl idx='1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -138,7 +152,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入密码" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_password]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入密码" EmptyField="True" sap:VirtualizedContainerService.HintSize="523.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_password]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4dd9f28b-c325-46ab-82bd-ca71fe36e9e2" InformativeScreenshot="62092d876c22055e2d41a5fd77da03af" Selector="&lt;webctrl tag='INPUT' type='password' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -147,7 +161,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'IMG  verifyImg'" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'IMG  verifyImg'" sap:VirtualizedContainerService.HintSize="523.2,107.2" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -169,7 +183,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot 'IMG  verifyImg'" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[img]">
+                  <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot 'IMG  verifyImg'" sap:VirtualizedContainerService.HintSize="523.2,107.2" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[img]">
                     <ui:TakeScreenshot.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be3aa573-1078-40ae-b622-85afafee6cde" InformativeScreenshot="d56b2c7ec46bdb1ce23cbf3aa4cec607" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;table' parentid='form1' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tag='TD' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -178,13 +192,60 @@
                       </ui:Target>
                     </ui:TakeScreenshot.Target>
                   </ui:TakeScreenshot>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Verification workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CBIT\GetVerification.xaml">
+                  <If Condition="[token.IsNullOrEmpty]" sap:VirtualizedContainerService.HintSize="523.2,464.8" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Sequence DisplayName="GetAccessToken" sap:VirtualizedContainerService.HintSize="375.2,315.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="njl:JObject" Name="resJson" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&amp;client_id=c9uo1Z9H5VzxufTxqCjyKYZG&amp;client_secret=FgDnCKZU2ayv4iZHy8RCp98HlPtCK3Mn" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" Result="[res]" TimeoutMS="50000">
+                          <ui:HttpClient.Attachments>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Attachments>
+                          <ui:HttpClient.Cookies>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Cookies>
+                          <ui:HttpClient.Headers>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Headers>
+                          <ui:HttpClient.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Parameters>
+                          <ui:HttpClient.UrlSegments>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.UrlSegments>
+                        </ui:HttpClient>
+                        <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[resJson]" JsonString="[res]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[token]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[resJson.GetValue("access_token").ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Verification workflow" sap:VirtualizedContainerService.HintSize="523.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CBIT\GetVerification.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="ui:Image" x:Key="in_img">[img]</InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_words">[words]</OutArgument>
+                      <InArgument x:TypeArguments="ui:Image" x:Key="in_img">
+                        <mva:VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="img" />
+                      </InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_words">
+                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="words" />
+                      </OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_token">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="token" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入验证码" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[words.Replace(&quot; &quot;,&quot;&quot;)]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入验证码" EmptyField="True" sap:VirtualizedContainerService.HintSize="523.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[words.Replace(&quot; &quot;,&quot;&quot;)]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3203aae8-4e39-46ad-bc02-1db1cdc4f475" InformativeScreenshot="1927dd192b9f013128e6f0ed1349e442" Selector="&lt;webctrl id='j_verifycode2' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -193,7 +254,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="点击【登陆】" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="点击【登陆】" sap:VirtualizedContainerService.HintSize="523.2,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -212,7 +273,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe  全国融资租赁企业管...'" sap:VirtualizedContainerService.HintSize="483.2,347.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="2cd7c163053adb8eed0a7e6cdff56702" Selector="&lt;html title='全国融资租赁企业管理信息*' /&gt;">
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe  全国融资租赁企业管...'" sap:VirtualizedContainerService.HintSize="523.2,347.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="2cd7c163053adb8eed0a7e6cdff56702" Selector="&lt;html title='全国融资租赁企业管理信息*' /&gt;">
                     <ui:BrowserScope.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -240,7 +301,7 @@
                       </ActivityAction>
                     </ui:BrowserScope.Body>
                   </ui:BrowserScope>
-                  <If Condition="[loginFaild]" sap:VirtualizedContainerService.HintSize="483.2,256.8" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[loginFaild]" sap:VirtualizedContainerService.HintSize="523.2,256.8" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
                       <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'IMG  http://leasing.cbi...'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                         <ui:Click.CursorPosition>

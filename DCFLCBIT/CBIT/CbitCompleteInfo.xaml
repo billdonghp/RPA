@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CompleteInfo" this:CompleteInfo.in_model="AA" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CompleteInfo" this:CompleteInfo.in_model="AA" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_model" Type="InArgument(x:String)" />
     <x:Property Name="in_uniqueCode" Type="InArgument(x:String)" />
@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1040.8,3379.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>819.2,3481.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CompleteInfo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -71,19 +71,19 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CompleteInfo" sap:VirtualizedContainerService.HintSize="829.6,3314.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CompleteInfo" sap:VirtualizedContainerService.HintSize="829.6,3416.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="788,3221.6" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="76d2120c9abf9efc5a8cbf74381b2c04" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="788,3324" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="76d2120c9abf9efc5a8cbf74381b2c04" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="754.4,3074.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="754.4,3176.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="valid" />
               <Variable x:TypeArguments="x:Int32" Name="months" />
@@ -172,10 +172,10 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:Comment sap:VirtualizedContainerService.HintSize="713,74" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 调用Python方法计算机登记到期日期至今月份差" />
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="713,284" sap2010:WorkflowViewState.IdRef="CommentOut_10">
+            <ui:Comment sap:VirtualizedContainerService.HintSize="712.8,75.2" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 调用Python方法计算机登记到期日期至今月份差" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="712.8,284.8" sap2010:WorkflowViewState.IdRef="CommentOut_10">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,206" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,206.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -198,9 +198,9 @@
                 <InArgument x:TypeArguments="x:String">[Now.AddMonths(71).ToString("yyyy-MM")]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="713,231" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="712.8,232" sap2010:WorkflowViewState.IdRef="CommentOut_11">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="305,153" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304.8,153.6" sap2010:WorkflowViewState.IdRef="Sequence_17">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -217,8 +217,8 @@
                 </Sequence>
               </ui:CommentOut.Body>
             </ui:CommentOut>
-            <ui:Comment sap:VirtualizedContainerService.HintSize="713,74" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 调用原生JS，登记到期日期、登记期限 例： “2021-06|7”" />
-            <ui:InjectJsScript ScriptOutput="{x:Null}" DisplayName="Inject Js Script登记到期日期、登记期限" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="InjectJsScript_3" InputParameter="[valid]" ScriptCode="function(element,in_valid){&#xA;    var validDate = in_valid&#xA;&#x9;var validTime = 72&#xA;    document.getElementById('validDate').value=validDate&#xA;&#x9;document.getElementById('validTime').value=validTime&#xA;}">
+            <ui:Comment sap:VirtualizedContainerService.HintSize="712.8,75.2" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 调用原生JS，登记到期日期、登记期限 例： “2021-06|7”" />
+            <ui:InjectJsScript ScriptOutput="{x:Null}" DisplayName="Inject Js Script登记到期日期、登记期限" sap:VirtualizedContainerService.HintSize="712.8,135.2" sap2010:WorkflowViewState.IdRef="InjectJsScript_3" InputParameter="[valid]" ScriptCode="function(element,in_valid){&#xA;    var validDate = in_valid&#xA;&#x9;var validTime = 72&#xA;    document.getElementById('validDate').value=validDate&#xA;&#x9;document.getElementById('validTime').value=validTime&#xA;}">
               <ui:InjectJsScript.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d8991ca-4c16-483d-99b9-d4297c80eb4c" InformativeScreenshot="dd39bb8707fc922034e9406d92c96c4a" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;&lt;webctrl id='validDate' tag='INPUT' type='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -230,15 +230,15 @@
                 </ui:Target>
               </ui:InjectJsScript.Target>
             </ui:InjectJsScript>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="713,304" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="712.8,306.4" sap2010:WorkflowViewState.IdRef="CommentOut_9">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,228" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InjectJsScript ScriptOutput="{x:Null}" DisplayName="Inject Js Script登记到期日期、登记期限" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="InjectJsScript_2" InputParameter="[valid]" ScriptCode="function(element,in_valid){&#xA;&#x9;var validDate = in_valid.substring(0,7)&#xA;&#x9;var validTime = in_valid.substring(8)&#xA;    document.getElementById('validDate').value=validDate&#xA;&#x9;document.getElementById('validTime').value=validTime&#xA;}">
+                  <ui:InjectJsScript ScriptOutput="{x:Null}" DisplayName="Inject Js Script登记到期日期、登记期限" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="InjectJsScript_2" InputParameter="[valid]" ScriptCode="function(element,in_valid){&#xA;&#x9;var validDate = in_valid.substring(0,7)&#xA;&#x9;var validTime = in_valid.substring(8)&#xA;    document.getElementById('validDate').value=validDate&#xA;&#x9;document.getElementById('validTime').value=validTime&#xA;}">
                     <ui:InjectJsScript.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d8991ca-4c16-483d-99b9-d4297c80eb4c" InformativeScreenshot="dd39bb8707fc922034e9406d92c96c4a" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;&lt;webctrl id='validDate' tag='INPUT' type='text' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -253,7 +253,7 @@
                 </Sequence>
               </ui:CommentOut.Body>
             </ui:CommentOut>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '提交'" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '提交'" sap:VirtualizedContainerService.HintSize="712.8,107.2" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -275,13 +275,13 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="713,490" sap2010:WorkflowViewState.IdRef="Sequence_30">
+            <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="712.8,582.4" sap2010:WorkflowViewState.IdRef="Sequence_30">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition OffsetX="25" OffsetY="13" Position="TopLeft" />
                 </ui:Click.CursorPosition>
@@ -293,30 +293,49 @@
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                <ui:Click.CursorPosition>
-                  <ui:CursorPosition OffsetX="48" OffsetY="15" Position="TopLeft" />
-                </ui:Click.CursorPosition>
-                <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6677fb8c-a978-4f50-b0b0-397e0f08cddf" InformativeScreenshot="2d9b5870a18b5b5cc2b4a6a827318ec0" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd ctrlid='1' title='确定' /&gt;" TimeoutMS="3000">
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:Click.Target>
-              </ui:Click>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                <ui:Click.CursorPosition>
-                  <ui:CursorPosition OffsetX="40" OffsetY="14" Position="TopLeft" />
-                </ui:Click.CursorPosition>
-                <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="80635757-8c37-4842-bcca-fbc57b3f3387" InformativeScreenshot="05528c50e296046781d6a00d4108a19f" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd aaname='来自网页的消息' cls='DirectUIHWND' /&gt;&lt;wnd cls='Button' title='确定' /&gt;" TimeoutMS="3000">
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:Click.Target>
-              </ui:Click>
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="433.6,342.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition OffsetX="40" OffsetY="14" Position="TopLeft" />
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="80635757-8c37-4842-bcca-fbc57b3f3387" InformativeScreenshot="05528c50e296046781d6a00d4108a19f" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd aaname='来自网页的消息' cls='DirectUIHWND' /&gt;&lt;wnd cls='Button' title='确定' /&gt;" TimeoutMS="3000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,177.6" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition OffsetX="48" OffsetY="15" Position="TopLeft" />
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6677fb8c-a978-4f50-b0b0-397e0f08cddf" InformativeScreenshot="2d9b5870a18b5b5cc2b4a6a827318ec0" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd ctrlid='1' title='确定' /&gt;" TimeoutMS="3000">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
             </Sequence>
           </Sequence>
         </ActivityAction>

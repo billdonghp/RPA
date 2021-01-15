@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sequence" this:Sequence.in_publishcode="160693654348900" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_publishcode" Type="InArgument(x:String)" />
     <x:Property Name="out_unpublicityNo" Type="OutArgument(x:String)" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>908.8,2334.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>962.4,2958.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -69,21 +69,21 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CbitUnregister" sap:VirtualizedContainerService.HintSize="869.6,2229.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CbitUnregister" sap:VirtualizedContainerService.HintSize="972.8,2893.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="828,2136.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="873e1b4f74b9e88b96eb1c859eee5d86" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="931.2,2800.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="873e1b4f74b9e88b96eb1c859eee5d86" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="794.4,1989.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="897.6,2653.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="unpublicityNo" />
+              <Variable x:TypeArguments="x:String" Default="：" Name="unpublicityNo" />
               <Variable x:TypeArguments="x:Boolean" Name="elExists" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
@@ -91,7 +91,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '登记操作'" sap:VirtualizedContainerService.HintSize="752.8,107.2" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '登记操作'" sap:VirtualizedContainerService.HintSize="856,107.2" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition OffsetX="51" OffsetY="12" Position="TopLeft" />
               </ui:Click.CursorPosition>
@@ -103,7 +103,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '注销登记'" sap:VirtualizedContainerService.HintSize="752.8,107.2" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '注销登记'" sap:VirtualizedContainerService.HintSize="856,107.2" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition OffsetX="51" OffsetY="11" Position="TopLeft" />
               </ui:Click.CursorPosition>
@@ -115,7 +115,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  publish.publishc...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="752.8,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_publishcode]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  publish.publishc...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="856,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_publishcode]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="560c5f1b-735a-40ee-812a-e05e357ebb3c" InformativeScreenshot="6fe720551e752cae30a4af65d6a31686" Selector="&lt;webctrl id='publish.publishcode' idx='1' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -124,7 +124,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '查询'" sap:VirtualizedContainerService.HintSize="752.8,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '查询'" sap:VirtualizedContainerService.HintSize="856,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -146,7 +146,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:UiElementExists DisplayName="Element Exists" Exists="[elExists]" sap:VirtualizedContainerService.HintSize="752.8,68.8" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists DisplayName="Element Exists" Exists="[elExists]" sap:VirtualizedContainerService.HintSize="856,68.8" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bddae038-3739-437c-a7bd-8b9e649b5c1e" Selector="&lt;webctrl aaname='[注销]' parentid='publishForm' tag='A' /&gt;" TimeoutMS="5000">
                   <ui:Target.WaitForReady>
@@ -155,15 +155,15 @@
                 </ui:Target>
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[elExists]" sap:VirtualizedContainerService.HintSize="752.8,1171.2" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[elExists]" sap:VirtualizedContainerService.HintSize="856,1835.2" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="375.2,1021.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="478.4,1685.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '注销 '" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '注销 '" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -185,7 +185,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '注销登记'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '注销登记'" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -207,44 +207,90 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '确定'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a805361d-99f6-4442-9d5a-644e32492891" InformativeScreenshot="46b9c21d008042fd5517ef15fafb58ca" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd ctrlid='1' title='确定' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
-                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text '注销登记公示号'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_1">
-                    <ui:GetValue.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8764d965-b82c-4764-b2b1-27513742d66e" InformativeScreenshot="5d5d2646b52d804eb1ae1fd6b3f21cd8" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd ctrlid='65535' title='注销登记公示成功，系统生成的登记公示编号为：*' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:GetValue.Target>
-                    <ui:GetValue.Value>
-                      <OutArgument x:TypeArguments="x:String">[unpublicityNo]</OutArgument>
-                    </ui:GetValue.Value>
-                  </ui:GetValue>
-                  <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window '        Dialog'" sap:VirtualizedContainerService.HintSize="436.8,308.8" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;">
+                    <ui:WindowScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition OffsetX="33" OffsetY="14" Position="TopLeft" />
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1b55ee8f-8ecb-4b76-930a-1bd456b738e4" InformativeScreenshot="6c1f952214a08c5bd11ba117f8bda0f9" Selector="&lt;wnd ctrlid='1' title='确定' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:WindowScope.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:WindowScope>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,338.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <TryCatch.Try>
+                      <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text 'Static'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetFullText_1">
+                        <ui:GetFullText.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="944db7e5-1ead-4b42-9c65-b0502958955a" InformativeScreenshot="5c8df7e53dac88e2fff4932a212c2d71" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd ctrlid='65535' title='注销登记公示成功，系统生成的登记公示编号为：*' /&gt;" TimeoutMS="8000">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:GetFullText.Target>
+                        <ui:GetFullText.Text>
+                          <OutArgument x:TypeArguments="x:String">[unpublicityNo]</OutArgument>
+                        </ui:GetFullText.Text>
+                      </ui:GetFullText>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text 'text  注销登记公示成功，系统生成的登记公...'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetFullText_3">
+                            <ui:GetFullText.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e2f3a095-44dd-465d-8f3a-4a74a7459db0" InformativeScreenshot="c364bfd288f7a0c373c7efd7c31f0b86" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd aaname='来自网页的消息' cls='DirectUIHWND' /&gt;&lt;ctrl name='来自网页的消息' role='pane' /&gt;&lt;ctrl name='注销登记公示成功，系统生成的登记公示编号为：*' role='text' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:GetFullText.Target>
+                            <ui:GetFullText.Text>
+                              <OutArgument x:TypeArguments="x:String">[unpublicityNo]</OutArgument>
+                            </ui:GetFullText.Text>
+                          </ui:GetFullText>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <Assign sap:VirtualizedContainerService.HintSize="436.8,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[out_unpublicityNo]</OutArgument>
                     </Assign.To>
@@ -252,29 +298,75 @@
                       <InArgument x:TypeArguments="x:String">[unpublicityNo.split("："c)(1)]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;注销登记编号: &quot;+out_unpublicityNo]" />
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '确定'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="09dea6c6-9870-4cea-9e11-1fc2ada9717d" InformativeScreenshot="3bd94f068733ce12ec2b982cd2b2fde8" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd ctrlid='2' title='确定' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;注销登记编号: &quot;+out_unpublicityNo]" />
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,338.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                    <TryCatch.Try>
+                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition OffsetX="46" OffsetY="16" Position="TopLeft" />
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9507e720-3b19-47f7-889e-9472cd8c0f34" InformativeScreenshot="e8bc86acfe6b68c7e9b6589527874263" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;&lt;wnd ctrlid='2' title='确定' /&gt;" TimeoutMS="8000">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window '        Dialog'" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="WindowScope_3" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='来自网页的消息' /&gt;">
+                            <ui:WindowScope.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition OffsetX="34" OffsetY="13" Position="TopLeft" />
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="04651e0f-2d84-4a41-b2e8-7673266085f4" InformativeScreenshot="b306fe2d62aa0e1293e8e71224bfc838" Selector="&lt;wnd aaname='来自网页的消息' cls='DirectUIHWND' /&gt;&lt;wnd cls='Button' title='确定' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:WindowScope.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:WindowScope>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
                 </Sequence>
               </If.Then>
               <If.Else>

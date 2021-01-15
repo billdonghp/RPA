@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>908.8,2608.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>865.6,962.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CbitDataTable_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -72,9 +72,10 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CbitDataTable" sap:VirtualizedContainerService.HintSize="805.6,2544" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CbitDataTable" sap:VirtualizedContainerService.HintSize="656,2876.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="regFlag" />
       <Variable x:TypeArguments="x:Boolean" Name="unRegFlag" />
@@ -84,13 +85,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_DataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="764,2451.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_DataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="614.4,2691.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="714.4,2302.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="564.8,2542.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(of String)from{&quot;正常结清&quot;,&quot;提前结清完成&quot;,&quot;代理商垫款结清&quot;,&quot;损失担保结清&quot;,&quot;回购结清&quot;}]" Name="regTypeList" />
             </Sequence.Variables>
@@ -99,9 +100,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="672.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;customerContractCode: &quot;+row.item(&quot;customerContractCode&quot;).ToString]" />
-            <ui:Comment sap:VirtualizedContainerService.HintSize="672.8,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 登记流程" />
-            <If Condition="[row.item(&quot;contractStatus&quot;).equals(&quot;起租&quot;) And &quot;&quot;.Equals(row.item(&quot;registerType&quot;))]" sap:VirtualizedContainerService.HintSize="672.8,1792" sap2010:WorkflowViewState.IdRef="If_1">
+            <ui:Comment sap:VirtualizedContainerService.HintSize="523.2,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 登记流程" />
+            <If Condition="[row.item(&quot;contractStatus&quot;).equals(&quot;起租&quot;) And &quot;&quot;.Equals(row.item(&quot;registerType&quot;))]" sap:VirtualizedContainerService.HintSize="523.2,1482.4" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -109,7 +109,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Register" sap:VirtualizedContainerService.HintSize="524.8,1642.4" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Register" sap:VirtualizedContainerService.HintSize="375.2,1332.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="matterDesc" />
                     <Variable x:TypeArguments="x:String" Name="publicityNo" />
@@ -120,22 +120,23 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[Not regFlag]" sap:VirtualizedContainerService.HintSize="483.2,495.2" sap2010:WorkflowViewState.IdRef="If_4">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;begin register customerContractCode: &quot;+row.item(&quot;customerContractCode&quot;).ToString]" />
+                  <If Condition="[Not regFlag]" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="If_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="regNavigae" sap:VirtualizedContainerService.HintSize="304.8,345.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="regNavigae" sap:VirtualizedContainerService.HintSize="475.2,640" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="263.2,52.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0b477334a9e1ec40c7fa7ae567eaff5b" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
+                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="433.6,347.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0b477334a9e1ec40c7fa7ae567eaff5b" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
                           <ui:BrowserScope.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -165,12 +166,12 @@
                           </ui:BrowserScope.Body>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:BrowserScope>
-                        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Boolean">[unRegFlag]</OutArgument>
                           </Assign.To>
@@ -178,7 +179,7 @@
                             <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Boolean">[regFlag]</OutArgument>
                           </Assign.To>
@@ -189,7 +190,7 @@
                       </Sequence>
                     </If.Then>
                   </If>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Contract workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="CBIT\CbitContract.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Contract workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="CBIT\CbitContract.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_leaseTerm">[row.item("leaseTerm").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_conEffectDate">[row.item("conEffectDate").ToString]</InArgument>
@@ -208,7 +209,7 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_matterPriceAmount">[row.item("matterPriceAmount").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetMatterDesc workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="CBIT\GetMatterDesc.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetMatterDesc workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="CBIT\GetMatterDesc.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_leaseName">[row.item("leaseName").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_leaseType">[row.item("leaseType").ToString]</InArgument>
@@ -222,14 +223,14 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">[row.item("uniqueCode").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitCompleteInfoTryCatch workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="CBIT\CbitCompleteInfoTryCatch.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitCompleteInfoTryCatch workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="CBIT\CbitCompleteInfoTryCatch.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[row.item("customerContractCode").ToString]</InArgument>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_registerNo">[registerNo]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;合同登记编号: &quot;+registerNo]" />
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CompleteInfo workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="CBIT\CbitCompleteInfo.xaml">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;合同登记编号: &quot;+registerNo]" />
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CompleteInfo workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="CBIT\CbitCompleteInfo.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_model">[row.item("model").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_uniqueCode">[row.item("uniqueCode").ToString]</InArgument>
@@ -238,13 +239,13 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[row.item("customerContractCode").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitPublicity workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="CBIT\CbitPublicity.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitPublicity workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="CBIT\CbitPublicity.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_publicityNo">[publicityNo]</OutArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[row.item("customerContractCode").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitGetJson workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="CBIT\CbitGetJson.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CbitGetJson workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="CBIT\CbitGetJson.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_contractNumber">[row("customerContractCode").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_registerStatus">初始登记</InArgument>
@@ -261,16 +262,16 @@
                 </Sequence>
               </If.Then>
             </If>
-            <ui:Comment sap:VirtualizedContainerService.HintSize="672.8,56" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 注销流程" />
-            <If Condition="[regTypeList.Contains(row.item(&quot;contractStatus&quot;).ToString) And ( &quot;初始登记&quot;.Equals(row.Item(&quot;registerType&quot;)) Or  &quot;变更登记&quot;.Equals(row.Item(&quot;registerType&quot;))) And  Not &quot;&quot;.Equals(row.item(&quot;registerNo&quot;))]" sap:VirtualizedContainerService.HintSize="672.8,52.8" sap2010:WorkflowViewState.IdRef="If_6">
+            <ui:Comment sap:VirtualizedContainerService.HintSize="523.2,56" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 注销流程" />
+            <If Condition="[regTypeList.Contains(row.item(&quot;contractStatus&quot;).ToString) And ( &quot;初始登记&quot;.Equals(row.Item(&quot;registerType&quot;)) Or  &quot;变更登记&quot;.Equals(row.Item(&quot;registerType&quot;))) And  Not &quot;&quot;.Equals(row.item(&quot;registerNo&quot;))]" sap:VirtualizedContainerService.HintSize="523.2,735.2" sap2010:WorkflowViewState.IdRef="If_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Unpublicity" sap:VirtualizedContainerService.HintSize="375.2,452.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Unpublicity" sap:VirtualizedContainerService.HintSize="375.2,585.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="unpublicityNo" />
                   </Sequence.Variables>
@@ -280,6 +281,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;begin unregister customerContractCode: &quot;+row.item(&quot;customerContractCode&quot;).ToString]" />
                   <If Condition="[Not unRegFlag]" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="If_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -288,14 +290,14 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Navigate" sap:VirtualizedContainerService.HintSize="304.8,345.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <Sequence DisplayName="Navigate" sap:VirtualizedContainerService.HintSize="475.2,640" sap2010:WorkflowViewState.IdRef="Sequence_10">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="263.2,52.8" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="0b477334a9e1ec40c7fa7ae567eaff5b" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
+                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="433.6,347.2" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="0b477334a9e1ec40c7fa7ae567eaff5b" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
                           <ui:BrowserScope.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -325,12 +327,12 @@
                           </ui:BrowserScope.Body>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:BrowserScope>
-                        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Boolean">[regFlag]</OutArgument>
                           </Assign.To>
@@ -338,7 +340,7 @@
                             <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Boolean">[unRegFlag]</OutArgument>
                           </Assign.To>
@@ -381,6 +383,66 @@
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe  全国融资租赁企业管...'" sap:VirtualizedContainerService.HintSize="614.4,52.8" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="b70dbd9c48b9998b49b07c37cfa8311f" Selector="&lt;html title='全国融资租赁企业管理信息系统' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="524.8,646.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[regFlag]" sap:VirtualizedContainerService.HintSize="483.2,256.8" sap2010:WorkflowViewState.IdRef="If_7">
+              <If.Then>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '登记管理'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="62" OffsetY="19" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f18eef4e-acc3-4329-b8d3-3a8dba14f91d" InformativeScreenshot="1d5b14feffd6d2266a8e9d504cebf250" Selector="&lt;webctrl idx='4' isleaf='1' tag='H2' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+              </If.Then>
+            </If>
+            <If Condition="[unRegFlag]" sap:VirtualizedContainerService.HintSize="483.2,256.8" sap2010:WorkflowViewState.IdRef="If_8">
+              <If.Then>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '租赁物登记公示'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="77" OffsetY="9" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1e0b46b8-42c7-4434-9191-bd843986e626" InformativeScreenshot="ed010d02e940ad08686ec4f622823a23" Selector="&lt;webctrl idx='5' isleaf='1' tag='H2' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+              </If.Then>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:BrowserScope>
   </Sequence>
 </Activity>
