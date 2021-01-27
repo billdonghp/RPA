@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SelectInvoiceFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SelectInvoiceFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="dt_invoicePDetail" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="dt_invoiceEDetail" Type="OutArgument(sd:DataTable)" />
@@ -7,7 +7,7 @@
     <x:Property Name="dt_invoiceE" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="in_checkDate" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1037.6,1586.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>999.2,1586.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -94,100 +94,54 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:ReadTextFile Content="[jsonFile]" DisplayName="Read Text File" FileName="config.json" sap:VirtualizedContainerService.HintSize="384,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
     <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObject]" JsonString="[jsonFile]" />
-    <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// dt_invoicePDetail" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_invoicePDetail" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoicePDetail&quot;)(&quot;SheetName&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Range">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoicePDetail&quot;)(&quot;Range&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Text">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoicePDetail&quot;)(&quot;Text&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_checkDate" />
-        </InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_4" Text="// dt_invoiceEDetail" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_invoiceEDetail" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoiceEDetail&quot;)(&quot;SheetName&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Range">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoiceEDetail&quot;)(&quot;Range&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Text">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoiceEDetail&quot;)(&quot;Text&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_checkDate" />
-        </InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_5" Text="// dt_redInfo" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_redInfo" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_redInfo&quot;)(&quot;SheetName&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Range">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_redInfo&quot;)(&quot;Range&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Text">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_redInfo&quot;)(&quot;Text&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_checkDate" />
-        </InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
     <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_6" Text="// dt_invoiceP" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_invoiceP" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoiceP&quot;)(&quot;SheetName&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Range">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoiceP&quot;)(&quot;Range&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Text">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoiceP&quot;)(&quot;Text&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_checkDate" />
-        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">[dt_invoiceP]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[jsonObject.GetValue("dt_invoiceP")("SheetName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Range">[jsonObject.GetValue("dt_invoiceP")("Range").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Text">[jsonObject.GetValue("dt_invoiceP")("Text").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// dt_invoicePDetail" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">[dt_invoicePDetail]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[jsonObject.GetValue("dt_invoicePDetail")("SheetName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Range">[jsonObject.GetValue("dt_invoicePDetail")("Range").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Text">[jsonObject.GetValue("dt_invoicePDetail")("Text").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_7" Text="// dt_invoiceE" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_invoiceE" />
-        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">[dt_invoiceE]</OutArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_SheetName" />
         <InArgument x:TypeArguments="x:String" x:Key="in_Range" />
-        <InArgument x:TypeArguments="x:String" x:Key="in_Text">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsonObject.GetValue(&quot;dt_invoiceE&quot;)(&quot;Text&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_checkDate" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Text">[jsonObject.GetValue("dt_invoiceE")("Text").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_4" Text="// dt_invoiceEDetail" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">[dt_invoiceEDetail]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[jsonObject.GetValue("dt_invoiceEDetail")("SheetName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Range">[jsonObject.GetValue("dt_invoiceEDetail")("Range").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Text">[jsonObject.GetValue("dt_invoiceEDetail")("Text").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_5" Text="// dt_redInfo" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dataTable">[dt_redInfo]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[jsonObject.GetValue("dt_redInfo")("SheetName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Range">[jsonObject.GetValue("dt_redInfo")("Range").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Text">[jsonObject.GetValue("dt_redInfo")("Text").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

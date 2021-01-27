@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>899.2,2168</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>856,2168</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflInit_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -129,7 +129,7 @@
                 <OutArgument x:TypeArguments="x:String">[dateTo]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[new DateTime(in_years,in_months+1,1).AddDays(-1).ToString("yyyyMMdd")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[new DateTime(in_years,in_months,1).AddMonths(1).AddDays(-1).ToString("yyyyMMdd")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into '执行日期从'" EmptyField="True" sap:VirtualizedContainerService.HintSize="483.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[dateFrom+ &quot;[k(enter)]&quot;]">
