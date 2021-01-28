@@ -1,9 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CRSComplete" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CRSComplete" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_FileName" Type="InArgument(x:String)" />
     <x:Property Name="in_customerContractCode" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>996,1142.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>892,1102.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -183,15 +182,9 @@
           </ui:GetValue>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsGetJson workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CRS\CrsGetJson.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_contractNumber">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_customerContractCode" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_registerStatus">
-                <Literal x:TypeArguments="x:String">初始登记</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_registerDate">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="now.ToString(&quot;yyyy-MM-dd&quot;)" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_contractNumber">[in_customerContractCode]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_registerStatus">初始登记</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_registerDate">[now.ToString("yyyy-MM-dd")]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_registerPublicityNo" />
               <InArgument x:TypeArguments="x:String" x:Key="in_registerFromNo" />
               <InArgument x:TypeArguments="x:String" x:Key="in_changeDate" />

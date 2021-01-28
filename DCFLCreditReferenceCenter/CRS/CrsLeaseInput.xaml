@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="input" this:input.in_conEffectDate="2020-11-09" this:input.in_validDate="2022-11-09" this:input.in_matterDesc="[&quot;aaaaa&quot;+ &quot;[k(enter)]&quot;+&quot;bbbb&quot;]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="input" this:input.in_conEffectDate="2020-11-09" this:input.in_validDate="2022-11-09" this:input.in_matterDesc="租赁财产名称： 履带式液压挖掘机[k(enter)]租赁财产类型： 新机[k(enter)]租赁财产数量： 1台 [k(enter)]租赁财产租赁期限： 24个月 [k(enter)]租赁财产合格证序号：DICC 2020 E18889[k(enter)]租赁财产标准号：CEBBY-026825[k(enter)]租赁财产机型：DX215-9CN[k(enter)]租赁财产编号（机号）：026825[k(enter)]租赁财产发动机编号：DL06B-C3067092E00[k(enter)]租赁财产交付日期：2020-11-06" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_customerContractCode" Type="InArgument(x:String)" />
     <x:Property Name="in_lesseeType" Type="InArgument(x:String)" />
@@ -79,7 +79,6 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="input" sap:VirtualizedContainerService.HintSize="960.8,6339.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -88,7 +87,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe  动产融资统一登记公..'" sap:VirtualizedContainerService.HintSize="919.2,6246.4" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="06ed72640a663a1529fc4084fb65413d" Selector="&lt;html title='动产融资统一登记公示系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '动产融资统一登记'" sap:VirtualizedContainerService.HintSize="919.2,6246.4" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="06530c06955f6ed66535660dc2ec6227" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -108,19 +107,16 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into '登记期限（月）'" EmptyField="True" sap:VirtualizedContainerService.HintSize="844,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="72">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1de1abe4-6a1f-4052-a936-c0c2d53697d6" InformativeScreenshot="4ee0135ff82e2d3d14bb1b838d33b195" Selector="&lt;html title='动产融资统一登记公示系统' /&gt;&lt;webctrl id='regtimelimit' tag='INPUT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1de1abe4-6a1f-4052-a936-c0c2d53697d6" InformativeScreenshot="b94c870edd81a43bda77a37a7f63049e" Selector="&lt;webctrl src='homepage.do' tag='IFRAME' /&gt;&lt;webctrl id='regtimelimit' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
             <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into '填表人归档号'" EmptyField="True" sap:VirtualizedContainerService.HintSize="844,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_customerContractCode]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d5c614e-1c25-4ecd-be23-ba28a79bfafd" InformativeScreenshot="d028d3d4e8306e6456506c385d17535f" Selector="&lt;html title='动产融资统一登记公示系统' /&gt;&lt;webctrl id='personfillarchiveno' tag='INPUT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d5c614e-1c25-4ecd-be23-ba28a79bfafd" InformativeScreenshot="d028d3d4e8306e6456506c385d17535f" Selector="&lt;webctrl src='homepage.do' tag='IFRAME' /&gt;&lt;webctrl id='personfillarchiveno' tag='INPUT' type='text' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -205,7 +201,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="988bd437-360d-41d9-b88c-838b60e7fb91" InformativeScreenshot="904f11ccbf8c656dc90c9a650fe63277" Selector="&lt;html title='动产融资统一登记公示系统' /&gt;&lt;webctrl aaname='添加承租人信息' tag='BUTTON' type='button' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="988bd437-360d-41d9-b88c-838b60e7fb91" InformativeScreenshot="8652c1ad476ec26dfad145b059bc5139" Selector="&lt;webctrl src='homepage.do' tag='IFRAME' /&gt;&lt;webctrl aaname='添加承租人信息' tag='BUTTON' type='button' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -502,15 +498,12 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SimulateType="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into '财产描述'" EmptyField="True" sap:VirtualizedContainerService.HintSize="844,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_24" SendWindowMessages="True" Text="[in_matterDesc]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into '财产描述'" EmptyField="True" sap:VirtualizedContainerService.HintSize="844,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_33" Text="[in_matterDesc]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4adf38d1-f251-444d-841d-1b068a6407a2" InformativeScreenshot="53d218aa5851c70ab2216c1ab4b9ab9a" Selector="&lt;webctrl id='collateraldescribe' tag='TEXTAREA' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="209b566d-ad91-43f3-b56d-3eace320bc11" InformativeScreenshot="de850b0efef9ea790aea54bb566a424c" Selector="&lt;webctrl src='homepage.do' tag='IFRAME' /&gt;&lt;webctrl id='collateraldescribe' tag='TEXTAREA' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
