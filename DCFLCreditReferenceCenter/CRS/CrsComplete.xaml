@@ -1,8 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CRSComplete" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CRSComplete" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_customerContractCode" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>892,1102.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>784,1102.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -121,7 +121,7 @@
         <Sequence sap:VirtualizedContainerService.HintSize="375.2,648" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="registerNo" />
-            <Variable x:TypeArguments="x:String" Name="changeNo" />
+            <Variable x:TypeArguments="x:String" Name="changeCode" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -177,21 +177,28 @@
               </ui:Target>
             </ui:GetValue.Target>
             <ui:GetValue.Value>
-              <OutArgument x:TypeArguments="x:String">[changeNo]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[changeCode]</OutArgument>
             </ui:GetValue.Value>
           </ui:GetValue>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsGetJson workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CRS\CrsGetJson.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_contractNumber">[in_customerContractCode]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_registerStatus">初始登记</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_registerDate">[now.ToString("yyyy-MM-dd")]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_registerPublicityNo" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_registerFromNo" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_changeDate" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_changePublicityNo" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_cancelDate" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_cancelNo" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_leaseEndDate" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_registerDate">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;)" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_contractNo">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_customerContractCode" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_registerType">
+                <Literal x:TypeArguments="x:String">初始登记</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_registerNo">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="registerNo" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_changeCode">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="changeCode" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_registerEndDate" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_relatedNo" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>

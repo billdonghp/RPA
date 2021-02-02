@@ -1,20 +1,17 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Sequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_contractNumber" Type="InArgument(x:String)" />
-    <x:Property Name="in_registerStatus" Type="InArgument(x:String)" />
     <x:Property Name="in_registerDate" Type="InArgument(x:String)" />
-    <x:Property Name="in_registerPublicityNo" Type="InArgument(x:String)" />
-    <x:Property Name="in_registerFromNo" Type="InArgument(x:String)" />
-    <x:Property Name="in_changeDate" Type="InArgument(x:String)" />
-    <x:Property Name="in_changePublicityNo" Type="InArgument(x:String)" />
-    <x:Property Name="in_cancelDate" Type="InArgument(x:String)" />
-    <x:Property Name="in_cancelNo" Type="InArgument(x:String)" />
-    <x:Property Name="in_leaseEndDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_contractNo" Type="InArgument(x:String)" />
+    <x:Property Name="in_registerType" Type="InArgument(x:String)" />
+    <x:Property Name="in_registerNo" Type="InArgument(x:String)" />
+    <x:Property Name="in_changeCode" Type="InArgument(x:String)" />
+    <x:Property Name="in_registerEndDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_relatedNo" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>908.8,2610.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>752,1861.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="62">
@@ -85,7 +82,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="524.8,2505.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="524.8,1756.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="config" />
       <Variable x:TypeArguments="x:String" Name="initJsonStr" />
@@ -100,7 +97,7 @@
         <OutArgument x:TypeArguments="x:String">[initJsonStr]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["{'contractNumber':'"+in_contractNumber.ToString+"','registerStatus':'"+in_registerStatus.ToString+"'}"]</InArgument>
+        <InArgument x:TypeArguments="x:String">["{'contractNo':'"+in_contractNo.ToString+"','registerType':'"+in_registerType.ToString+"'}"]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[config]" JsonString="[initJsonStr]" />
@@ -116,86 +113,50 @@
         </Assign>
       </If.Then>
     </If>
-    <If Condition="[Not String.IsNullOrEmpty(in_registerPublicityNo)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[Not String.IsNullOrEmpty(in_registerEndDate)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_4">
           <Assign.To>
-            <OutArgument x:TypeArguments="njl:JToken">[config("registerPublicityNo")]</OutArgument>
+            <OutArgument x:TypeArguments="njl:JToken">[config("registerEndDate")]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="njl:JToken">[in_registerPublicityNo]</InArgument>
+            <InArgument x:TypeArguments="njl:JToken">[in_registerEndDate]</InArgument>
           </Assign.Value>
         </Assign>
       </If.Then>
     </If>
-    <If Condition="[Not String.IsNullOrEmpty(in_registerFromNo)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[Not String.IsNullOrEmpty(in_registerNo)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_5">
           <Assign.To>
-            <OutArgument x:TypeArguments="njl:JToken">[config("registerFromNo")]</OutArgument>
+            <OutArgument x:TypeArguments="njl:JToken">[config("registerNo")]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="njl:JToken">[in_registerFromNo]</InArgument>
+            <InArgument x:TypeArguments="njl:JToken">[in_registerNo]</InArgument>
           </Assign.Value>
         </Assign>
       </If.Then>
     </If>
-    <If Condition="[Not String.IsNullOrEmpty(in_changeDate)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_4">
+    <If Condition="[Not String.IsNullOrEmpty(in_relatedNo)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_6">
           <Assign.To>
-            <OutArgument x:TypeArguments="njl:JToken">[config("changeDate")]</OutArgument>
+            <OutArgument x:TypeArguments="njl:JToken">[config("relatedNo")]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="njl:JToken">[in_changeDate]</InArgument>
+            <InArgument x:TypeArguments="njl:JToken">[in_relatedNo]</InArgument>
           </Assign.Value>
         </Assign>
       </If.Then>
     </If>
-    <If Condition="[Not String.IsNullOrEmpty(in_changePublicityNo)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_5">
+    <If Condition="[Not String.IsNullOrEmpty(in_changeCode)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_5">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_7">
           <Assign.To>
-            <OutArgument x:TypeArguments="njl:JToken">[config("changePublicityNo")]</OutArgument>
+            <OutArgument x:TypeArguments="njl:JToken">[config("changeCode")]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="njl:JToken">[in_changePublicityNo]</InArgument>
-          </Assign.Value>
-        </Assign>
-      </If.Then>
-    </If>
-    <If Condition="[Not String.IsNullOrEmpty(in_cancelDate)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_6">
-      <If.Then>
-        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_8">
-          <Assign.To>
-            <OutArgument x:TypeArguments="njl:JToken">[config("cancelDate")]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="njl:JToken">[in_cancelDate]</InArgument>
-          </Assign.Value>
-        </Assign>
-      </If.Then>
-    </If>
-    <If Condition="[Not String.IsNullOrEmpty(in_cancelNo)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_7">
-      <If.Then>
-        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_9">
-          <Assign.To>
-            <OutArgument x:TypeArguments="njl:JToken">[config("cancelNo")]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="njl:JToken">[in_cancelNo]</InArgument>
-          </Assign.Value>
-        </Assign>
-      </If.Then>
-    </If>
-    <If Condition="[Not String.IsNullOrEmpty(in_leaseEndDate)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_8">
-      <If.Then>
-        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_10">
-          <Assign.To>
-            <OutArgument x:TypeArguments="njl:JToken">[config("leaseEndDate")]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="njl:JToken">[in_leaseEndDate]</InArgument>
+            <InArgument x:TypeArguments="njl:JToken">[in_changeCode]</InArgument>
           </Assign.Value>
         </Assign>
       </If.Then>
@@ -203,8 +164,12 @@
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="483.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[config.ToString]" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflPost workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DCFL\DcflPost.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_dcflUrl">http://10.40.128.182:8080/core/</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_json">[config.ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_dcflUrl">
+          <Literal x:TypeArguments="x:String">http://10.40.128.177:7001/core/</Literal>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_json">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="config.ToString" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
