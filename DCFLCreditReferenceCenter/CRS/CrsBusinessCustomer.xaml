@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>856,1408.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>752,1408.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CrsBusinessCustomer_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -122,7 +122,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" DisplayName="Select Item '所属行业'" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[in_lesseeBusiness]">
+            <ui:SelectItem DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" ContinueOnError="True" DisplayName="Select Item '所属行业'" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[in_lesseeBusiness]">
               <ui:SelectItem.Items>
                 <scg:List x:TypeArguments="x:String" Capacity="32">
                   <x:String>-- 请选择 --</x:String>
@@ -150,14 +150,10 @@
                 </scg:List>
               </ui:SelectItem.Items>
               <ui:SelectItem.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="76151678-8c5c-4c07-b0c8-399887ad8ba7" InformativeScreenshot="2389b272968ffe2bd0a4333cf526b810" Selector="&lt;webctrl id='industrycode' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                </ui:Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="76151678-8c5c-4c07-b0c8-399887ad8ba7" InformativeScreenshot="2389b272968ffe2bd0a4333cf526b810" Selector="&lt;webctrl id='industrycode' tag='SELECT' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:SelectItem.Target>
             </ui:SelectItem>
-            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" DisplayName="Select Item '企业规模'" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="[in_enterScale+&quot;型企业&quot;]">
+            <ui:SelectItem DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" ContinueOnError="True" DisplayName="Select Item '企业规模'" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="[in_enterScale+&quot;型企业&quot;]">
               <ui:SelectItem.Items>
                 <scg:List x:TypeArguments="x:String" Capacity="8">
                   <x:String>-- 请选择 --</x:String>
@@ -168,11 +164,7 @@
                 </scg:List>
               </ui:SelectItem.Items>
               <ui:SelectItem.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="caade785-944b-43a6-bb1e-14678d927485" InformativeScreenshot="d1e26cb761a210f6acc5de8e7883782c" Selector="&lt;webctrl id='scale' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                </ui:Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="caade785-944b-43a6-bb1e-14678d927485" InformativeScreenshot="d1e26cb761a210f6acc5de8e7883782c" Selector="&lt;webctrl id='scale' tag='SELECT' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:SelectItem.Target>
             </ui:SelectItem>
           </Sequence>
