@@ -93,7 +93,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MessageBox Buttons="Ok" Caption="请选择文件" ChosenButton="[cbtn]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="668,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;校验文件类型：&quot;+in_Text+&quot;（&quot;+in_checkDate+&quot;年月）&quot;]" />
+          <ui:MessageBox Buttons="Ok" Caption="请选择文件" ChosenButton="[cbtn]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="668,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;校验文件类型：&quot;+in_Text+&quot;（&quot;+in_checkDate+&quot;）年月&quot;]" />
           <If Condition="[&quot;Ok&quot;.Equals(cbtn)]" sap:VirtualizedContainerService.HintSize="668,590.4" sap2010:WorkflowViewState.IdRef="If_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">

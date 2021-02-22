@@ -184,6 +184,20 @@
           "lib/Microsoft.VisualStudio.OLE.Interop.dll": {}
         }
       },
+      "Miyag.UiPath.DesktopNotification.Activities/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/DesktopNotification.dll": {}
+        },
+        "resource": {
+          "lib/net45/ja/DesktopNotification.resources.dll": {
+            "locale": "ja"
+          }
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -832,6 +846,19 @@
         "microsoft.visualstudio.ole.interop.nuspec"
       ]
     },
+    "Miyag.UiPath.DesktopNotification.Activities/1.1.0": {
+      "sha512": "oURcI/h+KWlwklNCTX4UQ8hchdkuwCyDDGU2wv4qWPfHdUj+yazcs8bc5jprXn+CTk3HSW2bhuWcNJQLwGntDg==",
+      "type": "package",
+      "path": "miyag.uipath.desktopnotification.activities/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/DesktopNotification.dll",
+        "lib/net45/ja/DesktopNotification.resources.dll",
+        "miyag.uipath.desktopnotification.activities.1.1.0.nupkg.sha512",
+        "miyag.uipath.desktopnotification.activities.nuspec"
+      ]
+    },
     "Newtonsoft.Json/11.0.2": {
       "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
@@ -1299,6 +1326,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "Miyag.UiPath.DesktopNotification.Activities >= 1.1.0 <= 1.1.0",
       "UiPath.Excel.Activities >= 2.6.2 <= 2.6.2",
       "UiPath.Mail.Activities >= 1.5.0 <= 1.5.0",
       "UiPath.PDF.Activities >= 3.1.0 <= 3.1.0",
@@ -1320,6 +1348,11 @@
     "frameworks": {
       "net461": {
         "dependencies": {
+          "Miyag.UiPath.DesktopNotification.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.1.0, 1.1.0]"
+          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
@@ -1348,14 +1381,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU3034",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'BouncyCastle 1.8.1' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
-      "libraryId": "BouncyCastle"
-    }
-  ]
+  }
 }
