@@ -76,7 +76,6 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687.2,818.4" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -347,9 +346,9 @@
                     <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException IsNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
                   </Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="606.4,2869.6" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="633.6,3340" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
-                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="561.6,2449.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="588.8,2920" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -357,14 +356,14 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="524.8,2218.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="552,2688.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign SystemException (initialization)" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                              <Assign DisplayName="Assign SystemException (initialization)" sap:VirtualizedContainerService.HintSize="510.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="s:Exception">[SystemException]</OutArgument>
                                 </Assign.To>
@@ -372,7 +371,7 @@
                                   <InArgument x:TypeArguments="s:Exception">[Nothing]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <If sap2010:Annotation.AnnotationText="An uninitialized Config dictionary indicates that it is the first run of the process." Condition="[Config is Nothing]" DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="483.2,262.4" sap2010:WorkflowViewState.IdRef="If_1">
+                              <If sap2010:Annotation.AnnotationText="An uninitialized Config dictionary indicates that it is the first run of the process." Condition="[Config is Nothing]" DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="510.4,262.4" sap2010:WorkflowViewState.IdRef="If_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -439,7 +438,7 @@
                                   </Sequence>
                                 </If.Then>
                               </If>
-                              <If Condition="[String.IsNullOrEmpty(CheckDate)]" sap:VirtualizedContainerService.HintSize="483.2,263.2" sap2010:WorkflowViewState.IdRef="If_12">
+                              <If Condition="[String.IsNullOrEmpty(CheckDate)]" sap:VirtualizedContainerService.HintSize="510.4,263.2" sap2010:WorkflowViewState.IdRef="If_12">
                                 <If.Then>
                                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflInputYearsMonths workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="DCFL\DcflInputYearsMonths.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
@@ -448,7 +447,7 @@
                                   </ui:InvokeWorkflowFile>
                                 </If.Then>
                               </If>
-                              <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                              <Assign sap:VirtualizedContainerService.HintSize="510.4,60" sap2010:WorkflowViewState.IdRef="Assign_28">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[FileName]</OutArgument>
                                 </Assign.To>
@@ -456,26 +455,49 @@
                                   <InArgument x:TypeArguments="x:String">["D:\Finance\dcfldl_"+CheckDate+".xlsx"]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="483.2,415.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[&quot;D:\Finance\Result_&quot;+CheckDate+&quot;.xlsx&quot;]">
+                              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="510.4,885.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[&quot;D:\Finance\Result_&quot;+CheckDate+&quot;.xlsx&quot;]">
                                 <ui:ExcelApplicationScope.Body>
                                   <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                                     </ActivityAction.Argument>
-                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,305.6" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476.8,776" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:ExcelSetRangeColor Color="[Color.Gainsboro]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_1" Range="A3:K3" SheetName="Sheet1" />
-                                      <ui:ExcelSetRangeColor Color="[Color.Gainsboro]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_2" Range="A8:Q8" SheetName="Sheet1" />
-                                      <ui:ExcelWriteCell Cell="A1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[String.Format(&quot;查询区间：{0} 年 {1} 月 1 日 至 {0} 年 {1} 月 {2} 日&quot;,CheckDate.Substring(0,4),CheckDate.Substring(4,2),New DateTime(Integer.Parse(CheckDate.Substring(0,4)),Integer.Parse(CheckDate.Substring(4,2)),1).AddMonths(1).AddDays(-1).ToString(&quot;dd&quot;))]" />
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,193.6" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:ExcelSetRangeColor Color="[Color.Gainsboro]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_1" Range="A3:K3" SheetName="Sheet1" />
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                      </ui:CommentOut>
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,193.6" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:ExcelSetRangeColor Color="[Color.Gainsboro]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_2" Range="A8:Q8" SheetName="Sheet1" />
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                      </ui:CommentOut>
+                                      <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="InitResult.bas" DisplayName="Invoke VBA" EntryMethodName="InitResult" sap:VirtualizedContainerService.HintSize="435.2,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_1" />
+                                      <ui:ExcelWriteCell Cell="A1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="435.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[String.Format(&quot;查询区间：{0} 年 {1} 月 1 日 至 {0} 年 {1} 月 {2} 日&quot;,CheckDate.Substring(0,4),CheckDate.Substring(4,2),New DateTime(Integer.Parse(CheckDate.Substring(0,4)),Integer.Parse(CheckDate.Substring(4,2)),1).AddMonths(1).AddDays(-1).ToString(&quot;dd&quot;))]" />
                                     </Sequence>
                                   </ActivityAction>
                                 </ui:ExcelApplicationScope.Body>
                               </ui:ExcelApplicationScope>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="483.2,287.2" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="510.4,287.2" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,208.8" sap2010:WorkflowViewState.IdRef="Sequence_30">
                                     <sap:WorkflowViewStateService.ViewState>
