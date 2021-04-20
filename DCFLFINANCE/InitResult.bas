@@ -17,7 +17,7 @@ Attribute InitResult.VB_ProcData.VB_Invoke_Func = " \n14"
         .MergeCells = False
     End With
     Selection.Merge
-    Range("A3:K3").Select
+    Range("A3:L3").Select
     With Selection.Interior
         .Pattern = xlSolid
         .PatternColorIndex = xlAutomatic
@@ -25,7 +25,7 @@ Attribute InitResult.VB_ProcData.VB_Invoke_Func = " \n14"
         .TintAndShade = -0.149998474074526
         .PatternTintAndShade = 0
     End With
-    Range("A3:K6").Select
+    Range("A3:L6").Select
     Selection.Borders(xlDiagonalDown).LineStyle = xlNone
     Selection.Borders(xlDiagonalUp).LineStyle = xlNone
     With Selection.Borders(xlEdgeLeft)
@@ -64,7 +64,7 @@ Attribute InitResult.VB_ProcData.VB_Invoke_Func = " \n14"
         .TintAndShade = 0
         .Weight = xlThin
     End With
-    Range("A8:Q8").Select
+    Range("A8:S8").Select
     With Selection.Interior
         .Pattern = xlSolid
         .PatternColorIndex = xlAutomatic
