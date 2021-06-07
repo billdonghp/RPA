@@ -2,11 +2,13 @@
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_registerDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_userName" Type="InArgument(x:String)" />
+    <x:Property Name="in_password" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>758.4,1051.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1328,1097</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -68,30 +70,31 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Open and initialize application as needed.&#xA;&#xA;Pre Condition: N/A&#xA;Post Condtion: Applications opened" DisplayName="Initialization Sequence" sap:VirtualizedContainerService.HintSize="476.8,986.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Open and initialize application as needed.&#xA;&#xA;Pre Condition: N/A&#xA;Post Condtion: Applications opened" DisplayName="Initialization Sequence" sap:VirtualizedContainerService.HintSize="478,992" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log App Initialization message" sap:VirtualizedContainerService.HintSize="435.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening applications...&quot;]" />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="首页" sap:VirtualizedContainerService.HintSize="435.2,52.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="3d4c1668fde0219ae28d0d6d1f19da1f" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
+    <ui:LogMessage DisplayName="Log App Initialization message" sap:VirtualizedContainerService.HintSize="436,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening applications...&quot;]" />
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="首页" sap:VirtualizedContainerService.HintSize="436,53" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="3d4c1668fde0219ae28d0d6d1f19da1f" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,262.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="RefreshBrowser_1" />
-            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="菜单初始化" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="RefreshBrowser_1" />
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="菜单初始化" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -123,28 +126,34 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflLogin workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\DcflLogin.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflLogin workflow" sap:VirtualizedContainerService.HintSize="436,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\DcflLogin.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_dcflUrl">[in_Config("dcflUrl").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_dcflUsername">[in_Config("dcflUsername").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_dcflPassword">[in_Config("dcflPassword").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_dcflUrl">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;dcflUrl&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_dcflUsername">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_userName" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_dcflPassword">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_password" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflInit workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DCFL\DcflInit.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflInit workflow" sap:VirtualizedContainerService.HintSize="436,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DCFL\DcflInit.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:Int32" x:Key="in_years">[Integer.Parse(in_registerDate.Substring(0,4))]</InArgument>
         <InArgument x:TypeArguments="x:Int32" x:Key="in_months">[Integer.Parse(in_registerDate.Substring(4,2))]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,284.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,284" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,206.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,206" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsLogin workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CRS\CrsLogin.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsLogin workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CRS\CrsLogin.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_url">[in_Config("crsUrl").ToString]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_username">[in_Config("crsUsername").ToString]</InArgument>

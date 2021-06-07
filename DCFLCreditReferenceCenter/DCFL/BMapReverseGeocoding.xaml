@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sequence1" this:Sequence1.in_address="河南省商城县汪岗乡余新湾村余下湾" this:Sequence1.in_bmapKey="jemNm6wGOuxrCzuj8ooE8crkiT5vlZGu" this:Sequence1.in_bmapUrl="http://api.map.baidu.com/" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sequence1" this:Sequence1.in_address="高邮经济开发区兴林路北侧" this:Sequence1.in_bmapKey="jemNm6wGOuxrCzuj8ooE8crkiT5vlZGu" this:Sequence1.in_bmapUrl="http://api.map.baidu.com/" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_address" Type="InArgument(x:String)" />
     <x:Property Name="out_province" Type="OutArgument(x:String)" />
@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1170,1358</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1328,1462</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence1_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -81,11 +81,11 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BmapApi" sap:VirtualizedContainerService.HintSize="376,1253.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BmapApi" sap:VirtualizedContainerService.HintSize="376,1357" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="geoResult" />
       <Variable x:TypeArguments="njl:JObject" Name="geoJson" />
@@ -117,8 +117,9 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[geoJson]" JsonString="[geoResult]" />
-    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[geoJson]" JsonString="[geoResult]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,63" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[geoJson.ToString]" />
+    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[locStr]</OutArgument>
       </Assign.To>
@@ -126,7 +127,7 @@
         <InArgument x:TypeArguments="x:String">[geoJson("result")("location")("lat").ToString+","+geoJson("result")("location")("lng").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;经纬度：&quot;+locStr]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;经纬度：&quot;+locStr]" />
     <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request BMap" EndPoint="[in_bmapUrl+&quot;reverse_geocoding/v3/?ak=&quot;+in_bmapKey+&quot;&amp;output=json&amp;coordtype=wgs84ll&amp;location=&quot;+locStr]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="GET" Result="[revGeoResult]" TimeoutMS="6000">
       <ui:HttpClient.Attachments>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
@@ -144,8 +145,8 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[revGeoJson]" JsonString="[revGeoResult]" />
-    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[revGeoJson]" JsonString="[revGeoResult]" />
+    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[addComStr]</OutArgument>
       </Assign.To>
@@ -153,8 +154,8 @@
         <InArgument x:TypeArguments="x:String">[revGeoJson("result")("addressComponent").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[addJson]" JsonString="[addComStr]" />
-    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[addJson]" JsonString="[addComStr]" />
+    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_province]</OutArgument>
       </Assign.To>
@@ -162,7 +163,7 @@
         <InArgument x:TypeArguments="x:String">[addJson("province").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
       </Assign.To>
@@ -170,7 +171,7 @@
         <InArgument x:TypeArguments="x:String">[addJson("city").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_district]</OutArgument>
       </Assign.To>
@@ -178,6 +179,6 @@
         <InArgument x:TypeArguments="x:String">[addJson("district").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[out_province +&quot;-&quot;+out_city+&quot;-&quot;+out_district]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[out_province +&quot;-&quot;+out_city+&quot;-&quot;+out_district]" />
   </Sequence>
 </Activity>
