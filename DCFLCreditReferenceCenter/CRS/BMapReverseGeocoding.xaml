@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1328,2418</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1188,2771</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence1_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -85,7 +85,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BmapApi" sap:VirtualizedContainerService.HintSize="1025,2353" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BmapApi" sap:VirtualizedContainerService.HintSize="1198,2666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="geoResult" />
       <Variable x:TypeArguments="njl:JObject" Name="geoJson" />
@@ -101,7 +101,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request BMap" EndPoint="[in_bmapUrl+&quot;geocoding/v3/?address=&quot;+in_address.Replace(&quot;#&quot;,&quot;&quot;)+&quot;&amp;output=json&amp;ak=&quot;+in_bmapKey]" sap:VirtualizedContainerService.HintSize="983,22" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" Result="[geoResult]" TimeoutMS="6000">
+    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request BMap" EndPoint="[in_bmapUrl+&quot;geocoding/v3/?address=&quot;+in_address.Replace(&quot;#&quot;,&quot;&quot;)+&quot;&amp;output=json&amp;ak=&quot;+in_bmapKey]" sap:VirtualizedContainerService.HintSize="1156,22" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" Result="[geoResult]" TimeoutMS="6000">
       <ui:HttpClient.Attachments>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.Attachments>
@@ -118,17 +118,17 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="983,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[geoJson]" JsonString="[geoResult]" />
-    <If Condition="[&quot;0&quot;.Equals(geoJson(&quot;status&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="983,1963" sap2010:WorkflowViewState.IdRef="If_5">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1156,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[geoJson]" JsonString="[geoResult]" />
+    <If Condition="[&quot;0&quot;.Equals(geoJson(&quot;status&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="1156,2276" sap2010:WorkflowViewState.IdRef="If_5">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="526,1810" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence sap:VirtualizedContainerService.HintSize="699,2123" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap:VirtualizedContainerService.HintSize="657,61" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[locStr]</OutArgument>
             </Assign.To>
@@ -136,8 +136,8 @@
               <InArgument x:TypeArguments="x:String">[geoJson("result")("location")("lat").ToString+","+geoJson("result")("location")("lng").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,95" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;经纬度：&quot;+locStr]" />
-          <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request BMap" EndPoint="[in_bmapUrl+&quot;reverse_geocoding/v3/?ak=&quot;+in_bmapKey+&quot;&amp;output=json&amp;coordtype=wgs84ll&amp;location=&quot;+locStr]" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="GET" Result="[revGeoResult]" TimeoutMS="6000">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="657,95" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;经纬度：&quot;+locStr]" />
+          <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request BMap" EndPoint="[in_bmapUrl+&quot;reverse_geocoding/v3/?ak=&quot;+in_bmapKey+&quot;&amp;output=json&amp;coordtype=wgs84ll&amp;location=&quot;+locStr]" sap:VirtualizedContainerService.HintSize="657,22" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="GET" Result="[revGeoResult]" TimeoutMS="6000">
             <ui:HttpClient.Attachments>
               <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
             </ui:HttpClient.Attachments>
@@ -154,8 +154,8 @@
               <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
             </ui:HttpClient.UrlSegments>
           </ui:HttpClient>
-          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[revGeoJson]" JsonString="[revGeoResult]" />
-          <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="657,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[revGeoJson]" JsonString="[revGeoResult]" />
+          <Assign sap:VirtualizedContainerService.HintSize="657,61" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[addComStr]</OutArgument>
             </Assign.To>
@@ -163,73 +163,121 @@
               <InArgument x:TypeArguments="x:String">[revGeoJson("result")("addressComponent").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[addJson]" JsonString="[addComStr]" />
-          <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_3">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[out_province]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[addJson("province").ToString]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_7">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[addJson("city").ToString]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_5">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[out_district]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[addJson("district").ToString]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <If Condition="[&quot;&quot;.Equals(addJson(&quot;city&quot;).ToString) Or &quot;儋州市&quot;.Equals(addJson(&quot;city&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,214" sap2010:WorkflowViewState.IdRef="If_4">
+          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="657,61" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[addJson]" JsonString="[addComStr]" />
+          <If Condition="[&quot;澳门&quot;.Equals(addJson(&quot;province&quot;).ToString) Or &quot;香港&quot;.Equals(addJson(&quot;province&quot;).ToString) Or &quot;台湾省&quot;.Equals(addJson(&quot;province&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="657,1430" sap2010:WorkflowViewState.IdRef="If_6">
             <If.Then>
-              <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_10">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">其他</InArgument>
-                </Assign.Value>
-              </Assign>
-            </If.Then>
-          </If>
-          <If Condition="[&quot;菏泽市&quot;.Equals(addJson(&quot;city&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,214" sap2010:WorkflowViewState.IdRef="If_2">
-            <If.Then>
-              <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_6">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">荷泽市</InArgument>
-                </Assign.Value>
-              </Assign>
-            </If.Then>
-          </If>
-          <If Condition="[&quot;&quot;.Equals(addJson(&quot;district&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,306" sap2010:WorkflowViewState.IdRef="If_3">
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="305,153" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <ui:InterruptibleDoWhile Condition="[&quot;No&quot;.Equals(custConfirm)]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="412,1277" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                <ui:InterruptibleDoWhile.Body>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,1108" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;百度地图API调用失败[&quot;+in_address +&quot;]，请手动输入！&quot;]" />
+                    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,246" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="省" Title="请输入">
+                      <ui:InputDialog.Result>
+                        <OutArgument x:TypeArguments="x:String">[out_province]</OutArgument>
+                      </ui:InputDialog.Result>
+                    </ui:InputDialog>
+                    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,246" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="市" Title="请输入">
+                      <ui:InputDialog.Result>
+                        <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
+                      </ui:InputDialog.Result>
+                    </ui:InputDialog>
+                    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,246" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="详细地址" Title="请输入">
+                      <ui:InputDialog.Result>
+                        <OutArgument x:TypeArguments="x:String">[out_district]</OutArgument>
+                      </ui:InputDialog.Result>
+                    </ui:InputDialog>
+                    <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[custConfirm]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;输入的内容：&quot;+out_province +&quot;-&quot;+out_city+&quot;-&quot;+out_district]" />
+                  </Sequence>
+                </ui:InterruptibleDoWhile.Body>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_9">
+              </ui:InterruptibleDoWhile>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="200,70" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[out_district]</OutArgument>
+                    <OutArgument x:TypeArguments="x:String">[out_province]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[addJson("province").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
                     <InArgument x:TypeArguments="x:String">[addJson("city").ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_district]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[addJson("district").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[&quot;&quot;.Equals(addJson(&quot;city&quot;).ToString) Or &quot;儋州市&quot;.Equals(addJson(&quot;city&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,214" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_10">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">其他</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+                <If Condition="[&quot;菏泽市&quot;.Equals(addJson(&quot;city&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,214" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_6">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">荷泽市</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+                <If Condition="[&quot;&quot;.Equals(addJson(&quot;district&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,306" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="305,153" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_9">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[out_district]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[addJson("city").ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                </If>
               </Sequence>
-            </If.Then>
+            </If.Else>
           </If>
         </Sequence>
       </If.Then>
@@ -264,9 +312,15 @@
           <ui:InterruptibleDoWhile.Condition>
             <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="&quot;No&quot;.Equals(custConfirm)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
           </ui:InterruptibleDoWhile.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
         </ui:InterruptibleDoWhile>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="983,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[out_province +&quot;-&quot;+out_city+&quot;-&quot;+out_district]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1156,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[out_province +&quot;-&quot;+out_city+&quot;-&quot;+out_district]" />
   </Sequence>
 </Activity>
