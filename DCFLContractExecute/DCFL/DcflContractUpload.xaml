@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1227.2,2268</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1017.6,2268</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflContractUpload_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -154,7 +154,7 @@
                             <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[in_contractFolder+"\"+in_contractText+"买卖合同.pdf"]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[in_contractFolder+"\"+in_contractText+"MMHT.pdf"]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </If.Then>
@@ -164,7 +164,7 @@
                             <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[in_contractFolder+"\"+in_contractText+"融资合同.pdf"]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[in_contractFolder+"\"+in_contractText+"RZHT.pdf"]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </If.Else>

@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1328,1084.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1227.2,1364.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflPartnerDetails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -87,7 +87,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV '" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="4000" DisplayName="Click 'DIV '" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -99,25 +99,19 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a08a17a2-6899-421c-94a2-277b8c362ccc" InformativeScreenshot="7d354f74b3223e6e1865fbaa3b47409d" Selector="[&quot;&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl id='CONTRACT_PRINT_G_BP_con_contract_bp_layout_grid_id_bp_link_*' tag='DIV' tableCol='5' tableRow='&quot;+inRowIndex.ToString+&quot;' /&gt;&quot;]">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a08a17a2-6899-421c-94a2-277b8c362ccc" InformativeScreenshot="7d354f74b3223e6e1865fbaa3b47409d" Selector="[&quot;&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl id='CONTRACT_PRINT_G_BP_con_contract_bp_layout_grid_id_bp_link_*' tag='DIV' tableCol='5' tableRow='&quot;+inRowIndex.ToString+&quot;' /&gt;&quot;]" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
             <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text '联系手机号'" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="GetFullText_2">
               <ui:GetFullText.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9fc30667-353e-4979-82ee-971d5e94c045" InformativeScreenshot="a7aff0de3e058a14de20996c80f2109e" Selector="&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='input' name='cell_phone' class='item-textField' parentclass='item-input-wrap item-readOnly' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9fc30667-353e-4979-82ee-971d5e94c045" InformativeScreenshot="a7aff0de3e058a14de20996c80f2109e" Selector="&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='input' name='cell_phone' class='item-textField' parentclass='item-input-wrap item-readOnly' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:GetFullText.Target>
               <ui:GetFullText.Text>
@@ -126,13 +120,10 @@
             </ui:GetFullText>
             <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text '联系地址'" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="GetFullText_3">
               <ui:GetFullText.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9fc30667-353e-4979-82ee-971d5e94c045" InformativeScreenshot="d4babf1775ffb09d1f6d34a84d82f105" Selector="&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='input' parentclass='item-input-wrap item-readOnly' name='liv_street' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9fc30667-353e-4979-82ee-971d5e94c045" InformativeScreenshot="d4babf1775ffb09d1f6d34a84d82f105" Selector="&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='input' parentclass='item-input-wrap item-readOnly' name='liv_street' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:GetFullText.Target>
               <ui:GetFullText.Text>
@@ -143,11 +134,7 @@
               <TryCatch.Try>
                 <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="GetFullText '配偶手机号码'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetFullText_4">
                   <ui:GetFullText.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9b25fad0-95f8-44a2-ab11-dcd8d9ef2549" InformativeScreenshot="93c1d53e4b9526fbefe1a2794b286c21" Selector="&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='input' class='item-textField' name='cell_phone_sp' parentclass='item-input-wrap item-readOnly' /&gt;" TimeoutMS="3000">
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9b25fad0-95f8-44a2-ab11-dcd8d9ef2549" InformativeScreenshot="93c1d53e4b9526fbefe1a2794b286c21" Selector="&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='input' class='item-textField' name='cell_phone_sp' parentclass='item-input-wrap item-readOnly' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
                   </ui:GetFullText.Target>
                   <ui:GetFullText.Text>
                     <OutArgument x:TypeArguments="x:String">[outSpouseMobile]</OutArgument>
@@ -170,7 +157,7 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '退出'" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '退出'" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
