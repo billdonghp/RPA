@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="out_yearMonth" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1404.8,1800.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1245.6,1800.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="20">
@@ -81,7 +81,7 @@
         <OutArgument x:TypeArguments="s:DateTime">[twoMonthsBefore]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="s:DateTime">[Now.AddMonths(-2)]</InArgument>
+        <InArgument x:TypeArguments="s:DateTime">[Now.AddMonths(0)]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:MessageBox Buttons="YesNo" Caption="请确认" ChosenButton="[currConfirm]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1214.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;是否登记&quot;+twoMonthsBefore.Year.ToString()+&quot;年&quot;+twoMonthsBefore.Month.ToString+&quot;月的合同&quot;]" />
