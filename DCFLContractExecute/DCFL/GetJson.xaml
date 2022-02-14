@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1180,1201.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1304.8,1301.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -81,7 +81,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="785.6,1136.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="1. 初始化JsonString，能过Newtonsoft.Json.JsonConvert.DeserializeObject(of JObject)(initJsonStr) 反序列化对像，类型为JObject（&quot;[{},{}]&quot;  --- DataTable   DeserializeObject(of DataTable）&#xD;&#xA;2. 增加item 例：JObject.item(&quot;XXX&quot;)=11   JObject(&quot;XXX&quot;)=111" DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="785.6,1196.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="config" />
       <Variable x:TypeArguments="x:String" Name="initJsonStr" />
@@ -90,6 +90,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Assign sap:VirtualizedContainerService.HintSize="744,60" sap2010:WorkflowViewState.IdRef="Assign_2">
