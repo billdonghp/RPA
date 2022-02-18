@@ -3,7 +3,7 @@
     <x:Property Name="in_contractNo" Type="InArgument(x:String)" />
     <x:Property Name="out_dt" Type="OutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1304.8,1758.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>747.2,1718.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -172,9 +172,9 @@
                 <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:WaitUiElementVanish WaitNotActive="{x:Null}" WaitNotVisible="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_1">
+            <ui:WaitUiElementVanish WaitNotActive="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_1" WaitNotVisible="True">
               <ui:WaitUiElementVanish.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="299202ed-3d48-499f-bff2-d8a26099752e" InformativeScreenshot="48f6af2539dc1b286842b69bcb4aaca1" Selector="&lt;webctrl src='/core/modules/cont/CON1100/con_contract_execution.lview' tag='IFRAME' /&gt;&lt;webctrl tag='SPAN' aaname='正在查询数据...' innertext='正在查询数据...' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="299202ed-3d48-499f-bff2-d8a26099752e" InformativeScreenshot="48f6af2539dc1b286842b69bcb4aaca1" Selector="&lt;webctrl tag='SPAN' aaname='正在查询数据...' innertext='正在查询数据...' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
               </ui:WaitUiElementVanish.Target>
             </ui:WaitUiElementVanish>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;查询共计消耗： &quot;+((now.Minute - beginTime.Minute) * 60 +(now.Second - beginTime.Second)).ToString+ &quot;秒&quot;]" />

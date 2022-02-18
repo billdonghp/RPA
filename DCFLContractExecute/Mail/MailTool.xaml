@@ -1,16 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MailTool" this:MailTool.in_to="[{&quot;haipeng.dong@hyundai-di.com&quot;,&quot;haipeng.dong@hyundai-di.com&quot;}]" this:MailTool.in_cc="[{&quot;haipeng.dong@hyundai-di.com&quot;,&quot;haipeng.dong@hyundai-di.com&quot;}]" this:MailTool.in_from="helpdesk_cn@Hyundai-di.com" this:MailTool.in_title="[System.Net.WebUtility. UrlEncode(&quot;RPA Execute Result(重要)&quot;)]" this:MailTool.in_fileList="D:\\Contract\\Result.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/java" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uja="clr-namespace:UiPath.Java.Activities;assembly=UiPath.Java.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MailTool" this:MailTool.in_to="[{&quot;haipeng.dong@hyundai-di.com&quot;,&quot;haipeng.dong@hyundai-di.com&quot;}]" this:MailTool.in_cc="[{&quot;haipeng.dong@hyundai-di.com&quot;,&quot;haipeng.dong@hyundai-di.com&quot;}]" this:MailTool.in_from="DCFL.credit@Hyundai-di.com" this:MailTool.in_title="[System.Net.WebUtility. UrlEncode(&quot;RPA Execute Result(重要)&quot;)]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/java" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uja="clr-namespace:UiPath.Java.Activities;assembly=UiPath.Java.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_to" Type="InArgument(s:String[])" />
     <x:Property Name="in_cc" Type="InArgument(s:String[])" />
     <x:Property Name="in_from" Type="InArgument(x:String)" />
     <x:Property Name="in_title" Type="InArgument(x:String)" />
     <x:Property Name="in_content" Type="InArgument(x:String)" />
-    <x:Property Name="in_fileList" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>792.8,960.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>747.2,920.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Java_20220215_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -84,7 +83,6 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>

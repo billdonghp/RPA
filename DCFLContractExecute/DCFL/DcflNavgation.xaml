@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DcflNavgation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1304.8,902.4" sap2010:WorkflowViewState.IdRef="DcflNavgation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DcflNavgation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="747.2,959.2" sap2010:WorkflowViewState.IdRef="DcflNavgation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -55,36 +55,52 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DcflNavgation" sap:VirtualizedContainerService.HintSize="375.2,507.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DcflNavgation" sap:VirtualizedContainerService.HintSize="475.2,894.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFunctionCode workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DCFL\DcflFunctionCode.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFunctionCode workflow" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DCFL\DcflFunctionCode.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_functionCode">
-          <Literal x:TypeArguments="x:String">合同文本打印</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_functionCode">合同文本打印</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFunctionCode workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\DcflFunctionCode.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFunctionCode workflow" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\DcflFunctionCode.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_functionCode">
-          <Literal x:TypeArguments="x:String">合同执行</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_functionCode">合同执行</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '事前确认未通过'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-      <ui:Click.CursorPosition>
-        <ui:CursorPosition OffsetX="125" OffsetY="16" Position="TopLeft" />
-      </ui:Click.CursorPosition>
-      <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c3413777-371c-4d8f-ab97-59ca61632407" InformativeScreenshot="e00580cb752719a0d0eba5864671ad28" Selector="&lt;html app='msedge.exe' title='斗山融资租赁' /&gt;&lt;webctrl src='/core/modules/cont/CON1100/con_contract_execution.lview' tag='IFRAME' /&gt;&lt;webctrl aaname='事前确认未通过' tag='DIV' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
-      </ui:Click.Target>
-    </ui:Click>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'msedge.exe  斗山融资租赁'" sap:VirtualizedContainerService.HintSize="433.6,494.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="d7bb4c96fad71e4b14d51e44ce3490ba" Selector="&lt;html app='msedge.exe' title='斗山融资租赁' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,347.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:WaitUiElementVanish WaitNotActive="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_1" WaitNotVisible="True">
+              <ui:WaitUiElementVanish.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="684159f2-3fc4-4e85-9517-e93be4e98fd4" InformativeScreenshot="1d8bc587689904f5d180169021f6f659" Selector="&lt;webctrl id='ext-gen*' tag='SPAN' aaname='正在查询数据...' innertext='正在查询数据...' /&gt;" TimeoutMS="15000" WaitForReady="COMPLETE" />
+              </ui:WaitUiElementVanish.Target>
+            </ui:WaitUiElementVanish>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '事前确认未通过'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition OffsetX="125" OffsetY="16" Position="TopLeft" />
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c3413777-371c-4d8f-ab97-59ca61632407" InformativeScreenshot="e00580cb752719a0d0eba5864671ad28" Selector="&lt;webctrl src='/core/modules/cont/CON1100/con_contract_execution.lview' tag='IFRAME' /&gt;&lt;webctrl aaname='事前确认未通过' tag='DIV' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
   </Sequence>
 </Activity>
