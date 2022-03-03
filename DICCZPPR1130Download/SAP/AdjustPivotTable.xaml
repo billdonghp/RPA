@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sequence" this:Sequence.in_path="‪D:\Contract\Result_20220302.xlsx" this:Sequence.in_sheet="PivotTable" this:Sequence.in_count="3" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sequence" this:Sequence.in_path="D:\BomExplosion\20220303\Result_20220303.xlsx" this:Sequence.in_sheet="Summiarize" this:Sequence.in_count="3" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_path" Type="InArgument(x:String)" />
     <x:Property Name="in_sheet" Type="InArgument(x:String)" />
@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>913.6,902.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>888,825</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -69,17 +69,23 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AdjustPivoitTable" sap:VirtualizedContainerService.HintSize="375.2,257.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="AdjustPivoitTable" sap:VirtualizedContainerService.HintSize="376,256" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim Excel As Microsoft.Office.Interop.Excel.Application&#xA;Dim Workbook As Microsoft.Office.Interop.Excel.Workbook&#xA;Dim Worksheet As Microsoft.Office.Interop.Excel.Worksheet&#xA;Dim Range As Microsoft.Office.Interop.Excel.Range&#xA;Dim XlVAlign As Microsoft.Office.Interop.Excel.XlVAlign&#xA;Dim XlBordersIndex As Microsoft.Office.Interop.Excel.XlBordersIndex&#xA;&#xA;&#xA;Excel = New Microsoft.Office.Interop.Excel.Application&#xA;&#xA;Workbook = Excel.Workbooks.Open(in_path)&#xA;&#xA;Excel.Visible = True&#xA;&#xA;Worksheet = CType(Workbook.Sheets(in_sheet), Microsoft.Office.Interop.Excel.Worksheet)&#xA;&#xA;Worksheet.Activate&#xA;&#xA;Range = Worksheet.Range(in_range)&#xA;&#xA;Range.Columns.EntireColumn.Autofit()&#xA;Range.RowHeight = 25.5&#xA;&#xA;Range.VerticalAlignment = XlVAlign.xlVAlignCenter&#xA;Range.Interior.ColorIndex = 15&#xA;&#xA;Range.Borders().LineStyle = 1&#xA;&#xA;Workbook.Save&#xA;&#xA;Workbook.Close&#xA;Excel.Quit" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim Excel As Microsoft.Office.Interop.Excel.Application&#xD;&#xA;Dim Workbook As Microsoft.Office.Interop.Excel.Workbook&#xD;&#xA;Dim Worksheet As Microsoft.Office.Interop.Excel.Worksheet&#xD;&#xA;Dim Range As Microsoft.Office.Interop.Excel.Range&#xD;&#xA;Dim XlVAlign As Microsoft.Office.Interop.Excel.XlVAlign&#xD;&#xA;Dim XlBordersIndex As Microsoft.Office.Interop.Excel.XlBordersIndex&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Excel = New Microsoft.Office.Interop.Excel.Application&#xD;&#xA;Workbook = Excel.Workbooks.Open(path)&#xD;&#xA;Excel.Visible = True&#xD;&#xA;&#xD;&#xA;Worksheet = CType(Workbook.Sheets(sheet), Microsoft.Office.Interop.Excel.Worksheet)&#xD;&#xA;Worksheet.Activate&#xD;&#xA;&#xD;&#xA;Range = Worksheet.Range(columnName)&#xD;&#xA;Range.Columns.EntireColumn.Autofit()&#xD;&#xA;Range.RowHeight = 25.5&#xD;&#xA;Range.VerticalAlignment = XlVAlign.xlVAlignCenter&#xD;&#xA;Range.Interior.ColorIndex = 15&#xD;&#xA;Range.Borders().LineStyle = 1&#xD;&#xA;&#xD;&#xA;Workbook.Save&#xD;&#xA;Workbook.Close&#xD;&#xA;Excel.Quit" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
       <ui:InvokeCode.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_path">[in_path]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_sheet">[in_sheet]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_range">["A1:"+chr(74+in_count).ToString+"1"]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="path">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_path" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="sheet">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_sheet" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="columnName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;A1:&quot;+chr(74+in_count).ToString+&quot;1&quot;" />
+        </InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
   </Sequence>

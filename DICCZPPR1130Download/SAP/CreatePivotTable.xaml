@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>892,2991</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>888,2991</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -299,7 +299,7 @@
       </ui:ForEach.Body>
     </ui:ForEach>
     <d:ShowMessage ColorTheme="Blue" DisplayName="Show Mesage" FontSize="9" sap:VirtualizedContainerService.HintSize="419,91" sap2010:WorkflowViewState.IdRef="ShowMessage_1" Message="[&quot;正在写入结果集!&quot;]" Title="[&quot;提示&quot;]" WindowPosition="BottomRight" />
-    <ui:WriteRange AddHeaders="True" DataTable="[dt_new]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="419,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="PivotTable" StartingCell="A1" WorkbookPath="[in_fileName]" />
+    <ui:WriteRange AddHeaders="True" DataTable="[dt_new]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="419,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Summiarize" StartingCell="A1" WorkbookPath="[in_fileName]" />
     <d:CloseWindow DisplayName="Close Notification Window" sap:VirtualizedContainerService.HintSize="419,22" sap2010:WorkflowViewState.IdRef="CloseWindow_1" />
   </Sequence>
 </Activity>

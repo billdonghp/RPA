@@ -3,7 +3,7 @@
   "description": "BOM Explosion",
   "main": "Main.xaml",
   "dependencies": {
-    "Microsoft.Office.Interop.Excel": "[15.0.4795.1000]",
+    "Microsoft.Office.Interop.Excel": "[14.0.0.1]",
     "Miyag.UiPath.DesktopNotification.Activities": "[1.1.0]",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "[2.9.3]",
@@ -18,7 +18,9 @@
   "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
+    "netFrameworkLazyLoading": false,
     "isPausable": true,
+    "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "excludedLoggedData": [
@@ -27,7 +29,8 @@
     ],
     "executionType": "Workflow",
     "readyForPiP": false,
-    "startsInPiP": false
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -53,5 +56,6 @@
   ],
   "isTemplate": false,
   "templateProjectData": {},
-  "publishData": {}
+  "publishData": {},
+  "targetFramework": "Legacy"
 }
