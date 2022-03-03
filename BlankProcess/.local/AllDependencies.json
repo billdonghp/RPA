@@ -178,6 +178,15 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
+        "type": "package",
+        "compile": {
+          "lib/net20/_._": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.Excel.dll": {}
+        }
+      },
       "Microsoft.Rest.ClientRuntime/2.3.20": {
         "type": "package",
         "dependencies": {
@@ -931,6 +940,18 @@
         "runtime.json"
       ]
     },
+    "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
+      "sha512": "DfceS96ustwfL8EOJNNRtpk6b0RylhjNpgeeemuvi9X4GYks2UTeAimjSrdFEfuqRo5ibZ4Sd0gJIeDr9gMa6Q==",
+      "type": "package",
+      "path": "microsoft.office.interop.excel/15.0.4795.1000",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.Office.Interop.Excel.dll",
+        "microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512",
+        "microsoft.office.interop.excel.nuspec"
+      ]
+    },
     "Microsoft.Rest.ClientRuntime/2.3.20": {
       "sha512": "bw/H1nO4JdnhTagPHWIFQwtlQ6rb2jqw5RTrqPsPqzrjhJxc7P6MyNGdf4pgHQdzdpBSNOfZTEQifoUkxmzYXQ==",
       "type": "package",
@@ -1638,6 +1659,7 @@
     "": [],
     ".NETFramework,Version=v4.6.1": [
       "GroovyMp3 >= 0.1.3 <= 0.1.3",
+      "Microsoft.Office.Interop.Excel >= 15.0.4795.1000 <= 15.0.4795.1000",
       "Miyag.UiPath.DesktopNotification.Activities >= 1.1.0 <= 1.1.0",
       "UiPath.Excel.Activities >= 2.6.2 <= 2.6.2",
       "UiPath.Java.Activities >= 1.3.1 <= 1.3.1",
@@ -1666,6 +1688,11 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[0.1.3, 0.1.3]"
+          },
+          "Microsoft.Office.Interop.Excel": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[15.0.4795.1000, 15.0.4795.1000]"
           },
           "Miyag.UiPath.DesktopNotification.Activities": {
             "include": "Runtime",
@@ -1710,5 +1737,14 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Office.Interop.Excel 15.0.4795.1000' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
+      "libraryId": "Microsoft.Office.Interop.Excel"
+    }
+  ]
 }

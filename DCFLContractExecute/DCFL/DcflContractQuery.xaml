@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1304.8,1725.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>842.4,2020</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflContractQuery_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -69,20 +69,20 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DcflContractQuery" sap:VirtualizedContainerService.HintSize="636.8,1660.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DcflContractQuery" sap:VirtualizedContainerService.HintSize="636.8,1955.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="595.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;合同文本打印查询&quot;]" />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '    Page'" sap:VirtualizedContainerService.HintSize="595.2,1435.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="d13a204df661d8ac71bdcd4937fa7b54" Selector="&lt;html app='msedge.exe' title='斗山融资租赁' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '    Page'" sap:VirtualizedContainerService.HintSize="595.2,1729.6" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="d13a204df661d8ac71bdcd4937fa7b54" Selector="&lt;html app='msedge.exe' title='斗山融资租赁' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="561.6,1288" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="561.6,1582.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -93,6 +93,21 @@
                 <InArgument x:TypeArguments="x:String" x:Key="in_functionCode">合同文本打印</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '重置'" sap:VirtualizedContainerService.HintSize="520,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="564f2fa6-af56-49e0-80f4-15c679b789a2" InformativeScreenshot="2b74859e39cb7aa1f78a7898550da9ce" Selector="&lt;webctrl src='/core/modules/cont/CON311/con_re_print_entrance.lview?layout_cod*' tag='IFRAME' /&gt;&lt;webctrl tag='DIV' aaname='重置' innertext='重置' /&gt;" TimeoutMS="5000" WaitForReady="COMPLETE" />
+              </ui:Click.Target>
+            </ui:Click>
             <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="520,516" sap2010:WorkflowViewState.IdRef="TryCatch_2">
               <TryCatch.Variables>
                 <Variable x:TypeArguments="s:Exception" Name="ex" />
@@ -213,6 +228,11 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
+            <ui:WaitUiElementVanish WaitNotActive="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="520,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_1" WaitNotVisible="True">
+              <ui:WaitUiElementVanish.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="684159f2-3fc4-4e85-9517-e93be4e98fd4" InformativeScreenshot="1d8bc587689904f5d180169021f6f659" Selector="&lt;webctrl id='ext-gen*' tag='SPAN' aaname='正在查询数据...' innertext='正在查询数据...' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
+              </ui:WaitUiElementVanish.Target>
+            </ui:WaitUiElementVanish>
             <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[out_dt]" DisplayName="Extract Structured Data '合同文本打印'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='tr'/&gt;&lt;/row&gt;&lt;column exact='1' name='contractNo' attr='text'&gt;&lt;webctrl tag='tr'/&gt;&lt;webctrl tag='td' idx='1'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;webctrl tag='span' idx='1'/&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='text'&gt;&lt;webctrl tag='tr'/&gt;&lt;webctrl tag='td' idx='4'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;webctrl tag='span' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="520,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
               <ui:ExtractData.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e8cc86f1-64e0-49cd-8350-98feffd6171e" InformativeScreenshot="71bea51e134344f9cdb39385fddf379a" Selector="&lt;webctrl id='ext-gen214' tag='DIV' /&gt;" WaitForReady="COMPLETE">
