@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1580,4226.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1404.8,4226.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -75,9 +75,10 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>UiPath.Java.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1590.4,4121.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1415.2,4121.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -85,13 +86,13 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1548.8,3860" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1373.6,3860" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1499.2,3711.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1324,3711.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="FailDataTable" />
               <Variable x:TypeArguments="x:Boolean" Name="modifyExists" />
@@ -104,14 +105,14 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1457.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[row(&quot;合同编号&quot;).ToString+&quot; begin Transaction-1&quot;]" />
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflContractQuery workflow" sap:VirtualizedContainerService.HintSize="1457.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\DcflContractQuery.xaml">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1282.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[row(&quot;合同编号&quot;).ToString+&quot; begin Transaction-1&quot;]" />
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflContractQuery workflow" sap:VirtualizedContainerService.HintSize="1282.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\DcflContractQuery.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt">[printDataTable]</OutArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_contractNo">[row("合同编号").ToString]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <If Condition="[printDataTable.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1457.6,1523.2" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[printDataTable.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1282.4,1523.2" sap2010:WorkflowViewState.IdRef="If_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -172,7 +173,9 @@
                       </ui:InterruptibleDoWhile>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflContractDownload workflow" sap:VirtualizedContainerService.HintSize="577.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="DCFL\DcflContractDownload.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">
+                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32(in_Config(&quot;networkState&quot;).ToString)" />
+                          </InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <If Condition="[File.Exists(in_contractFolder+&quot;\&quot;+row(&quot;合同号文件&quot;).ToString+&quot;MMHT.pdf&quot;) AndAlso File.Exists(in_contractFolder+&quot;\&quot;+row(&quot;合同号文件&quot;).ToString+&quot;RZHT.pdf&quot;)]" DisplayName="判断融资、买卖合同是否存在" sap:VirtualizedContainerService.HintSize="577.6,263.2" sap2010:WorkflowViewState.IdRef="If_5">
@@ -185,8 +188,15 @@
                         <If.Then>
                           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflContractUpload workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="DCFL\DcflContractUpload.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_contractFolder">[in_contractFolder]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_contractText">[row("合同号文件").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_contractFolder">
+                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_contractFolder" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_contractText">
+                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row(&quot;合同号文件&quot;).ToString" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">
+                                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32(in_Config(&quot;networkState&quot;).ToString)" />
+                              </InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
                         </If.Then>
@@ -268,14 +278,14 @@
                 </ui:LogMessage>
               </If.Else>
             </If>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1457.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[row(&quot;合同编号&quot;).ToString+&quot;begin Transaction-2&quot;]" />
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflContractExecute workflow" sap:VirtualizedContainerService.HintSize="1457.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DCFL\DcflContractExecute.xaml">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1282.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[row(&quot;合同编号&quot;).ToString+&quot;begin Transaction-2&quot;]" />
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflContractExecute workflow" sap:VirtualizedContainerService.HintSize="1282.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DCFL\DcflContractExecute.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt">[FailDataTable]</OutArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_contractNo">[row("合同编号").ToString]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <If Condition="[FailDataTable.Rows.Count &gt; 0 AndAlso FailDataTable.Select(&quot;yesOrNo = '否'&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1457.6,892.8" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[FailDataTable.Rows.Count &gt; 0 AndAlso FailDataTable.Select(&quot;yesOrNo = '否'&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1282.4,892.8" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -403,14 +413,14 @@
                 </ui:LogMessage>
               </If.Else>
             </If>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1457.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[row(&quot;合同编号&quot;).ToString+&quot;begin Transaction-3&quot;]" />
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLDuringTheMonth workflow" sap:VirtualizedContainerService.HintSize="1457.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="DCFL\DCFLDuringTheMonth.xaml">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1282.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[row(&quot;合同编号&quot;).ToString+&quot;begin Transaction-3&quot;]" />
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLDuringTheMonth workflow" sap:VirtualizedContainerService.HintSize="1282.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="DCFL\DCFLDuringTheMonth.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_contractNo">[row("合同编号").ToString]</InArgument>
                 <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt">[currDataTable]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <If Condition="[currDataTable.Rows.Count &gt; 0 AndAlso row(&quot;合同编号&quot;).equals(currDataTable.rows.item(0).item(&quot;contractNo&quot;))]" sap:VirtualizedContainerService.HintSize="1457.6,263.2" sap2010:WorkflowViewState.IdRef="If_6">
+            <If Condition="[currDataTable.Rows.Count &gt; 0 AndAlso row(&quot;合同编号&quot;).equals(currDataTable.rows.item(0).item(&quot;contractNo&quot;))]" sap:VirtualizedContainerService.HintSize="1282.4,263.2" sap2010:WorkflowViewState.IdRef="If_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -420,9 +430,18 @@
               <If.Then>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflContractFileUpload workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="DCFL\DcflContractFileUpload.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_contractFolder">[in_contractFolder]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_contractText">[row("合同号文件").ToString]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_machinePin">[row("设备PIN码").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_contractFolder">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_contractFolder" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_contractText">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row(&quot;合同号文件&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_machinePin">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row(&quot;设备PIN码&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">
+                      <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32(in_Config(&quot;networkState&quot;).ToString)" />
+                    </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </If.Then>
@@ -447,7 +466,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <If Condition="[File.Exists(&quot;d:\Contract\Result_&quot;+Now.ToString(&quot;yyyyMMdd&quot;)+&quot;.xlsx&quot;)]" sap:VirtualizedContainerService.HintSize="1548.8,52.8" sap2010:WorkflowViewState.IdRef="If_7">
+    <If Condition="[File.Exists(&quot;d:\Contract\Result_&quot;+Now.ToString(&quot;yyyyMMdd&quot;)+&quot;.xlsx&quot;)]" sap:VirtualizedContainerService.HintSize="1373.6,52.8" sap2010:WorkflowViewState.IdRef="If_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
