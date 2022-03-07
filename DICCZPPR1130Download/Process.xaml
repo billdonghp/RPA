@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1220,2188.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>888,3203</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -74,9 +75,11 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>DesktopNotification</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="617.6,2084" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="618,3138" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="downFileName" />
       <Variable x:TypeArguments="x:String" Name="resultFileName" />
@@ -89,20 +92,20 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,1624" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,2119" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,1475.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,1968" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <d:ShowProgressBar ColorTheme="Blue" DisplayName="Show ProgressBar" FontSize="9" sap:VirtualizedContainerService.HintSize="483.2,120" sap2010:WorkflowViewState.IdRef="ShowProgressBar_1" Message="[&quot;开始下载 Material:&quot; + row(&quot;Material&quot;).ToString]" ProgressPercentage="[Convert.ToInt32(in_TransactionItem.Rows.indexOf(row) /  in_TransactionItem.Rows.Count * 100)]" Title="[&quot;BOM Explosion 进度&quot;]" WindowPosition="BottomRight" />
-            <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <d:ShowProgressBar ColorTheme="Blue" DisplayName="Show ProgressBar" FontSize="9" sap:VirtualizedContainerService.HintSize="484,120" sap2010:WorkflowViewState.IdRef="ShowProgressBar_1" Message="[&quot;开始下载 Material:&quot; + row(&quot;Material&quot;).ToString]" ProgressPercentage="[Convert.ToInt32(in_TransactionItem.Rows.indexOf(row) /  in_TransactionItem.Rows.Count * 100)]" Title="[&quot;BOM Explosion 进度&quot;]" WindowPosition="BottomRight" />
+            <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[downFileName]</OutArgument>
               </Assign.To>
@@ -110,7 +113,7 @@
                 <InArgument x:TypeArguments="x:String">["D:\BomExplosion\"+Now.toString("yyyyMMdd")+"\"+row("Material").ToString+"_"+DateTime.parse(row("ValidFrom").ToString).toString("yyyyMMdd")+".xlsx"]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[resultFileName]</OutArgument>
               </Assign.To>
@@ -118,7 +121,7 @@
                 <InArgument x:TypeArguments="x:String">[downFileName.Substring(0,downFileName.LastIndexOf("\"))+"\Result_"+Now.ToString("yyyyMMdd")+".xlsx"]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[in_TransactionItem.Rows.IndexOf(row) = 0 AndAlso File.Exists(resultFileName)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[in_TransactionNumber = 1 AndAlso in_TransactionItem.Rows.IndexOf(row) = 0 AndAlso File.Exists(resultFileName)]" sap:VirtualizedContainerService.HintSize="484,275" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -126,10 +129,10 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[resultFileName]" />
+                <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="284,81" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[resultFileName]" />
               </If.Then>
             </If>
-            <If Condition="[String.IsNullOrEmpty(row(&quot;IsDownload&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="483.2,234.4" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[String.IsNullOrEmpty(row(&quot;IsDownload&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,254" sap2010:WorkflowViewState.IdRef="If_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -137,10 +140,10 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_1" />
               </If.Then>
               <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -149,15 +152,8 @@
                 </Sequence>
               </If.Else>
             </If>
-            <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int32">[downCount]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[downCount + 1]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke BOMDownload workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SAP\BOMDownload.xaml">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;开始下载 Material:&quot; + row(&quot;Material&quot;).ToString]" />
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke BOMDownload workflow" sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SAP\BOMDownload.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_filename">[downFileName]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_material">[row("Material").ToString]</InArgument>
@@ -167,13 +163,23 @@
                 <InArgument x:TypeArguments="x:String" x:Key="in_isSum">[row("Summerized").ToString]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <d:ShowMessage ColorTheme="Blue" DisplayName="Show Mesage" FontSize="9" sap:VirtualizedContainerService.HintSize="483.2,91.2" sap2010:WorkflowViewState.IdRef="ShowMessage_1" Message="[&quot;开始整理：&quot;+ row(&quot;Material&quot;).ToString + &quot;, 请稍等!&quot;]" Title="[&quot;提示&quot;]" WindowPosition="BottomRight" />
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CreateResult workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SAP\CreateResult.xaml">
+            <d:ShowMessage ColorTheme="Blue" DisplayName="Show Mesage" FontSize="9" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="ShowMessage_1" Message="[&quot;开始整理：&quot;+ row(&quot;Material&quot;).ToString + &quot;, 请稍等!&quot;]" Title="[&quot;提示&quot;]" WindowPosition="BottomRight" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,95" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;开始整理 Material:&quot; + row(&quot;Material&quot;).ToString]" />
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CreateResult workflow" sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SAP\CreateResult.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_resultFileName">[resultFileName]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_downFileName">[downFileName]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,95" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;完成 Material:&quot; + row(&quot;Material&quot;).ToString]" />
+            <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[row("IsDownload")]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Object">[Nothing]</InArgument>
+              </Assign.Value>
+            </Assign>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
@@ -184,17 +190,50 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SummarizeBySort workflow" sap:VirtualizedContainerService.HintSize="576,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="SAP\CreatePivotTable.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[resultFileName]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Sequence workflow" sap:VirtualizedContainerService.HintSize="576,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="SAP\AdjustPivotTable.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_path">[resultFileName]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_sheet">Summiarize</InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_count">[downCount]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
+    <If Condition="[in_TransactionNumber &gt; 1]" sap:VirtualizedContainerService.HintSize="576,824" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,630" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SummarizeBySort workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="SAP\CreatePivotTable.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_fileName">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="resultFileName" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="out_columnsCount">
+                <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="downCount" />
+              </OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;完成数据透视表&quot;]" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Sequence workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="SAP\AdjustPivotTable.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_path">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="resultFileName" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_sheet">
+                <Literal x:TypeArguments="x:String">Summarize</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_count">
+                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="downCount" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;完成数据透视表格式调整&quot;]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
   </Sequence>
 </Activity>

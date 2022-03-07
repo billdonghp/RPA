@@ -54,24 +54,6 @@
     },
     {
       "Package": {
-        "Id": "UiPath.Mail.Activities",
-        "Version": "1.5.0"
-      },
-      "Assemblies": [
-        "C:\\Users\\20120262\\.nuget\\packages\\bouncycastle/1.8.1\\lib/BouncyCastle.Crypto.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\interop.domino.dll/1.0.0\\lib/Interop.Domino.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\microsoft.exchange.webservices/2.2.0\\lib/40/Microsoft.Exchange.WebServices.Auth.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\microsoft.exchange.webservices/2.2.0\\lib/40/Microsoft.Exchange.WebServices.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities/1.5.0\\lib/net452/MailKit.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities/1.5.0\\lib/net452/MimeKit.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities/1.5.0\\lib/net452/UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities/1.5.0\\lib/net452/UiPath.Mail.Activities.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities/1.5.0\\lib/net452/UiPath.Mail.dll"
-      ],
-      "Path": "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities\\1.5.0"
-    },
-    {
-      "Package": {
         "Id": "UiPath.System.Activities",
         "Version": "20.10.1"
       },
@@ -224,11 +206,6 @@
       "Version": "5.0.3",
       "Dependencies": []
     },
-    "BouncyCastle": {
-      "Id": "BouncyCastle",
-      "Version": "1.8.1",
-      "Dependencies": []
-    },
     "ClosedXML": {
       "Id": "ClosedXML",
       "Version": "0.87.1",
@@ -262,11 +239,6 @@
     "Humanizer.Core": {
       "Id": "Humanizer.Core",
       "Version": "2.4.2",
-      "Dependencies": []
-    },
-    "interop.domino.dll": {
-      "Id": "interop.domino.dll",
-      "Version": "1.0.0",
       "Dependencies": []
     },
     "Microsoft.AspNet.SignalR.Client": {
@@ -424,11 +396,6 @@
           "Item2": "[4.5.4, )"
         }
       ]
-    },
-    "Microsoft.Exchange.WebServices": {
-      "Id": "Microsoft.Exchange.WebServices",
-      "Version": "2.2.0",
-      "Dependencies": []
     },
     "Microsoft.Extensions.Configuration": {
       "Id": "Microsoft.Extensions.Configuration",
@@ -777,24 +744,6 @@
         }
       ]
     },
-    "UiPath.Mail.Activities": {
-      "Id": "UiPath.Mail.Activities",
-      "Version": "1.5.0",
-      "Dependencies": [
-        {
-          "Item1": "Microsoft.Exchange.WebServices",
-          "Item2": "[2.2.0, )"
-        },
-        {
-          "Item1": "BouncyCastle",
-          "Item2": "[1.8.1, )"
-        },
-        {
-          "Item1": "interop.domino.dll",
-          "Item2": "[1.0.0, )"
-        }
-      ]
-    },
     "UiPath.OCR.Activities": {
       "Id": "UiPath.OCR.Activities",
       "Version": "2.4.0",
@@ -1024,16 +973,6 @@
     },
     {
       "Package": {
-        "Id": "BouncyCastle",
-        "Version": "1.8.1"
-      },
-      "Assemblies": [
-        "C:\\Users\\20120262\\.nuget\\packages\\bouncycastle\\1.8.1\\lib\\BouncyCastle.Crypto.dll"
-      ],
-      "Path": "C:\\Users\\20120262\\.nuget\\packages\\bouncycastle\\1.8.1"
-    },
-    {
-      "Package": {
         "Id": "ClosedXML",
         "Version": "0.87.1"
       },
@@ -1095,16 +1034,6 @@
         "C:\\Users\\20120262\\.nuget\\packages\\humanizer.core\\2.4.2\\lib\\netstandard2.0\\Humanizer.dll"
       ],
       "Path": "C:\\Users\\20120262\\.nuget\\packages\\humanizer.core\\2.4.2"
-    },
-    {
-      "Package": {
-        "Id": "interop.domino.dll",
-        "Version": "1.0.0"
-      },
-      "Assemblies": [
-        "C:\\Users\\20120262\\.nuget\\packages\\interop.domino.dll\\1.0.0\\lib\\Interop.Domino.dll"
-      ],
-      "Path": "C:\\Users\\20120262\\.nuget\\packages\\interop.domino.dll\\1.0.0"
     },
     {
       "Package": {
@@ -1205,17 +1134,6 @@
         "C:\\Users\\20120262\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\lib\\net461\\Microsoft.Bcl.AsyncInterfaces.dll"
       ],
       "Path": "C:\\Users\\20120262\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1"
-    },
-    {
-      "Package": {
-        "Id": "Microsoft.Exchange.WebServices",
-        "Version": "2.2.0"
-      },
-      "Assemblies": [
-        "C:\\Users\\20120262\\.nuget\\packages\\microsoft.exchange.webservices\\2.2.0\\lib\\40\\Microsoft.Exchange.WebServices.Auth.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\microsoft.exchange.webservices\\2.2.0\\lib\\40\\Microsoft.Exchange.WebServices.dll"
-      ],
-      "Path": "C:\\Users\\20120262\\.nuget\\packages\\microsoft.exchange.webservices\\2.2.0"
     },
     {
       "Package": {
@@ -1561,20 +1479,6 @@
         "C:\\Users\\20120262\\.nuget\\packages\\uipath.excel.activities\\2.9.3\\lib\\net461\\UiPath.Excel.dll"
       ],
       "Path": "C:\\Users\\20120262\\.nuget\\packages\\uipath.excel.activities\\2.9.3"
-    },
-    {
-      "Package": {
-        "Id": "UiPath.Mail.Activities",
-        "Version": "1.5.0"
-      },
-      "Assemblies": [
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities\\1.5.0\\lib\\net452\\MailKit.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities\\1.5.0\\lib\\net452\\MimeKit.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities\\1.5.0\\lib\\net452\\UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities\\1.5.0\\lib\\net452\\UiPath.Mail.Activities.dll",
-        "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities\\1.5.0\\lib\\net452\\UiPath.Mail.dll"
-      ],
-      "Path": "C:\\Users\\20120262\\.nuget\\packages\\uipath.mail.activities\\1.5.0"
     },
     {
       "Package": {
