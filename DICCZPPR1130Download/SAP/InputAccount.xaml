@@ -3,7 +3,7 @@
     <x:Property Name="out_InputUser" Type="OutArgument(x:String)" />
     <x:Property Name="out_InputPw" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>888,1049</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1133,1049</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -83,12 +83,12 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,246" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="用户名" Title="请输入">
+          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,246" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="DooIns_用户名" Title="请输入">
             <ui:InputDialog.Result>
               <OutArgument x:TypeArguments="x:String">[out_InputUser]</OutArgument>
             </ui:InputDialog.Result>
           </ui:InputDialog>
-          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,246" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="密码" Title="请输入">
+          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,246" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="DooIns_密码" Title="请输入">
             <ui:InputDialog.Result>
               <OutArgument x:TypeArguments="x:String">[out_InputPw]</OutArgument>
             </ui:InputDialog.Result>
