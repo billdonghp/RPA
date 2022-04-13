@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sequence5" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1220,1774.4" sap2010:WorkflowViewState.IdRef="Sequence5_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sequence5" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1220,2012" sap2010:WorkflowViewState.IdRef="Sequence5_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
@@ -62,16 +62,12 @@
       <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence5" sap:VirtualizedContainerService.HintSize="1192.8,1669.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sequence5" sap:VirtualizedContainerService.HintSize="476.8,1907.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt1" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt2" />
       <Variable x:TypeArguments="x:Int32" Name="rIndex" />
-      <Variable x:TypeArguments="x:Int32" Name="i">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="i" />
       <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of String)]" Name="materials" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -80,9 +76,9 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1151.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[now.ToString+ &quot;      s&quot;]" />
-    <ui:ReadRange AddHeaders="True" DataTable="[dt1]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1151.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1" SheetName="Sheet1" WorkbookPath="D:\BomExplosion\MaterialList.xlsx" />
-    <Assign sap:VirtualizedContainerService.HintSize="1151.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="435.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[now.ToString+ &quot;      s&quot;]" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt1]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="435.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1" SheetName="Sheet1" WorkbookPath="D:\BomExplosion\MaterialList.xlsx" />
+    <Assign sap:VirtualizedContainerService.HintSize="435.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[dt2]</OutArgument>
       </Assign.To>
@@ -90,13 +86,70 @@
         <InArgument x:TypeArguments="sd:DataTable">[dt1]</InArgument>
       </Assign.Value>
     </Assign>
-    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="1151.2,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
-      <InvokeMethod.TargetObject>
-        <InArgument x:TypeArguments="sd:DataColumnCollection">[dt2.Columns]</InArgument>
-      </InvokeMethod.TargetObject>
-      <InArgument x:TypeArguments="x:String">IsCreate</InArgument>
-    </InvokeMethod>
-    <Parallel sap:VirtualizedContainerService.HintSize="1151.2,861.6" sap2010:WorkflowViewState.IdRef="Parallel_1">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each Material As String  In dt.Select(&quot;1=1&quot;).GroupBy(Function(r) r(&quot;Material&quot;).toString).Select(Function(r) r.key)&#xD;&#xA;&#x9;If dt.Select(&quot;Material = '&quot;+Material+&quot;'&quot;).Count = 1 Then&#xD;&#xA;&#x9;&#x9;dt.Columns.Add(Material,System.Type.GetType(&quot;System.Double&quot;))&#x9;&#xD;&#xA;&#x9;Else&#xD;&#xA;&#x9;&#x9;&#x9;For Each ValidFrom As String In dt.Select(&quot;Material = '&quot;+Material+&quot;'&quot;).GroupBy(Function(r) r(&quot;ValidFrom&quot;).toString).Select(Function(r) r.key)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;dt.Columns.add(Material+&quot;_&quot;+DateTime.Parse(ValidFrom).toString(&quot;yyyyMMdd&quot;),System.Type.GetType(&quot;System.Double&quot;))&#xD;&#xA;&#x9;&#x9;&#x9;Next ValidFrom&#xD;&#xA;&#x9;End If&#x9;&#x9;&#xD;&#xA;Next Material&#xD;&#xA;&#xD;&#xA;dt.Columns.Add(&quot;newColumn&quot;,System.Type.GetType(&quot;System.Double&quot;))&#xD;&#xA;&#xD;&#xA;For Each  dr As DataRow  In dt.Rows&#xD;&#xA;dr(&quot;newColumn&quot;) = 1.1&#xD;&#xA;Next dr" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="435.2,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt">[dt2]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,306.4" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="286.4,228" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="244.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="">
+            <InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="sd:DataColumn">[dt2.Columns.Add("aa", System.Type.GetType("System.Int32"))]</InArgument>
+            </InvokeMethod.TargetObject>
+          </InvokeMethod>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,472.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="396,394.4" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt2]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="354.4,301.6" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304.8,152.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[row("aa")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+          </ui:ForEachRow>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:WriteRange AddHeaders="True" DataTable="[dt2]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="435.2,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="d:\re.xlsx" />
+    <Parallel sap:VirtualizedContainerService.HintSize="435.2,52.8" sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <Sequence sap:VirtualizedContainerService.HintSize="366.4,815.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -168,8 +221,8 @@
         </DoWhile>
       </Sequence>
     </Parallel>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1151.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[now.ToString+ &quot;e&quot;]" />
-    <Sequence DisplayName="Desktop" sap:VirtualizedContainerService.HintSize="1151.2,68.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="435.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[now.ToString+ &quot;e&quot;]" />
+    <Sequence DisplayName="Desktop" sap:VirtualizedContainerService.HintSize="435.2,68.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
