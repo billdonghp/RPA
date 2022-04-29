@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="in_resultFileName" Type="InArgument(x:String)" />
     <x:Property Name="in_downFileName" Type="InArgument(x:String)" />
+    <x:Property Name="in_isFilter" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1072,1968</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1220,2520.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence1_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -74,10 +75,9 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateResult" sap:VirtualizedContainerService.HintSize="604,1903" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreateResult" sap:VirtualizedContainerService.HintSize="754.4,2456" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt" />
     </Sequence.Variables>
@@ -86,15 +86,15 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="562,324" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="712.8,478.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <ui:ReadRange AddHeaders="False" DataTable="[dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1" SheetName="Sheet1" WorkbookPath="[in_downFileName]" />
+        <ui:ReadRange AddHeaders="False" DataTable="[dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1" SheetName="Sheet1" WorkbookPath="[in_downFileName]" />
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,23" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,313.6" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -102,22 +102,22 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,355" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence sap:VirtualizedContainerService.HintSize="375.2,243.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel" />
-              <ui:ReadRange AddHeaders="False" DataTable="[dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="A1" SheetName="Sheet1" WorkbookPath="[in_downFileName]" />
+              <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel" />
+              <ui:ReadRange AddHeaders="False" DataTable="[dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="A1" SheetName="Sheet1" WorkbookPath="[in_downFileName]" />
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <If Condition="[dt.Rows.Count&gt;1]" sap:VirtualizedContainerService.HintSize="562,1447" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dt.Rows.Count&gt;1]" sap:VirtualizedContainerService.HintSize="712.8,1844.8" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="526,1253" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="564.8,1695.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="fileName" />
           </Sequence.Variables>
@@ -126,64 +126,46 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Sequence3 workflow" sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SAP\CreateResultTemplate.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Sequence3 workflow" sap:VirtualizedContainerService.HintSize="523.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SAP\CreateResultTemplate.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[in_resultFileName]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <If Condition="[dt.Select(&quot;Column17='Yes'&quot;).Count &gt;0]" sap:VirtualizedContainerService.HintSize="484,309" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[&quot;Yes&quot;.Equals(in_isFilter) AndAlso dt.Select(&quot;Column17='Yes'&quot;).Count &gt;0]" sap:VirtualizedContainerService.HintSize="523.2,265.6" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
-              <ui:AppendRange DataTable="[dt.Select(&quot;Column17='Yes'&quot;).CopyToDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="BBulk" WorkbookPath="[in_resultFileName]" />
+              <ui:AppendRange DataTable="[dt.Select(&quot;Column17='Yes'&quot;).CopyToDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="BBulk" WorkbookPath="[in_resultFileName]" />
             </If.Then>
-            <If.Else>
-              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </Sequence>
-            </If.Else>
           </If>
-          <If Condition="[dt.Select(&quot;Column13='E'&quot;).Where(function(x)  String.IsNullOrEmpty(x(&quot;Column14&quot;).toString)).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="484,309" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[&quot;Yes&quot;.Equals(in_isFilter) AndAlso dt.Select(&quot;Column13='E'&quot;).Where(function(x)  String.IsNullOrEmpty(x(&quot;Column14&quot;).toString)).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="523.2,265.6" sap2010:WorkflowViewState.IdRef="If_3">
             <If.Then>
-              <ui:AppendRange DataTable="[dt.Select(&quot;Column13='E'&quot;).Where(function(x)  String.IsNullOrEmpty(x(&quot;Column14&quot;).toString)).CopyToDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="ProcType" WorkbookPath="[in_resultFileName]" />
+              <ui:AppendRange DataTable="[dt.Select(&quot;Column13='E'&quot;).Where(function(x)  String.IsNullOrEmpty(x(&quot;Column14&quot;).toString)).CopyToDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="ProcType" WorkbookPath="[in_resultFileName]" />
             </If.Then>
-            <If.Else>
-              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_8">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </Sequence>
-            </If.Else>
           </If>
-          <If Condition="[dt.Select(&quot;Column17='No' and  (Column13='F' or Column13='X')&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="484,309" sap2010:WorkflowViewState.IdRef="If_4">
+          <If Condition="[&quot;Yes&quot;.Equals(in_isFilter) AndAlso dt.Select(&quot;Column17='No' and  (Column13='F' or Column13='X')&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="523.2,265.6" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Then>
-              <ui:AppendRange DataTable="[dt.Select(&quot;Column17='No' and  (Column13='F' or Column13='X')&quot;).CopyToDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_3" SheetName="FilterAfter" WorkbookPath="[in_resultFileName]" />
+              <ui:AppendRange DataTable="[dt.Select(&quot;Column17='No' and  (Column13='F' or Column13='X')&quot;).CopyToDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_3" SheetName="FilterAfter" WorkbookPath="[in_resultFileName]" />
             </If.Then>
-            <If.Else>
-              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9">
+          </If>
+          <If Condition="[&quot;No&quot;.Equals(in_isFilter)]" sap:VirtualizedContainerService.HintSize="523.2,532" sap2010:WorkflowViewState.IdRef="If_5">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="375.2,382.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="333.6,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="RemoveAt">
+                  <InvokeMethod.TargetObject>
+                    <InArgument x:TypeArguments="sd:DataRowCollection">[dt.Rows]</InArgument>
+                  </InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                </InvokeMethod>
+                <ui:AppendRange DataTable="[dt.AsEnumerable.Where(function(r) Not String.IsNullOrEmpty(r(&quot;Column2&quot;).ToString)).CopyToDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_4" SheetName="All" WorkbookPath="[in_resultFileName]" />
               </Sequence>
-            </If.Else>
+            </If.Then>
           </If>
         </Sequence>
       </If.Then>
-      <If.Else>
-        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </Sequence>
-      </If.Else>
     </If>
   </Sequence>
 </Activity>
