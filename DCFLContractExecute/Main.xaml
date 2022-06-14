@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1220,919.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1192.8,919.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -340,9 +340,9 @@
                     <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException IsNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
                   </Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="796,3636.8" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="796,3829.6" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
-                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="751.2,3216.8" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="751.2,3409.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -350,7 +350,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="714.4,2985.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="714.4,3178.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -432,13 +432,28 @@
                                   </Sequence>
                                 </If.Then>
                               </If>
-                              <If Condition="[String.IsNullOrEmpty(networkState)]" sap:VirtualizedContainerService.HintSize="672.8,444.8" sap2010:WorkflowViewState.IdRef="If_15">
+                              <If Condition="[String.IsNullOrEmpty(networkState)]" sap:VirtualizedContainerService.HintSize="672.8,637.6" sap2010:WorkflowViewState.IdRef="If_15">
                                 <If.Then>
-                                  <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="333.6,295.2" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="请确认当前网络状态" OptionsString="优;良;差;差+" Title="提示">
-                                    <ui:InputDialog.Result>
-                                      <OutArgument x:TypeArguments="x:String">[networkState]</OutArgument>
-                                    </ui:InputDialog.Result>
-                                  </ui:InputDialog>
+                                  <Sequence DisplayName="True" sap:VirtualizedContainerService.HintSize="375.2,488" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="333.6,295.2" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="请确认当前网络状态" OptionsString="优;良;差;差+" Title="提示">
+                                      <ui:InputDialog.Result>
+                                        <OutArgument x:TypeArguments="x:String">[networkState]</OutArgument>
+                                      </ui:InputDialog.Result>
+                                    </ui:InputDialog>
+                                    <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_34">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[networkState]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty(networkState),"正常",networkState)]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
                                 </If.Then>
                               </If>
                               <Assign sap:VirtualizedContainerService.HintSize="672.8,60" sap2010:WorkflowViewState.IdRef="Assign_33">
@@ -459,12 +474,8 @@
                                 <If.Then>
                                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InputAccount workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="DCFL\InputAccount.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <OutArgument x:TypeArguments="x:String" x:Key="out_InputUser">
-                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="InputUser" />
-                                      </OutArgument>
-                                      <OutArgument x:TypeArguments="x:String" x:Key="out_InputPw">
-                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="InputPw" />
-                                      </OutArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_InputUser">[InputUser]</OutArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_InputPw">[InputPw]</OutArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
                                 </If.Then>

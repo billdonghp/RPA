@@ -1,0 +1,124 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RowCheck" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_row" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="out_errorMsg" Type="OutArgument(sc:ArrayList)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>857.6,1114.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="26">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="RowCheck" sap:VirtualizedContainerService.HintSize="476.8,1009.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sc:ArrayList" Default="[new ArrayList]" Name="errorMs" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,336" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,257.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="DataTable table;&#xD;&#xA;table = new DataTable(&quot;Names&quot;);&#xD;&#xA;Dictionary&lt;String,String&gt; dict = new Dictionary&lt;String,String&gt;();&#xD;&#xA;&#xD;&#xA;dict.Add(&quot;id&quot;,&quot;Int32&quot;);&#xD;&#xA;dict.Add(&quot;name&quot;,&quot;String&quot;);&#xD;&#xA;dict.Add(&quot;sex&quot;,&quot;Int32&quot;);&#xD;&#xA;foreach(String key in dict.Keys){&#xD;&#xA;&#x9;DataColumn cl = new DataColumn();&#xD;&#xA;&#x9;cl.DataType = System.Type.GetType(&quot;System.&quot;+dict[key]);&#xD;&#xA;&#x9;cl.ColumnName = key;&#xD;&#xA;&#x9;table.Columns.Add(cl);&#xD;&#xA;}&#xD;&#xA;/*DataColumn idColumn = new DataColumn();&#xD;&#xA;idColumn.DataType = System.Type.GetType(&quot;System.Int32&quot;);&#xD;&#xA;idColumn.ColumnName = &quot;id&quot;;&#xD;&#xA;idColumn.AutoIncrement = true;&#xD;&#xA;table.Columns.Add(idColumn);&#xD;&#xA;&#xD;&#xA;DataColumn nameColumn = new DataColumn();&#xD;&#xA;nameColumn.DataType = System.Type.GetType(&quot;System.String&quot;);&#xD;&#xA;nameColumn.ColumnName =&quot;name&quot;;&#xD;&#xA;table.Columns.Add(nameColumn);*/&#xD;&#xA;DataRow row = table.NewRow();&#xD;&#xA;row[&quot;id&quot;] = 20120262;&#xD;&#xA;row[&quot;name&quot;]=&quot;Bill&quot;;&#xD;&#xA;table.Rows.Add(row);&#xD;&#xA;out_table = table;&#xD;&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
+            <ui:InvokeCode.Arguments>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_table">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt" />
+              </OutArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,336" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,257.6" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim s As String = &quot;hello&quot;&#xD;&#xA;Dim currentIndex  As Int32 = 0&#xD;&#xA;Dim indexes As List(Of Int32)= New List(Of Int32)&#xD;&#xA;&#xD;&#xA;Try &#xD;&#xA;&#x9;While (currentIndex &gt;=0 AndAlso currentIndex &lt; s.Length) &#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;currentIndex += 1&#xD;&#xA;&#x9;End While&#xD;&#xA;Catch e As Exception&#xD;&#xA;&#x9;console.WriteLine(e.Message)&#xD;&#xA;Finally&#xD;&#xA;&#x9;console.WriteLine(currentIndex.ToString)&#xD;&#xA;End Try" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+            <ui:InvokeCode.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="'Dim out_messages As ArrayList&#xA;out_errMsg = New ArrayList&#xA;'out_messages.add(&quot;hello&quot;)&#xA;&#xA;'// 登记与否标记为No，但存在初始登记编号或修改码&#xA;If (Not String.IsNullOrEmpty(in_row(&quot;初始登记编号&quot;).ToString) AndAlso Not String.IsNullOrEmpty(in_row(&quot;登记修改码&quot;).ToString) ) Then &#xA;&#x9;out_errMsg.add(&quot;登记与否状态错误&quot;)&#xA;End If&#xA;&#xA;'//法人客户（合同号首字为C）&#xA;If(in_row(&quot;合同号&quot;).ToString.StartsWith(&quot;C&quot;)) Then&#xA;&#x9;'使用注册地址&#xA;&#x9;If(String.IsNullOrEmpty(in_row(&quot;注册地址&quot;).ToString) AndAlso String.IsNullOrWhiteSpace(in_row(&quot;注册地址&quot;).ToString)) Then&#xA;&#x9;&#x9;out_errMsg.add(&quot;法人客户注册地址不允许为空&quot;)&#xA;&#x9;End If&#xA;&#x9;'使用营业执照注册号&#xA;&#x9;If(String.IsNullOrEmpty(in_row(&quot;营业执照注册号&quot;).ToString) AndAlso String.IsNullOrWhiteSpace(in_row(&quot;营业执照注册号&quot;).ToString)) Then&#xA;&#x9;&#x9;out_errMsg.add(&quot;法人客户营业执照注册号不允许为空&quot;)&#xA;&#x9;End If&#xA;End If&#xA;&#xA;'//个人客户（合同号首字母为P）使用证件地址&#xA;If(in_row(&quot;合同号&quot;).ToString.StartsWith(&quot;P&quot;) AndAlso String.IsNullOrEmpty(in_row(&quot;证件地址&quot;).ToString) AndAlso String.IsNullOrWhiteSpace(in_row(&quot;证件地址&quot;).ToString)) Then&#xA;&#x9;out_errMsg.add(&quot;个人客户证件地址不允许为空&quot;)&#xA;End If&#xA;&#xA;'// 租赁财产描述必填项&#xA;If(String.IsNullOrEmpty(in_row(&quot;租赁财产描述&quot;).ToString) AndAlso String.IsNullOrWhiteSpace(in_row(&quot;租赁财产描述&quot;).ToString)) Then&#xA;&#x9;out_errMsg.add(&quot;租赁财产描述不允许为空&quot;)&#xA;End If&#xA;&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="435.2,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <OutArgument x:TypeArguments="sc:ArrayList" x:Key="out_errMsg">[out_errorMsg]</OutArgument>
+        <InArgument x:TypeArguments="sd:DataRow" x:Key="in_row">[in_row]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+  </Sequence>
+</Activity>

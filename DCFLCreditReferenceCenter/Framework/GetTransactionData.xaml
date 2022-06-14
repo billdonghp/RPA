@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>892,829.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>963.2,902.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -85,8 +85,15 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflDataScrap workflow" sap:VirtualizedContainerService.HintSize="612,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DCFL\DcflDataScrap.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTable">[ExtractDataTable]</OutArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">[in_TransactionNumber]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTable">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="ExtractDataTable" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">
+          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_TransactionNumber" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_browserType">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;browserType&quot;).ToString" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If Condition="[ExtractDataTable isNot Nothing]" DisplayName="If a new Item is fetched Grab it's significant data for logging" sap:VirtualizedContainerService.HintSize="612,346.4" sap2010:WorkflowViewState.IdRef="If_1">

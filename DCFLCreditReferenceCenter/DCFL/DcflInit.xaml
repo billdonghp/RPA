@@ -3,14 +3,15 @@
     <x:Property Name="in_years" Type="InArgument(x:Int32)" />
     <x:Property Name="in_months" Type="InArgument(x:Int32)" />
     <x:Property Name="in_nextMonths" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_browserType" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1404.8,1848.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1280,2043.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflInit_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="25">
+    <scg:List x:TypeArguments="x:String" Capacity="50">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -36,6 +37,7 @@
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -67,22 +69,22 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DcflInit" sap:VirtualizedContainerService.HintSize="475.2,1784" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DcflInit" sap:VirtualizedContainerService.HintSize="828,1978.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe  斗山融资租赁'" sap:VirtualizedContainerService.HintSize="433.6,1691.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="17132f4e0536a397286c80470ec26100" Selector="&lt;html title='斗山融资租赁' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(&quot;Edge&quot;.Equals(in_browserType),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser '斗山融资租赁'" sap:VirtualizedContainerService.HintSize="786.4,1885.6" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="17132f4e0536a397286c80470ec26100" Selector="[&quot;&lt;html &quot;+if(&quot;Edge&quot;.Equals(in_browserType),&quot;app='msedge.exe' &quot;,&quot;&quot;)+&quot;title='斗山融资租赁' /&gt;&quot;]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,1544" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="752.8,1738.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="dateFrom" />
               <Variable x:TypeArguments="x:String" Name="dateTo" />
@@ -92,7 +94,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into '中登网'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="中登网">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into '中登网'" EmptyField="True" sap:VirtualizedContainerService.HintSize="711.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="中登网">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="25af023d-c4ac-429b-ab64-50eb5740bd50" InformativeScreenshot="be0cc13716ba1e7e6ca9864ed30c4451" Selector="&lt;webctrl id='sp-searchtext' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -101,9 +103,9 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="333.6,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="enter" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Menu'" sap:VirtualizedContainerService.HintSize="711.2,156" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="enter" KeyModifiers="None" SpecialKey="True">
               <ui:SendHotkey.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="fa71fc3d-dcbd-43aa-a087-e611bd51d824">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa71fc3d-dcbd-43aa-a087-e611bd51d824" InformativeScreenshot="ce20a94d00774345558eb5f358616ea7" Selector="&lt;webctrl id='sp-searchtext' tag='INPUT' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -113,7 +115,7 @@
                 </ui:Target>
               </ui:SendHotkey.Target>
             </ui:SendHotkey>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="333.6,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="711.2,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -135,25 +137,25 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBefore="10000" DisplayName="Type Into '执行日期从'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[dateFrom+ &quot;[k(enter)]&quot;]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBefore="10000" DisplayName="Type Into '执行日期从'" EmptyField="True" sap:VirtualizedContainerService.HintSize="711.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[dateFrom+ &quot;[k(enter)]&quot;]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4fd9eb89-1f6b-45f6-ad9a-ba888584d36f" InformativeScreenshot="8837806f4602a977793e149921fe0ca9" Selector="&lt;webctrl id='ext-gen17' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4fd9eb89-1f6b-45f6-ad9a-ba888584d36f" InformativeScreenshot="8837806f4602a977793e149921fe0ca9" Selector="&lt;webctrl tag='INPUT' name='lease_execution_date_from' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBetweenKeys="100" DisplayName="Type Into '执行日期到'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[dateTo]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBetweenKeys="100" DisplayName="Type Into '执行日期到'" EmptyField="True" sap:VirtualizedContainerService.HintSize="711.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[dateTo]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="83f8a5a1-df79-4b43-a032-538fcf3812d2" InformativeScreenshot="027757cab761df85f9ae44aef107ae10" Selector="&lt;webctrl id='ext-gen31' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="83f8a5a1-df79-4b43-a032-538fcf3812d2" InformativeScreenshot="027757cab761df85f9ae44aef107ae10" Selector="&lt;webctrl tag='INPUT' name='lease_execution_date_to' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="333.6,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="711.2,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SpecialKey="True">
               <ui:SendHotkey.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="fa71fc3d-dcbd-43aa-a087-e611bd51d824">
                   <ui:Target.TimeoutMS>
@@ -165,9 +167,9 @@
                 </ui:Target>
               </ui:SendHotkey.Target>
             </ui:SendHotkey>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="设置显示行数：50" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="50">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="设置显示行数：50" EmptyField="True" sap:VirtualizedContainerService.HintSize="711.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="50">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="77682693-d77c-4f85-8f53-f45551549f9b" InformativeScreenshot="e5177f949877d07ae13e1040374e9bfe" Selector="&lt;webctrl id='ext-gen84' tag='INPUT' type='text' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="77682693-d77c-4f85-8f53-f45551549f9b" InformativeScreenshot="e5177f949877d07ae13e1040374e9bfe" Selector="&lt;webctrl id='ext-gen84' tag='INPUT' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -177,7 +179,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="333.6,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="enter" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="711.2,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="enter" KeyModifiers="None" SpecialKey="True">
               <ui:SendHotkey.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="54adf248-196a-41b7-ae9a-8a0a504c1f14">
                   <ui:Target.TimeoutMS>
@@ -189,15 +191,26 @@
                 </ui:Target>
               </ui:SendHotkey.Target>
             </ui:SendHotkey>
-            <ui:WaitUiElementVanish WaitNotActive="{x:Null}" WaitNotVisible="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_1">
-              <ui:WaitUiElementVanish.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39186730-a8bd-4376-99da-6cff06cbb555" InformativeScreenshot="1923c1099bb9cdd44247acf3dacb21d8" Selector="&lt;webctrl tag='SPAN' aaname='正在查询数据...' /&gt;" TimeoutMS="50000">
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:WaitUiElementVanish.Target>
-            </ui:WaitUiElementVanish>
+            <If Condition="[&quot;Edge&quot;.Equals(in_browserType)]" sap:VirtualizedContainerService.HintSize="711.2,263.2" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke WaitElementVanishByEdge workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DCFL\WaitElementVanishByEdge.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </If.Then>
+              <If.Else>
+                <ui:WaitUiElementVanish WaitNotActive="{x:Null}" WaitNotVisible="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_1">
+                  <ui:WaitUiElementVanish.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39186730-a8bd-4376-99da-6cff06cbb555" InformativeScreenshot="1923c1099bb9cdd44247acf3dacb21d8" Selector="&lt;webctrl tag='SPAN' aaname='正在查询数据...' /&gt;" TimeoutMS="50000">
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:WaitUiElementVanish.Target>
+                </ui:WaitUiElementVanish>
+              </If.Else>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>

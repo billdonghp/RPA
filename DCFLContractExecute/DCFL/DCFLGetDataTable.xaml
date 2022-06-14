@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="out_dataTable" Type="OutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>708,1340.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1369.6,2297.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -69,7 +69,7 @@
       <AssemblyReference>UiPath.Java.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DCFLGetDataTable" sap:VirtualizedContainerService.HintSize="703.2,1236" sap2010:WorkflowViewState.IdRef="Sequence_37">
+  <Sequence DisplayName="DCFLGetDataTable" sap:VirtualizedContainerService.HintSize="703.2,2232.8" sap2010:WorkflowViewState.IdRef="Sequence_37">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="cbtn" />
       <Variable x:TypeArguments="x:String" Name="confirmBtn" />
@@ -157,13 +157,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleDoWhile>
-    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="661.6,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[books]" WorkbookPath="[ExcelFile]">
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="661.6,1049.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[books]" WorkbookPath="[ExcelFile]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,900" sap2010:WorkflowViewState.IdRef="Sequence_40">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,940" sap2010:WorkflowViewState.IdRef="Sequence_40">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Name="sheets" />
               <Variable x:TypeArguments="x:String" Name="execlSheet" />
@@ -223,7 +223,7 @@
       </ui:ExcelApplicationScope.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>

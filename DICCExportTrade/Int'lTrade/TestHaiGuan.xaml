@@ -1,0 +1,131 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="TestHaiGuan" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1285.6,1767.2" sap2010:WorkflowViewState.IdRef="TestHaiGuan_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="TestHaiGuan" sap:VirtualizedContainerService.HintSize="601.6,1702.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_header" />
+      <Variable x:TypeArguments="x:String" Name="msg" />
+      <Variable x:TypeArguments="sd:DataTable" Name="out_dt" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_list" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="560,1609.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(&quot;D:\UiPath\ExportTrade&quot;,&quot;*.xlsx&quot;)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,1484.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="str:MatchCollection" Name="mats" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="483.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;FileName:&quot;+ item.ToString]" />
+            <Assign DisplayName="正则表达式MatchCollection" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="str:MatchCollection">[mats]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="str:MatchCollection">[System.Text.RegularExpressions.Regex.Matches(item.ToString,"[^\u4e00-\u9fa5]+\.xlsx")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[mats.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="483.2,212" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="233.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;主键：&quot;+mats(0).Value.Split(&quot;.&quot;c)(0)]" />
+              </If.Then>
+            </If>
+            <If Condition="[&quot;pdf&quot;.Equals(item.ToString.Split(&quot;.&quot;c)(1))]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_1" />
+              </If.Then>
+            </If>
+            <ui:ReadRange AddHeaders="False" DataTable="[dt_header]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="483.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A2:N19" SheetName="基本信息&amp;商品信息" WorkbookPath="[item.ToString]" />
+            <ui:ReadRange AddHeaders="True" DataTable="[dt_list]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="483.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="A22" SheetName="基本信息&amp;商品信息" WorkbookPath="[item.ToString]" />
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="DataTable out_dt = new DataTable(&quot;out_dt&quot;);&#xA;DataRow odr = out_dt.NewRow();&#xA;//DataColumn cl;&#xA;foreach(DataRow dr in in_dt.Rows){&#xA;&#x9;for(int i = 0; i&lt;in_dt.Columns.Count; i++){&#xA;&#x9;&#x9;if (i  % 2 ==0 ){&#xA;&#x9;&#x9;&#x9;if(!String.IsNullOrEmpty(Convert.ToString(dr[&quot;Column&quot;+i])) || !String.IsNullOrWhiteSpace(Convert.ToString(dr[&quot;Column&quot;+i]))){&#xA;&#x9;&#x9;&#x9;&#x9;DataColumn cl = new DataColumn();&#xA;&#x9;&#x9;&#x9;&#x9;String cName = Convert.ToString(dr[&quot;Column&quot;+i]);&#xA;&#x9;&#x9;&#x9;&#x9;cl.DataType = System.Type.GetType(&quot;System.String&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;cl.ColumnName = cName;&#xA;&#x9;&#x9;&#x9;&#x9;out_dt.Columns.Add(cl);&#xA;&#x9;&#x9;&#x9;&#x9;//Console.WriteLine(cName);&#xA;&#x9;&#x9;&#x9;&#x9;String ritem = Convert.ToString(dr[&quot;Column&quot;+(i+1)]);&#xA;&#x9;&#x9;&#x9;&#x9;//Console.WriteLine(ritem);&#xA;&#x9;&#x9;&#x9;&#x9;odr[cName] = ritem;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;//foreach(DataColumn dc in in_dt.Columns)&#xA;&#x9;//Console.WriteLine(dr[&quot;Column0&quot;]);&#xA;}&#xA;out_dt.Rows.Add(odr);&#xA;&#xA;o_dt =  out_dt;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="483.2,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+              <ui:InvokeCode.Arguments>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt">[dt_header]</InArgument>
+                <OutArgument x:TypeArguments="sd:DataTable" x:Key="o_dt">[out_dt]</OutArgument>
+              </ui:InvokeCode.Arguments>
+            </ui:InvokeCode>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="483.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[out_dt.Columns.count.ToString +&quot;----提运单号：&quot; + out_dt.rows()(0)(&quot;提运单号&quot;).toString]" />
+            <ui:OutputDataTable DataTable="[dt_list]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="483.2,22.4" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[msg]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="483.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;明细行数：&quot;+dt_list.Rows.Count.ToString]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>

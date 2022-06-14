@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MailTool" this:MailTool.in_to="[{&quot;haipeng.dong@hyundai-di.com&quot;,&quot;haipeng.dong@hyundai-di.com&quot;}]" this:MailTool.in_cc="[{&quot;haipeng.dong@hyundai-di.com&quot;,&quot;haipeng.dong@hyundai-di.com&quot;}]" this:MailTool.in_from="DCFL.credit@Hyundai-di.com" this:MailTool.in_title="[System.Net.WebUtility. UrlEncode(&quot;RPA Execute Result(重要)&quot;)]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/java" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uja="clr-namespace:UiPath.Java.Activities;assembly=UiPath.Java.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MailTool" this:MailTool.in_cc="[{&quot;haipeng.dong@hyundai-di.com&quot;,&quot;haipeng.dong@hyundai-di.com&quot;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/java" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uja="clr-namespace:UiPath.Java.Activities;assembly=UiPath.Java.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_to" Type="InArgument(s:String[])" />
     <x:Property Name="in_cc" Type="InArgument(s:String[])" />
@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>747.2,920.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1192.8,964.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Java_20220215_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -86,10 +86,11 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MailTool" sap:VirtualizedContainerService.HintSize="600,856" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="title、content需要调用System.Net.WebUtility.UrlEncode()&#xD;&#xA;例：System.Net.WebUtility. UrlEncode(&quot;RPA Execute Result(重要)&quot;)" DisplayName="MailTool" sap:VirtualizedContainerService.HintSize="600,900" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <uja:JavaScope JavaPath="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Java Scope" sap:VirtualizedContainerService.HintSize="558.4,763.2" sap2010:WorkflowViewState.IdRef="JavaScope_1">

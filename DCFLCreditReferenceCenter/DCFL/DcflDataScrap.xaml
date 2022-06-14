@@ -1,12 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DcflDataScrap" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DcflDataScrap" this:DcflDataScrap.in_TransactionNumber="3" this:DcflDataScrap.in_browserType="Edge" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_DataTable" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_browserType" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1092,2635.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1007.2,2751.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflDataScrap_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -74,19 +75,19 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DcflDataScrap" sap:VirtualizedContainerService.HintSize="741.6,2530.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DcflDataScrap" sap:VirtualizedContainerService.HintSize="1017.6,2686.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '    Page'" sap:VirtualizedContainerService.HintSize="700,2437.6" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="629bdf081606205560addfd360429266" Selector="&lt;html title='斗山融资租赁' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(&quot;Edge&quot;.Equals(in_browserType),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser '斗山融资租赁'" sap:VirtualizedContainerService.HintSize="976,2593.6" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="629bdf081606205560addfd360429266" Selector="[&quot;&lt;html &quot;+if(&quot;Edge&quot;.Equals(in_browserType),&quot;app='msedge.exe' &quot;,&quot;&quot;)+&quot;title='斗山融资租赁' /&gt;&quot;]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="666.4,2290.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="942.4,2446.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="pages" />
             </Sequence.Variables>
@@ -96,7 +97,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="总页数" sap:VirtualizedContainerService.HintSize="624.8,107.2" sap2010:WorkflowViewState.IdRef="GetValue_2">
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="总页数" sap:VirtualizedContainerService.HintSize="900.8,107.2" sap2010:WorkflowViewState.IdRef="GetValue_2">
               <ui:GetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5dc5ada4-a320-45f0-a6d9-8e4254c15321" InformativeScreenshot="8c08127dc744e2db07cfbc86f5218ea1" Selector="&lt;webctrl id='ext-gen103' tag='DIV' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -111,7 +112,7 @@
                 <OutArgument x:TypeArguments="x:String">[pages]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="624.8,278.4" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="900.8,278.4" sap2010:WorkflowViewState.IdRef="CommentOut_4">
               <ui:CommentOut.Body>
                 <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_31">
                   <sap:WorkflowViewStateService.ViewState>
@@ -137,7 +138,7 @@
                 </Sequence>
               </ui:CommentOut.Body>
             </ui:CommentOut>
-            <Assign sap:VirtualizedContainerService.HintSize="624.8,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign sap:VirtualizedContainerService.HintSize="900.8,60" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[pages]</OutArgument>
               </Assign.To>
@@ -145,15 +146,15 @@
                 <InArgument x:TypeArguments="x:String">[pages.Substring(1)]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[in_TransactionNumber &gt;1 and in_TransactionNumber &lt;= Integer.Parse(pages)]" sap:VirtualizedContainerService.HintSize="624.8,682.4" sap2010:WorkflowViewState.IdRef="If_6">
+            <If Condition="[in_TransactionNumber &gt;1 and in_TransactionNumber &lt;= Integer.Parse(pages)]" sap:VirtualizedContainerService.HintSize="900.8,838.4" sap2010:WorkflowViewState.IdRef="If_6">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="375.2,532.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                <Sequence sap:VirtualizedContainerService.HintSize="752.8,688.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  ext-gen94'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_TransactionNumber.ToString]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  ext-gen94'" EmptyField="True" sap:VirtualizedContainerService.HintSize="711.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_TransactionNumber.ToString]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8c5d668c-2a53-49f5-926a-f3cd8e2727e4" InformativeScreenshot="8e431c36d5039ea9f3c4cf5079e35c29" Selector="&lt;webctrl id='ext-gen94' tag='INPUT' type='input' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -165,7 +166,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="333.6,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="enter" KeyModifiers="None" SpecialKey="True">
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="711.2,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="enter" KeyModifiers="None" SpecialKey="True">
                     <ui:SendHotkey.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="e319744c-197c-4836-8893-dca03ecbda13">
                         <ui:Target.TimeoutMS>
@@ -177,19 +178,30 @@
                       </ui:Target>
                     </ui:SendHotkey.Target>
                   </ui:SendHotkey>
-                  <ui:WaitUiElementVanish WaitNotActive="{x:Null}" WaitNotVisible="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_1">
-                    <ui:WaitUiElementVanish.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39186730-a8bd-4376-99da-6cff06cbb555" InformativeScreenshot="0b68810cdd9dc52fd47934adf8b8cc20" Selector="&lt;webctrl tag='SPAN' aaname='正在查询数据...' /&gt;" TimeoutMS="300000">
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:WaitUiElementVanish.Target>
-                  </ui:WaitUiElementVanish>
+                  <If Condition="[&quot;Edge&quot;.Equals(in_browserType)]" sap:VirtualizedContainerService.HintSize="711.2,263.2" sap2010:WorkflowViewState.IdRef="If_7">
+                    <If.Then>
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke WaitElementVanishByEdge workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DCFL\WaitElementVanishByEdge.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </If.Then>
+                    <If.Else>
+                      <ui:WaitUiElementVanish WaitNotActive="{x:Null}" WaitNotVisible="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_1">
+                        <ui:WaitUiElementVanish.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39186730-a8bd-4376-99da-6cff06cbb555" InformativeScreenshot="0b68810cdd9dc52fd47934adf8b8cc20" Selector="&lt;webctrl tag='SPAN' aaname='正在查询数据...' /&gt;" TimeoutMS="300000">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:WaitUiElementVanish.Target>
+                      </ui:WaitUiElementVanish>
+                    </If.Else>
+                  </If>
                 </Sequence>
               </If.Then>
             </If>
-            <If Condition="[Not in_TransactionNumber &gt; Integer.parse(pages)]" sap:VirtualizedContainerService.HintSize="624.8,909.6" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="[Not in_TransactionNumber &gt; Integer.parse(pages)]" sap:VirtualizedContainerService.HintSize="900.8,909.6" sap2010:WorkflowViewState.IdRef="If_4">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="476.8,760" sap2010:WorkflowViewState.IdRef="Sequence_26">
                   <sap:WorkflowViewStateService.ViewState>
@@ -216,9 +228,9 @@
                       </ui:Target>
                     </ui:ExtractData.Target>
                   </ui:ExtractData>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,287.2" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,287.2" sap2010:WorkflowViewState.IdRef="CommentOut_5">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,208.8" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,208.8" sap2010:WorkflowViewState.IdRef="Sequence_32">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
