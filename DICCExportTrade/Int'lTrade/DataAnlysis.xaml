@@ -1,0 +1,298 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="TestHaiGuan" this:TestHaiGuan.in_downloadPath="D:\UiPath\ExportTrade" this:TestHaiGuan.in_fileName="E20220000873196327" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_downloadPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_fileName" Type="InArgument(x:String)" />
+    <x:Property Name="in_dt" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1108,4035.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>TestHaiGuan_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="72">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Net</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Java.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DataAnlysis" sap:VirtualizedContainerService.HintSize="601.6,3970.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_excel" />
+      <Variable x:TypeArguments="sd:DataTable" Name="out_dt" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_item" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="560,3877.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(in_downloadPath, &quot;*&quot;+in_filename+&quot;.xlsx&quot;)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,3752.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="str:MatchCollection" Name="mats" />
+              <Variable x:TypeArguments="njl:JArray" Name="jExcel" />
+              <Variable x:TypeArguments="njl:JArray" Name="jItem" />
+              <Variable x:TypeArguments="sd:DataTable" Name="dt_container" />
+              <Variable x:TypeArguments="njl:JArray" Name="jContainer" />
+              <Variable x:TypeArguments="njl:JArray" Name="jHeader" />
+              <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(Of String, String) from{{&quot;IsAes&quot;,&quot;Y&quot;},{&quot;Params&quot;,&quot;&quot;}}]" Name="bodyDict" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="正则表达式MatchCollection" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="str:MatchCollection">[mats]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="str:MatchCollection">[System.Text.RegularExpressions.Regex.Matches(item.ToString,"[^\u4e00-\u9fa5]+\.xlsx")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[mats.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="483.2,242.4" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;FileName:{0}; 统一编号:{1}&quot;, item, mats(0).Value.Split(&quot;.&quot;c)(0))]" />
+              </If.Then>
+            </If>
+            <If Condition="[&quot;pdf&quot;.Equals(item.ToString.Split(&quot;.&quot;c)(1))]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_1" />
+              </If.Then>
+            </If>
+            <ui:ReadRange AddHeaders="False" DataTable="[dt_excel]" DisplayName="Read Range_dt_excel" sap:VirtualizedContainerService.HintSize="483.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A2:N19" SheetName="基本信息&amp;商品信息" WorkbookPath="[item.ToString]" />
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="DataTable out_dt = new DataTable(&quot;out_dt&quot;);&#xA;DataRow odr = out_dt.NewRow();&#xA;//DataColumn cl;&#xA;foreach(DataRow dr in in_dt.Rows){&#xA;&#x9;string rIdx = Convert.ToString(in_dt.Rows.IndexOf(dr) + 2 );&#xA;&#x9;//Console.WriteLine(rIdx);&#xA;&#x9;for(int i = 0; i&lt;in_dt.Columns.Count; i++){&#xA;&#x9;&#x9;if (i  % 2 ==0 ){&#xA;&#x9;&#x9;&#x9;if(!String.IsNullOrEmpty(Convert.ToString(dr[&quot;Column&quot;+i])) || !String.IsNullOrWhiteSpace(Convert.ToString(dr[&quot;Column&quot;+i])) || !String.IsNullOrEmpty(Convert.ToString(dr[&quot;Column&quot;+(i+1)])) || !String.IsNullOrWhiteSpace(Convert.ToString(dr[&quot;Column&quot;+(i+1)]))){&#xA;&#x9;&#x9;&#x9;&#x9;if(!String.IsNullOrEmpty(Convert.ToString(dr[&quot;Column&quot;+(i+1)])) || !String.IsNullOrWhiteSpace(Convert.ToString(dr[&quot;Column&quot;+(i+1)]))){&#xA;&#x9;&#x9;&#x9;&#x9;DataColumn cl = new DataColumn();&#xA;&#x9;&#x9;&#x9;&#x9;char b = Convert.ToChar(i+65);&#xA;&#x9;&#x9;&#x9;&#x9;//Console.WriteLine(Convert.ToString(b) + rIdx);&#xA;&#x9;&#x9;&#x9;&#x9;//String cName = Convert.ToString(dr[&quot;Column&quot;+i]);&#xA;&#x9;&#x9;&#x9;&#x9;string cName = Convert.ToString(b) + rIdx;&#xA;&#x9;&#x9;&#x9;&#x9;cl.DataType = System.Type.GetType(&quot;System.String&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;cl.ColumnName = cName;&#xA;&#x9;&#x9;&#x9;&#x9;out_dt.Columns.Add(cl);&#xA;&#x9;&#x9;&#x9;&#x9;//Console.WriteLine(cName);&#xA;&#x9;&#x9;&#x9;&#x9;string ritem = Convert.ToString(dr[&quot;Column&quot;+(i+1)]);&#xA;&#x9;&#x9;&#x9;&#x9;//Console.WriteLine(ritem);&#xA;&#x9;&#x9;&#x9;&#x9;odr[cName] = ritem;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;//foreach(DataColumn dc in in_dt.Columns)&#xA;&#x9;//Console.WriteLine(dr[&quot;Column0&quot;]);&#xA;}&#xA;out_dt.Rows.Add(odr);  &#xA;&#xA;o_dt = out_dt;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="483.2,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
+              <ui:InvokeCode.Arguments>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt">[dt_excel]</InArgument>
+                <OutArgument x:TypeArguments="sd:DataTable" x:Key="o_dt">[out_dt]</OutArgument>
+              </ui:InvokeCode.Arguments>
+            </ui:InvokeCode>
+            <If Condition="[Not (in_dt.rows()(0)(&quot;billNo&quot;).toString).equals(out_dt.rows()(0)(&quot;A7&quot;).toString)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_2" />
+              </If.Then>
+            </If>
+            <ui:ReadRange AddHeaders="False" DataTable="[dt_item]" DisplayName="Read Range_dt_item" sap:VirtualizedContainerService.HintSize="483.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="A22" SheetName="基本信息&amp;商品信息" WorkbookPath="[item.ToString]" />
+            <ui:ReadRange AddHeaders="False" DataTable="[dt_container]" DisplayName="Read Range_dt_container" sap:VirtualizedContainerService.HintSize="483.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_3" Range="A2" SheetName="集装箱信息" WorkbookPath="[item.ToString]" />
+            <ui:Comment sap:VirtualizedContainerService.HintSize="483.2,75.2" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// dt_item &amp; dt_container生产环境要取消注释" />
+            <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="483.2,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="RemoveAt">
+              <InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="sd:DataRowCollection">[dt_item.Rows]</InArgument>
+              </InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="x:Int32">0</InArgument>
+            </InvokeMethod>
+            <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="483.2,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="RemoveAt">
+              <InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="sd:DataRowCollection">[dt_container.Rows]</InArgument>
+              </InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="x:Int32">0</InArgument>
+            </InvokeMethod>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;提运单号:{0} ;  明细行数:{1} ；列数:{2} ；&quot; , out_dt.Rows()(0)(&quot;A7&quot;), dt_item.Rows.Count, out_dt.Columns.count)]" />
+            <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array_in_dt" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_4" JsonArray="[jHeader]" JsonString="[Newtonsoft.Json.JsonConvert.SerializeObject(in_dt ,Newtonsoft.Json.Formatting.Indented)]" />
+            <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array_excel" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[jExcel]" JsonString="[Newtonsoft.Json.JsonConvert.SerializeObject(out_dt ,Newtonsoft.Json.Formatting.Indented)]" />
+            <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array_item" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_2" JsonArray="[jItem]" JsonString="[Newtonsoft.Json.JsonConvert.SerializeObject(dt_item,Newtonsoft.Json.Formatting.Indented)]" />
+            <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array_container" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_3" JsonArray="[jContainer]" JsonString="[Newtonsoft.Json.JsonConvert.SerializeObject(dt_container,Newtonsoft.Json.Formatting.Indented)]" />
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="483.2,351.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("C4")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("C4")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("C7")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("C7")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("E7")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("E7")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("C8")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("C8")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("G8")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("G8")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("C12")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("C12")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("E12")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("E12")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("G12")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("G12")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("G6")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[jExcel.item(0)("G6")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("Items")]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="njl:JToken">[jItem]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="njl:JToken">[jHeader.Item(0)("Container")]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="njl:JToken">[jContainer]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="483.2,233.6" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="275.2,155.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="233.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[jHeader.ToString]" />
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke AESUtil workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Hdims\AESUtil.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_encodeTxt">[System.Net.WebUtility. UrlEncode(jHeader.ToString)]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_params">[bodyDict("Params")]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke HdimsPost workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Hdims\HdimsPost.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_json">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Newtonsoft.Json.JsonConvert.SerializeObject(bodyDict)" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_hdimsUrl">
+                  <Literal x:TypeArguments="x:String">http://hdims.doosaninfracore.cn:8080/</Literal>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:Break sap:VirtualizedContainerService.HintSize="483.2,22.4" sap2010:WorkflowViewState.IdRef="Break_1" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>

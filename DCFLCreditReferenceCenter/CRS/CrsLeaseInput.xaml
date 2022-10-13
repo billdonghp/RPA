@@ -18,7 +18,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1280,6889.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1285.6,6849.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>input_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -79,6 +79,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="matterDesc  example:&quot;租赁财产名称： 履带式液压挖掘机[k(enter)]租赁财产类型： 新机[k(enter)]租赁财产数量： 1台 [k(enter)]租赁财产租赁期限： 24个月 [k(enter)]租赁财产合格证序号：DICC 2020 E18889[k(enter)]租赁财产标准号：CEBBY-026825[k(enter)]租赁财产机型：DX215-9CN[k(enter)]租赁财产编号（机号）：026825[k(enter)]租赁财产发动机编号：DL06B-C3067092E00[k(enter)]租赁财产交付日期：2020-11-06&quot;" DisplayName="input" sap:VirtualizedContainerService.HintSize="960.8,6784.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -258,7 +259,7 @@
                       </ui:Target>
                     </ui:SelectItem.Target>
                   </ui:SelectItem>
-                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into '身份证号'" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_16" SimulateType="True" Text="000000000000000000">
+                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Type Into '身份证号'" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_16" SimulateType="True" Text="[in_cardId]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e2369066-4c34-4b71-8e37-f67fb603820c" InformativeScreenshot="86366a27b6521e161e687307b8e14d02" Selector="&lt;webctrl id='certificatecode' parentid='crrTb' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>

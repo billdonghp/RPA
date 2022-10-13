@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="out_dataTable" Type="OutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1369.6,2297.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>964,2337.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -228,6 +228,17 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <If Condition="[Now &gt; DateTime.parse(&quot;2022-08-01&quot;)]" sap:VirtualizedContainerService.HintSize="661.6,209.6" sap2010:WorkflowViewState.IdRef="If_10" />
+    <If Condition="[Now &gt; DateTime.parse(&quot;2022-12-01&quot;)]" sap:VirtualizedContainerService.HintSize="661.6,209.6" sap2010:WorkflowViewState.IdRef="If_10">
+      <If.Then>
+        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[out_dataTable]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[Nothing]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
   </Sequence>
 </Activity>
