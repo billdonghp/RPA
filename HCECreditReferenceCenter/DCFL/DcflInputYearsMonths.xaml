@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="out_yearMonth" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1404.8,1800.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1245.6,1900.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="20">
@@ -81,7 +81,7 @@
         <OutArgument x:TypeArguments="s:DateTime">[twoMonthsBefore]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="s:DateTime">[Now.AddMonths(-2)]</InArgument>
+        <InArgument x:TypeArguments="s:DateTime">[Now.AddMonths(0)]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:MessageBox Buttons="YesNo" Caption="请确认" ChosenButton="[currConfirm]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1214.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;是否登记&quot;+twoMonthsBefore.Year.ToString()+&quot;年&quot;+twoMonthsBefore.Month.ToString+&quot;月的合同&quot;]" />
@@ -142,7 +142,7 @@
                         <InArgument x:TypeArguments="x:Int32">[if(Len(out_yearMonth) = 8, Integer.Parse(out_yearMonth.Substring(6,2)), if(Len(out_yearMonth)=6, Integer.Parse(out_yearMonth.Substring(4,2)), 12))]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[years &gt; Integer.Parse(now.ToString(&quot;yyyy&quot;)) Or months &gt;12 Or nextMonths &gt; 12 Or months &gt; nextMonths Or months &lt; 1]" sap:VirtualizedContainerService.HintSize="640.8,209.6" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If Condition="[years &gt; Now.Year OrElse months &gt;12 OrElse nextMonths &gt; 12 OrElse months &gt; nextMonths OrElse months &lt; 1]" sap:VirtualizedContainerService.HintSize="640.8,209.6" sap2010:WorkflowViewState.IdRef="If_3">
                       <If.Then>
                         <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_10">
                           <Assign.To>

@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="out_dateTime" Type="OutArgument(s:DateTime)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1245.6,1756</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1245.6,1856</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="20">
@@ -148,7 +148,7 @@
                         <InArgument x:TypeArguments="s:DateTime">[New DateTime(years, months, days)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[years &gt; Integer.Parse(now.ToString(&quot;yyyy&quot;)) Or months &gt;12 Or months &lt; 1 Or months &gt; Integer.Parse(now.toString(&quot;MM&quot;)) Or days &gt;  Integer.Parse(new DateTime(years,months + 1, 1).AddDays(-1).ToString(&quot;dd&quot;))]" sap:VirtualizedContainerService.HintSize="640.8,235.2" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If Condition="[years &gt; Integer.Parse(now.ToString(&quot;yyyy&quot;)) OrElse months &gt;12 OrElse months &lt; 1 OrElse (years = Integer.Parse(now.ToString(&quot;yyyy&quot;)) AndAlso months &gt; Integer.Parse(now.toString(&quot;MM&quot;))) OrElse days &gt;  Integer.Parse(new DateTime(years, months, 1).addMonths(1).AddDays(-1).ToString(&quot;dd&quot;))]" sap:VirtualizedContainerService.HintSize="640.8,235.2" sap2010:WorkflowViewState.IdRef="If_3">
                       <If.Then>
                         <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_10">
                           <Assign.To>

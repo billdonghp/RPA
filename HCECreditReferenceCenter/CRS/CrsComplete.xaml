@@ -1,8 +1,9 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="CRSComplete" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_customerContractCode" Type="InArgument(x:String)" />
+    <x:Property Name="out_registerNum" Type="OutArgument(x:String)" />
+    <x:Property Name="out_editNum" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1133,2182</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1164.8,2492</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -65,10 +66,9 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CRSComplete" sap:VirtualizedContainerService.HintSize="1143,2117" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence DisplayName="CRSComplete" sap:VirtualizedContainerService.HintSize="1137.6,2287.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="errDiv" />
     </Sequence.Variables>
@@ -77,24 +77,24 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'msedge.exe  动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="1101,2025" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0404e36379ab11f3433687032b19437c" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="1096,2194.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0404e36379ab11f3433687032b19437c" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1067,1879" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1062.4,2047.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists '提示信息'" Exists="[errDiv]" sap:VirtualizedContainerService.HintSize="1025,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists DisplayName="Element Exists '提示信息'" Exists="[errDiv]" sap:VirtualizedContainerService.HintSize="1020.8,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e2357dca-70a9-4846-8092-debadc35b430" InformativeScreenshot="f9a2dce7f4280c6939da2ddc0cd64e7b" Selector="&lt;webctrl tag='H4' aaname='信息填写有误，请修改。' idx='1' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[errDiv]" sap:VirtualizedContainerService.HintSize="1025,1641" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[errDiv]" sap:VirtualizedContainerService.HintSize="1020.8,1807.2" sap2010:WorkflowViewState.IdRef="If_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -102,14 +102,14 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="375.2,262.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -131,14 +131,14 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="RefreshBrowser_1" />
+                  <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="RefreshBrowser_1" />
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="604,1490" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="601.6,1657.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="registerNo" />
-                    <Variable x:TypeArguments="x:String" Name="changeCode" />
+                    <Variable x:TypeArguments="x:String" Name="registerNum" />
+                    <Variable x:TypeArguments="x:String" Name="editNum" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -146,7 +146,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click '提交'" sap:VirtualizedContainerService.HintSize="562,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click '提交'" sap:VirtualizedContainerService.HintSize="560,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -168,15 +168,15 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="562,869" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                  <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="560,866.4" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
                     <ui:InterruptibleDoWhile.Body>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,700" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,699.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text '登记证明编号 '" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="GetFullText_5">
+                        <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text '登记证明编号 '" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="GetFullText_5">
                           <ui:GetFullText.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90d29904-b849-4330-a90f-7b288f12f4c9" InformativeScreenshot="e7f83e4e4bb963d9d885b7d7adaed199" Selector="&lt;webctrl src='homepage.do' tag='IFRAME' /&gt;&lt;webctrl aaname='????????????????????' tag='A' /&gt;" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
@@ -185,31 +185,31 @@
                             </ui:Target>
                           </ui:GetFullText.Target>
                           <ui:GetFullText.Text>
-                            <OutArgument x:TypeArguments="x:String">[registerNo]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String">[registerNum]</OutArgument>
                           </ui:GetFullText.Text>
                         </ui:GetFullText>
-                        <If Condition="[registerNo.Length &lt;&gt; 20]" sap:VirtualizedContainerService.HintSize="484,211" sap2010:WorkflowViewState.IdRef="If_6">
+                        <If Condition="[registerNum.Length &lt;&gt; 20]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_6">
                           <If.Then>
-                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;长度不正确！&quot;+registerNo]" />
+                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;长度不正确！&quot;+registerNum]" />
                           </If.Then>
                         </If>
-                        <If Condition="[String.IsNullOrEmpty(registerNo)]" sap:VirtualizedContainerService.HintSize="484,211" sap2010:WorkflowViewState.IdRef="If_5">
+                        <If Condition="[String.IsNullOrEmpty(registerNum)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_5">
                           <If.Then>
-                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;请提供LOG和画面截图！&quot;]" />
+                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;请提供LOG和画面截图！&quot;]" />
                           </If.Then>
                         </If>
                       </Sequence>
                     </ui:InterruptibleDoWhile.Body>
                     <ui:InterruptibleDoWhile.Condition>
-                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="String.IsNullOrEmpty(registerNo)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
+                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="String.IsNullOrEmpty(registerNum)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                     </ui:InterruptibleDoWhile.Condition>
                   </ui:InterruptibleDoWhile>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="562,343" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="560,511.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                     <TryCatch.Variables>
                       <Variable x:TypeArguments="s:Exception" Name="processError" />
                     </TryCatch.Variables>
                     <TryCatch.Try>
-                      <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text '修改码'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_6">
+                      <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text '修改码'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetFullText_6">
                         <ui:GetFullText.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="234afc0d-a574-460b-936d-b7e7ca43b388" InformativeScreenshot="d08fcdb001b32a770f5484301a5eeed8" Selector="&lt;webctrl src='homepage.do' tag='IFRAME' /&gt;&lt;webctrl aaname='????????' tag='SPAN' /&gt;">
                             <ui:Target.TimeoutMS>
@@ -221,12 +221,12 @@
                           </ui:Target>
                         </ui:GetFullText.Target>
                         <ui:GetFullText.Text>
-                          <OutArgument x:TypeArguments="x:String">[changeCode]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String">[editNum]</OutArgument>
                         </ui:GetFullText.Text>
                       </ui:GetFullText>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,23" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="486.4,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -237,7 +237,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                             <Assign.To>
                               <OutArgument x:TypeArguments="s:Exception">[processError]</OutArgument>
                             </Assign.To>
@@ -249,19 +249,30 @@
                       </Catch>
                     </TryCatch.Catches>
                     <TryCatch.Finally>
-                      <If Condition="[processError is nothing]" sap:VirtualizedContainerService.HintSize="484,265" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If Condition="[processError is nothing]" sap:VirtualizedContainerService.HintSize="483.2,280" sap2010:WorkflowViewState.IdRef="If_4">
                         <If.Then>
-                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsGetJson workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CRS\CrsGetJson.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_registerDate">[now.ToString("yyyy-MM-dd HH:mm:ss")]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_contractNo">[in_customerContractCode]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_registerType">初始登记</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_registerNo">[registerNo]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_changeCode">[changeCode]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_registerEndDate" />
-                              <InArgument x:TypeArguments="x:String" x:Key="in_relatedNo">[registerNo]</InArgument>
-                            </ui:InvokeWorkflowFile.Arguments>
-                          </ui:InvokeWorkflowFile>
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="333.6,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[out_registerNum]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[registerNum]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[out_editNum]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[editNum]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
                         </If.Then>
                       </If>
                     </TryCatch.Finally>

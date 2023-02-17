@@ -3,7 +3,7 @@
     <x:Property Name="in_years" Type="InArgument(x:Int32)" />
     <x:Property Name="in_months" Type="InArgument(x:Int32)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1339.2,2108</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1183.2,2208</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="20">
@@ -136,7 +136,7 @@
             </ui:MultipleAssign>
             <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into '记账日期'" EmptyField="True" sap:VirtualizedContainerService.HintSize="435.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[dateFrom+&quot;[k(enter)]&quot;]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc230e44-23ba-4e4e-8c5b-8da835d2b5a3" InformativeScreenshot="f767ff031128b1e12890be1469ebcff3" Selector="&lt;webctrl id='ext-gen12' idx='1' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc230e44-23ba-4e4e-8c5b-8da835d2b5a3" InformativeScreenshot="f767ff031128b1e12890be1469ebcff3" Selector="&lt;webctrl tag='INPUT' name='accounting_date_from' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -145,7 +145,7 @@
             </ui:TypeInto>
             <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'TO'" EmptyField="True" sap:VirtualizedContainerService.HintSize="435.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[dateTo+&quot;[k(enter)]&quot;]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2e064cbe-bab2-4ddc-aef2-f72be628460d" InformativeScreenshot="edd0c0e58773e5f9b1b7aea1a5e1ead2" Selector="&lt;webctrl id='ext-gen26' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2e064cbe-bab2-4ddc-aef2-f72be628460d" InformativeScreenshot="edd0c0e58773e5f9b1b7aea1a5e1ead2" Selector="&lt;webctrl tag='INPUT' name='accounting_date_to' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -157,7 +157,7 @@
                 <ui:CursorPosition OffsetX="10" OffsetY="14" Position="TopLeft" />
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="af2e8478-79d3-43cd-a119-8a3ee7ca2014" InformativeScreenshot="1c5c8556ba832a73343857648cf921ed" Selector="&lt;webctrl id='ACR310_query' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tag='TD' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="af2e8478-79d3-43cd-a119-8a3ee7ca2014" InformativeScreenshot="1c5c8556ba832a73343857648cf921ed" Selector="&lt;webctrl tag='DIV' aaname='查询' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -166,7 +166,7 @@
             </ui:Click>
             <ui:WaitUiElementVanish WaitNotActive="{x:Null}" WaitNotVisible="{x:Null}" ContinueOnError="True" DisplayName="Wait Element Vanish '正在查询数据'" sap:VirtualizedContainerService.HintSize="435.2,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementVanish_2">
               <ui:WaitUiElementVanish.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5117bed1-33a8-45e6-ac64-92bae051633f" InformativeScreenshot="498947b684bf829c3d0d5a4e5bba7529" Selector="&lt;webctrl id='ext-gen*' tag='SPAN' aaname='正在查询数据...' /&gt;" TimeoutMS="100000">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5117bed1-33a8-45e6-ac64-92bae051633f" InformativeScreenshot="498947b684bf829c3d0d5a4e5bba7529" Selector="&lt;webctrl id='ext-gen*' tag='SPAN' aaname='正在查询数据...' /&gt;" TimeoutMS="20000">
                   <ui:Target.WaitForReady>
                     <InArgument x:TypeArguments="ui:WaitForReady" />
                   </ui:Target.WaitForReady>
@@ -178,7 +178,7 @@
                 <ui:CursorPosition OffsetX="14" OffsetY="15" Position="TopLeft" />
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="472f711b-2c29-48b5-b80e-8738945510f3" InformativeScreenshot="2959eb7414421c96ee38f14a2dc3a19f" Selector="&lt;webctrl tag='TD' aaname='  导出   ' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="472f711b-2c29-48b5-b80e-8738945510f3" InformativeScreenshot="2959eb7414421c96ee38f14a2dc3a19f" Selector="&lt;webctrl tag='DIV' aaname='导出' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -202,7 +202,7 @@
                 <ui:CursorPosition OffsetX="13" OffsetY="10" Position="TopLeft" />
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cad6fae1-1ab8-4e81-b0f6-e287b7f9370f" InformativeScreenshot="f7814dbfe75aa260b1ec691d2bf849e5" Selector="&lt;webctrl idx='1' tag='BUTTON' type='submit' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cad6fae1-1ab8-4e81-b0f6-e287b7f9370f" InformativeScreenshot="f7814dbfe75aa260b1ec691d2bf849e5" Selector="&lt;webctrl tag='DIV' aaname='确定' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
