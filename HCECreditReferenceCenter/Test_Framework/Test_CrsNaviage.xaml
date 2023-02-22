@@ -58,7 +58,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="需要展期09799316001166271473&#xD;&#xA;582d8711&#xD;&#xA;不需要20340391002526238900&#xD;&#xA;3303a43b" DisplayName="Test_CrsNaviage" sap:VirtualizedContainerService.HintSize="478.4,513.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="需要展期09799316001166271473&#xA;582d8711&#xA;不需要20340391002526238900&#xA;3303a43b" DisplayName="Test_CrsNaviage" sap:VirtualizedContainerService.HintSize="478.4,513.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -70,13 +70,13 @@
         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsNaviage workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CRS\CrsNaviage.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:Int32" x:Key="in_menuName">
-              <Literal x:TypeArguments="x:Int32" Value="4" />
+              <Literal x:TypeArguments="x:Int32" Value="3" />
             </InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_registerNo">
-              <Literal x:TypeArguments="x:String">09799316001166271473</Literal>
+              <Literal x:TypeArguments="x:String">21777954002714091959</Literal>
             </InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_changeCode">
-              <Literal x:TypeArguments="x:String">582d8711</Literal>
+              <Literal x:TypeArguments="x:String">c53e821d</Literal>
             </InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_contractCode" />
           </ui:InvokeWorkflowFile.Arguments>

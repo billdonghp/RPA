@@ -3,7 +3,7 @@
     <x:Property Name="in_dataRow" Type="InArgument(sd:DataRow)" />
     <x:Property Name="in_locationInfo" Type="InArgument(scg:Dictionary(x:String, x:String))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1040.8,3355.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1183.2,3395.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -63,13 +63,13 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1034.4,3190.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence DisplayName="LesseeInfo" sap:VirtualizedContainerService.HintSize="1034.4,3190.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'msedge.exe  动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="992.8,3097.6" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="23be0ee1e1ff9971ad47230c31ca03a4" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="992.8,3097.6" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="23be0ee1e1ff9971ad47230c31ca03a4" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -437,7 +437,7 @@
                 </TryCatch>
               </If.Else>
             </If>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into '详细地址'" EmptyField="True" sap:VirtualizedContainerService.HintSize="917.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_7" SendWindowMessages="False" SimulateType="True" Text="[in_locationInfo(&quot;district&quot;)]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into '详细地址'" EmptyField="True" sap:VirtualizedContainerService.HintSize="917.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_7" SendWindowMessages="False" SimulateType="True" Text="[if(String.IsNullOrEmpty(in_dataRow(&quot;营业执照注册号&quot;).ToString) AndAlso String.IsNullOrWhiteSpace(in_dataRow(&quot;营业执照注册号&quot;).ToString),in_dataRow(&quot;证件地址&quot;).ToString,in_dataRow(&quot;注册地址&quot;).ToString)]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="822a3532-08e0-41bd-9f29-75411832897a" InformativeScreenshot="5d548b8e9ab48015cc43d5c18ef5df4e" Selector="&lt;webctrl src='homepage.do' tag='IFRAME' /&gt;&lt;webctrl parentid='crrTb' tag='TEXTAREA' type='text' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
