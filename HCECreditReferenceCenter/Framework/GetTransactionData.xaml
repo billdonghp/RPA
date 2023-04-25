@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>946.4,1704.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1196.8,1704.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -90,10 +90,21 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflGetCondition workflow" sap:VirtualizedContainerService.HintSize="682.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="HCE\HflGetCondition.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_fromDate">[FromDate]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_toDate">[ToDate]</OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_registerDate">[in_Config("RegisterDate").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">[in_TransactionNumber]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_fromDate">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="FromDate" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_toDate">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ToDate" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_registerDate">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;RegisterDate&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">
+          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_TransactionNumber" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_isInterval">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;isInterval&quot;).ToString" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If Condition="[Not String.IsNullOrEmpty(FromDate) AndAlso Not String.IsNullOrWhiteSpace(FromDate) AndAlso Not String.IsNullOrEmpty(ToDate) AndAlso Not String.IsNullOrWhiteSpace(ToDate)]" sap:VirtualizedContainerService.HintSize="682.4,735.2" sap2010:WorkflowViewState.IdRef="If_3">
@@ -135,6 +146,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_ContractNo" />
               <InArgument x:TypeArguments="x:String" x:Key="in_isReg" />
               <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSelect">False</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_lesimbcde" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflDataScraping workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="HCE\HflDataScraping.xaml">

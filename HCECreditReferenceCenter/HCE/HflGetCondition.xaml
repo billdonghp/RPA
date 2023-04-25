@@ -4,8 +4,9 @@
     <x:Property Name="out_toDate" Type="OutArgument(x:String)" />
     <x:Property Name="in_registerDate" Type="InArgument(x:String)" />
     <x:Property Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_isInterval" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1182.4,902.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1196.8,902.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -33,7 +34,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -64,6 +65,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="HflGetCondition" sap:VirtualizedContainerService.HintSize="752.8,636.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -130,7 +132,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <If Condition="[(nextMonths -months+1)&gt;=betweenMonths]" sap:VirtualizedContainerService.HintSize="711.2,280" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[(if(&quot;Yes&quot;.Equals(in_isInterval), nextMonths, months) - months + 1) &gt;= betweenMonths]" sap:VirtualizedContainerService.HintSize="711.2,280" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="333.6,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
           <ui:MultipleAssign.AssignOperations>
@@ -140,7 +142,7 @@
                   <OutArgument x:TypeArguments="x:String">[out_fromDate]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[startDate.AddMonths(betweenMonths-1).ToString("yyyyMMdd")]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[if("Yes".Equals(in_isInterval), startDate.AddMonths(betweenMonths-1).ToString("yyyyMMdd"), New Date(years, months, nextMonths).ToString("yyyyMMdd"))]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -148,7 +150,7 @@
                   <OutArgument x:TypeArguments="x:String">[out_toDate]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[startDate.AddMonths(betweenMonths).AddDays(-1).ToString("yyyyMMdd")]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[if("Yes".Equals(in_isInterval),startDate.AddMonths(betweenMonths).AddDays(-1).ToString("yyyyMMdd"),out_fromDate)]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
             </scg:List>

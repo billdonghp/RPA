@@ -3,7 +3,7 @@
     <x:Property Name="out_registerNum" Type="OutArgument(x:String)" />
     <x:Property Name="out_editNum" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1164.8,2492</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1127.2,2554.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -68,7 +68,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CRSComplete" sap:VirtualizedContainerService.HintSize="1137.6,2287.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence DisplayName="CRSComplete" sap:VirtualizedContainerService.HintSize="1137.6,2349.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="errDiv" />
     </Sequence.Variables>
@@ -77,13 +77,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="1096,2194.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0404e36379ab11f3433687032b19437c" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="1096,2256.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0404e36379ab11f3433687032b19437c" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1062.4,2047.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1062.4,2109.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -94,7 +94,7 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e2357dca-70a9-4846-8092-debadc35b430" InformativeScreenshot="f9a2dce7f4280c6939da2ddc0cd64e7b" Selector="&lt;webctrl tag='H4' aaname='信息填写有误，请修改。' idx='1' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[errDiv]" sap:VirtualizedContainerService.HintSize="1020.8,1807.2" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[errDiv]" sap:VirtualizedContainerService.HintSize="1020.8,1869.6" sap2010:WorkflowViewState.IdRef="If_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -135,7 +135,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="601.6,1657.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="601.6,1720" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="registerNum" />
                     <Variable x:TypeArguments="x:String" Name="editNum" />
@@ -277,6 +277,7 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
+                  <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="560,22.4" sap2010:WorkflowViewState.IdRef="RefreshBrowser_2" />
                 </Sequence>
               </If.Else>
             </If>

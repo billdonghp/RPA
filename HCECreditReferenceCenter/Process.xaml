@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="ProcessTransaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataTable)" />
@@ -9,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1350.4,8136.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1350.4,11667.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -78,22 +77,26 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. &#xA;System.Text.RegularExpressions.Regex.Matches(row(&quot;租赁财产描述&quot;).ToString.replace(&quot;，&quot;,&quot;,&quot;).split(&quot;,&quot;C)(0),&quot;[W|N]&quot;).Count=0&#xA;已登记合同全部进行展期登记，后台将“展期与否”全部更新Y&#xA;需要重新登记的合同，需要后台修改“登记”、“初始登记码”等&#xA;Dictionary.ContainsKey 确认是否存在&#xA;调用Retry Scope重复获得初始登记编号、修改码、变更登记码、展期登记码、注销登记码" DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1360.8,7932" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. &#xA;System.Text.RegularExpressions.Regex.Matches(row(&quot;租赁财产描述&quot;).ToString.replace(&quot;，&quot;,&quot;,&quot;).split(&quot;,&quot;C)(0),&quot;[W|N]&quot;).Count=0&#xA;已登记合同全部进行展期登记，后台将“展期与否”全部更新Y&#xA;需要重新登记的合同，需要后台修改“登记”、“初始登记码”等&#xA;Dictionary.ContainsKey 确认是否存在&#xA;调用Retry Scope重复获得初始登记编号、修改码、变更登记码、展期登记码、注销登记码" DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1360.8,11462.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="lastContractCode" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1319.2,7731.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1319.2,11261.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1269.6,7582.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1269.6,11112.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(of String)from{&quot;结束&quot;,&quot;退库&quot;}]" Name="regTypeList" />
               <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String ,String)]" Name="locationInfo" />
@@ -110,14 +113,21 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke RowCheck workflow" sap:VirtualizedContainerService.HintSize="1228,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Utils\DataRowCheck.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="sd:DataRow" x:Key="in_row">[row]</InArgument>
-                <OutArgument x:TypeArguments="sc:ArrayList" x:Key="out_errorMsg">[errorMsg]</OutArgument>
+                <InArgument x:TypeArguments="sd:DataRow" x:Key="in_row">
+                  <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="row" />
+                </InArgument>
+                <OutArgument x:TypeArguments="sc:ArrayList" x:Key="out_errorMsg">
+                  <mva:VisualBasicReference x:TypeArguments="sc:ArrayList" ExpressionText="errorMsg" />
+                </OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_contractCode">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="lastContractCode" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <If Condition="[errorMsg.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1228,52.8" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[errorMsg.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1228,397.6" sap2010:WorkflowViewState.IdRef="If_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -133,26 +143,16 @@
                   <ui:Continue sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Continue_2" />
                 </Sequence>
               </If.Then>
-              <If.Else>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,193.6" sap2010:WorkflowViewState.IdRef="CommentOut_12">
-                  <ui:CommentOut.Body>
-                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_40">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_7" />
-                    </Sequence>
-                  </ui:CommentOut.Body>
-                </ui:CommentOut>
-              </If.Else>
             </If>
-            <If Condition="[in_TransactionItem.Rows.IndexOf(row) &gt; 4]" sap:VirtualizedContainerService.HintSize="1228,209.6" sap2010:WorkflowViewState.IdRef="If_24">
-              <If.Then>
-                <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_1" />
-              </If.Then>
-            </If>
+            <Assign sap:VirtualizedContainerService.HintSize="1228,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[lastContractCode]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[row("合同号").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[in_TransactionItem.Rows.IndexOf(row) &gt; 20]" sap:VirtualizedContainerService.HintSize="1228,209.6" sap2010:WorkflowViewState.IdRef="If_24" />
             <ui:Comment sap:VirtualizedContainerService.HintSize="1228,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 登记流程" />
             <If Condition="[(String.IsNullOrEmpty(row(&quot;登记&quot;).ToString) OrElse &quot;N&quot;.Equals(row(&quot;登记&quot;))) AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="1228,1980" sap2010:WorkflowViewState.IdRef="If_11">
               <sap:WorkflowViewStateService.ViewState>
@@ -231,12 +231,8 @@
                         </ui:InvokeWorkflowFile>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke input workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="CRS\CrsRegisterLease.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_dataRow">
-                              <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="row" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_locationInfo">
-                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="locationInfo" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_dataRow">[row]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_locationInfo">[locationInfo]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </Sequence>
@@ -292,6 +288,7 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_ContractNo">[row("合同号").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_isReg" />
                       <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSelect">True</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_lesimbcde">[row("物编号").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1038.4,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
@@ -357,15 +354,15 @@
               </If.Then>
             </If>
             <ui:Comment sap:VirtualizedContainerService.HintSize="1228,56" sap2010:WorkflowViewState.IdRef="Comment_8" Text="//变更登记" />
-            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso &quot;Y&quot;.Equals(row(&quot;承租人变更与否&quot;)) AndAlso &quot;N&quot;.Equals(row(&quot;承租人变更登记与否&quot;)）AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="1228,52.8" sap2010:WorkflowViewState.IdRef="If_9">
+            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso &quot;Y&quot;.Equals(row(&quot;承租人变更与否&quot;)) AndAlso &quot;N&quot;.Equals(row(&quot;承租人变更登记与否&quot;)）AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="1228,2752.8" sap2010:WorkflowViewState.IdRef="If_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="变更登记流程" sap:VirtualizedContainerService.HintSize="564.8,2219.2" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence DisplayName="变更登记流程" sap:VirtualizedContainerService.HintSize="564.8,2603.2" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -421,6 +418,7 @@
                             <InArgument x:TypeArguments="x:String" x:Key="in_ContractNo">[row("合同号").ToString]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_isReg" />
                             <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSelect">True</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_lesimbcde">[row("物编号").ToString]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflCheckCancel workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_47" UnSafe="False" WorkflowFileName="HCE\HflCheckCancel.xaml">
@@ -495,7 +493,7 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke BMapReverseGeocoding workflow" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="BMAP\BMapReverseGeocoding.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke BMapReverseGeocoding workflow" sap:VirtualizedContainerService.HintSize="523.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="BMAP\BMapReverseGeocoding.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_address">[if(String.IsNullOrEmpty(row("营业执照注册号").ToString) AndAlso String.IsNullOrWhiteSpace(row("营业执照注册号").ToString),row("证件地址").ToString,row("注册地址").ToString)]</InArgument>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_province">[locationInfo("province")]</OutArgument>
@@ -505,19 +503,56 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_bmapUrl">http://api.map.baidu.com/</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsChangeRegister workflow" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="CRS\CrsRegisterChange.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsChangeRegister workflow" sap:VirtualizedContainerService.HintSize="523.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="CRS\CrsRegisterChange.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_authName">[in_Config("authName").ToString]</InArgument>
                       <InArgument x:TypeArguments="sd:DataRow" x:Key="in_dataRow">[row]</InArgument>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_locationInfo">[locationInfo]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsOtherComplete workflow" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="CRS\CrsCompleteOther.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_regNum">[regInfo("changeNum")]</OutArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflQueryCondition workflow" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="HCE\HflQueryCondition.xaml">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="523.2,560" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                    <TryCatch.Try>
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsOtherComplete workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="CRS\CrsCompleteOther.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_regNum">[regInfo("changeNum")]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="440,395.2" sap2010:WorkflowViewState.IdRef="Catch`1_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="433.6,324.8" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="113fed465c7d7f8d8716f605da84b202" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
+                            <ui:BrowserScope.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="241.6,177.6" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="RefreshBrowser_3" />
+                                  <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_10" />
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:BrowserScope.Body>
+                          </ui:BrowserScope>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflQueryCondition workflow" sap:VirtualizedContainerService.HintSize="523.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="HCE\HflQueryCondition.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_dateFrom" />
                       <InArgument x:TypeArguments="x:String" x:Key="in_dateTo" />
@@ -525,9 +560,10 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_ContractNo">[row("合同号").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_isReg" />
                       <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSelect">True</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_lesimbcde">[row("物编号").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="523.2,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -585,12 +621,11 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
-                  <ui:Continue sap:VirtualizedContainerService.HintSize="436.8,22.4" sap2010:WorkflowViewState.IdRef="Continue_4" />
                 </Sequence>
               </If.Then>
             </If>
             <ui:Comment sap:VirtualizedContainerService.HintSize="1228,56" sap2010:WorkflowViewState.IdRef="Comment_9" Text="//展期登记" />
-            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso &quot;Y&quot;.Equals(row(&quot;展期与否&quot;)) AndAlso &quot;N&quot;.Equals(row(&quot;展期登记与否&quot;)）AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="1228,2215.2" sap2010:WorkflowViewState.IdRef="If_10">
+            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso &quot;Y&quot;.Equals(row(&quot;展期与否&quot;)) AndAlso &quot;N&quot;.Equals(row(&quot;展期登记与否&quot;)）AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="1228,2369.6" sap2010:WorkflowViewState.IdRef="If_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -598,13 +633,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="展期登记流程" sap:VirtualizedContainerService.HintSize="601.6,2065.6" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <Sequence DisplayName="展期登记流程" sap:VirtualizedContainerService.HintSize="564.8,2220" sap2010:WorkflowViewState.IdRef="Sequence_23">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="560,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="523.2,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -632,7 +667,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:MultipleAssign>
-                  <If Condition="[Not String.IsNullOrEmpty(row(&quot;复核人&quot;).ToString)  AndAlso Not String.IsNullOrWhiteSpace(row(&quot;复核人&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="560,509.6" sap2010:WorkflowViewState.IdRef="If_13">
+                  <If Condition="[Not String.IsNullOrEmpty(row(&quot;复核人&quot;).ToString)  AndAlso Not String.IsNullOrWhiteSpace(row(&quot;复核人&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="523.2,509.6" sap2010:WorkflowViewState.IdRef="If_13">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -655,6 +690,7 @@
                             <InArgument x:TypeArguments="x:String" x:Key="in_ContractNo">[row("合同号").ToString]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_isReg" />
                             <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSelect">True</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_lesimbcde">[row("物编号").ToString]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflCheckCancel workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_48" UnSafe="False" WorkflowFileName="HCE\HflCheckCancel.xaml">
@@ -665,7 +701,7 @@
                       </Sequence>
                     </If.Then>
                   </If>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="560,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="523.2,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                     <TryCatch.Try>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsNaviage workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="CRS\CrsNaviage.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
@@ -729,19 +765,56 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsExtensionRegister workflow" sap:VirtualizedContainerService.HintSize="560,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="CRS\CrsRegisterExtension.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsExtensionRegister workflow" sap:VirtualizedContainerService.HintSize="523.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="CRS\CrsRegisterExtension.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[row("合同号").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:Int32" x:Key="in_extensionMonths">[72-Integer.parse(row("租赁期限").ToString)]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_authName">[in_Config("authName").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsOtherComplete workflow" sap:VirtualizedContainerService.HintSize="560,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="CRS\CrsCompleteOther.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_regNum">[regInfo("extensionNum")]</OutArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflQueryCondition workflow" sap:VirtualizedContainerService.HintSize="560,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="HCE\HflQueryCondition.xaml">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="523.2,560" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                    <TryCatch.Try>
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsOtherComplete workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="CRS\CrsCompleteOther.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_regNum">[regInfo("extensionNum")]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="440,395.2" sap2010:WorkflowViewState.IdRef="Catch`1_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="433.6,324.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="113fed465c7d7f8d8716f605da84b202" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
+                            <ui:BrowserScope.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="241.6,177.6" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="RefreshBrowser_1" />
+                                  <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_11" />
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:BrowserScope.Body>
+                          </ui:BrowserScope>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflQueryCondition workflow" sap:VirtualizedContainerService.HintSize="523.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="HCE\HflQueryCondition.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_dateFrom" />
                       <InArgument x:TypeArguments="x:String" x:Key="in_dateTo" />
@@ -749,12 +822,13 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_ContractNo">[row("合同号").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_isReg" />
                       <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSelect">True</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_lesimbcde">[row("物编号").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="560,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="523.2,52.8" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -768,7 +842,7 @@
                       </ui:InvokeWorkflowFile>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="714.4,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -809,12 +883,12 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
-                  <ui:Continue sap:VirtualizedContainerService.HintSize="560,22.4" sap2010:WorkflowViewState.IdRef="Continue_5" />
+                  <ui:Continue sap:VirtualizedContainerService.HintSize="523.2,22.4" sap2010:WorkflowViewState.IdRef="Continue_5" />
                 </Sequence>
               </If.Then>
             </If>
             <ui:Comment sap:VirtualizedContainerService.HintSize="1228,56" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 注销流程" />
-            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso regTypeList.Contains(row(&quot;起租状态&quot;).ToString) AndAlso String.IsNullOrEmpty(row(&quot;注销登记编号&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="1228,2241.6" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso regTypeList.Contains(row(&quot;起租状态&quot;).ToString) AndAlso String.IsNullOrEmpty(row(&quot;注销登记编号&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="1228,2472.8" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -822,14 +896,14 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="注销登记流程" sap:VirtualizedContainerService.HintSize="872.8,2092" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="注销登记流程" sap:VirtualizedContainerService.HintSize="976,2323.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="831.2,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="934.4,130.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -857,7 +931,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:MultipleAssign>
-                  <If Condition="[Not String.IsNullOrEmpty(row(&quot;复核人&quot;).ToString)  AndAlso Not String.IsNullOrWhiteSpace(row(&quot;复核人&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="831.2,509.6" sap2010:WorkflowViewState.IdRef="If_16">
+                  <If Condition="[Not String.IsNullOrEmpty(row(&quot;复核人&quot;).ToString)  AndAlso Not String.IsNullOrWhiteSpace(row(&quot;复核人&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="934.4,509.6" sap2010:WorkflowViewState.IdRef="If_16">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -880,6 +954,7 @@
                             <InArgument x:TypeArguments="x:String" x:Key="in_ContractNo">[row("合同号").ToString]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_isReg" />
                             <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSelect">True</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_lesimbcde">[row("物编号").ToString]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflCheckCancel workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_49" UnSafe="False" WorkflowFileName="HCE\HflCheckCancel.xaml">
@@ -890,7 +965,7 @@
                       </Sequence>
                     </If.Then>
                   </If>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="831.2,740.8" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="934.4,972" sap2010:WorkflowViewState.IdRef="TryCatch_7">
                     <TryCatch.Try>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsNaviage workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="CRS\CrsNaviage.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
@@ -902,7 +977,7 @@
                       </ui:InvokeWorkflowFile>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="797.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="900.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -925,7 +1000,7 @@
                       </Catch>
                     </TryCatch.Catches>
                     <TryCatch.Finally>
-                      <If Condition="[processError Is Nothing]" sap:VirtualizedContainerService.HintSize="794.4,509.6" sap2010:WorkflowViewState.IdRef="If_23">
+                      <If Condition="[processError Is Nothing]" sap:VirtualizedContainerService.HintSize="897.6,740.8" sap2010:WorkflowViewState.IdRef="If_23">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -933,23 +1008,60 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <Sequence DisplayName="登记期限内注销" sap:VirtualizedContainerService.HintSize="375.2,360" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                          <Sequence DisplayName="登记期限内注销" sap:VirtualizedContainerService.HintSize="478.4,591.2" sap2010:WorkflowViewState.IdRef="Sequence_43">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsUnReg workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="CRS\CrsRegisterCancel.xaml">
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsUnReg workflow" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="CRS\CrsRegisterCancel.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
                                 <InArgument x:TypeArguments="x:String" x:Key="in_customerContractCode">[row("合同号").ToString]</InArgument>
                                 <InArgument x:TypeArguments="x:String" x:Key="in_authName">[in_Config("authName").ToString]</InArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsOtherComplete workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="CRS\CrsCompleteOther.xaml">
-                              <ui:InvokeWorkflowFile.Arguments>
-                                <OutArgument x:TypeArguments="x:String" x:Key="out_regNum">[regInfo("cancelNum")]</OutArgument>
-                              </ui:InvokeWorkflowFile.Arguments>
-                            </ui:InvokeWorkflowFile>
+                            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                              <TryCatch.Try>
+                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CrsOtherComplete workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="CRS\CrsCompleteOther.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <OutArgument x:TypeArguments="x:String" x:Key="out_regNum">[regInfo("cancelNum")]</OutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </TryCatch.Try>
+                              <TryCatch.Catches>
+                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ActivityAction x:TypeArguments="s:Exception">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                    </ActivityAction.Argument>
+                                    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '动产融资统一登记公示系统'" sap:VirtualizedContainerService.HintSize="433.6,324.8" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="113fed465c7d7f8d8716f605da84b202" Selector="&lt;html app='msedge.exe' title='动产融资统一登记公示系统' /&gt;">
+                                      <ui:BrowserScope.Body>
+                                        <ActivityAction x:TypeArguments="x:Object">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                          </ActivityAction.Argument>
+                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="241.6,177.6" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="RefreshBrowser_2" />
+                                            <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_12" />
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ui:BrowserScope.Body>
+                                    </ui:BrowserScope>
+                                  </ActivityAction>
+                                </Catch>
+                              </TryCatch.Catches>
+                            </TryCatch>
                           </Sequence>
                         </If.Then>
                         <If.Else>
@@ -981,7 +1093,7 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflQueryCondition workflow" sap:VirtualizedContainerService.HintSize="831.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="HCE\HflQueryCondition.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HflQueryCondition workflow" sap:VirtualizedContainerService.HintSize="934.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="HCE\HflQueryCondition.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_dateFrom" />
                       <InArgument x:TypeArguments="x:String" x:Key="in_dateTo" />
@@ -989,9 +1101,10 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_ContractNo">[row("合同号").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_isReg" />
                       <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSelect">True</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_lesimbcde">[row("物编号").ToString]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="831.2,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="934.4,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1055,6 +1168,12 @@
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
   </Sequence>
 </Activity>

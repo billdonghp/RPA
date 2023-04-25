@@ -1,8 +1,9 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="DcflGetYearsMonths" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_yearMonth" Type="OutArgument(x:String)" />
+    <x:Property Name="out_isInterval" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1245.6,1900.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1196.8,2093.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="20">
@@ -59,10 +60,9 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DcflGetYearsMonths" sap:VirtualizedContainerService.HintSize="1256,1736" sap2010:WorkflowViewState.IdRef="Sequence_7">
+  <Sequence DisplayName="DcflGetYearsMonths" sap:VirtualizedContainerService.HintSize="1098.4,1928.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="years" />
       <Variable x:TypeArguments="x:Int32" Name="months" />
@@ -76,7 +76,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="1214.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign sap:VirtualizedContainerService.HintSize="1056.8,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="s:DateTime">[twoMonthsBefore]</OutArgument>
       </Assign.To>
@@ -84,8 +84,16 @@
         <InArgument x:TypeArguments="s:DateTime">[Now.AddMonths(0)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MessageBox Buttons="YesNo" Caption="请确认" ChosenButton="[currConfirm]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1214.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;是否登记&quot;+twoMonthsBefore.Year.ToString()+&quot;年&quot;+twoMonthsBefore.Month.ToString+&quot;月的合同&quot;]" />
-    <If Condition="[&quot;Yes&quot;.Equals(currConfirm)]" sap:VirtualizedContainerService.HintSize="1214.4,1443.2" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:MessageBox Buttons="YesNo" Caption="请确认" ChosenButton="[currConfirm]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1056.8,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;是否登记&quot;+twoMonthsBefore.Year.ToString()+&quot;年&quot;+twoMonthsBefore.Month.ToString+&quot;月的合同&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="1056.8,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_isInterval]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Yes</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[&quot;Yes&quot;.Equals(currConfirm)]" sap:VirtualizedContainerService.HintSize="1056.8,1536" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_7">
           <Assign.To>
@@ -97,28 +105,34 @@
         </Assign>
       </If.Then>
       <If.Else>
-        <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="907.2,1293.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+        <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="749.6,1386.4" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
           <ui:InterruptibleDoWhile.Body>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="872,1126.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="714.4,1219.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="830.4,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="合同生效日期（年别、月别、自定义），例（2020、202011、20200306）" Title="请输入">
+              <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="672.8,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="合同生效日期（年别、月别、自定义），例（2020、202011、20200306）" Title="请输入">
                 <ui:InputDialog.Result>
                   <OutArgument x:TypeArguments="x:String">[out_yearMonth]</OutArgument>
                 </ui:InputDialog.Result>
               </ui:InputDialog>
-              <If Condition="[Len(out_yearMonth) = 4 or Len(out_yearMonth) = 6 or Len(out_yearMonth) = 8]" sap:VirtualizedContainerService.HintSize="830.4,752" sap2010:WorkflowViewState.IdRef="If_2">
+              <If Condition="[Len(out_yearMonth) = 4 or Len(out_yearMonth) = 6 or Len(out_yearMonth) = 8]" sap:VirtualizedContainerService.HintSize="672.8,844.8" sap2010:WorkflowViewState.IdRef="If_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="IfSequence" sap:VirtualizedContainerService.HintSize="682.4,602.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="IfSequence" sap:VirtualizedContainerService.HintSize="524.8,695.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="640.8,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[years]</OutArgument>
                       </Assign.To>
@@ -126,7 +140,7 @@
                         <InArgument x:TypeArguments="x:Int32">[Integer.parse(out_yearMonth.Substring(0,4))]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="640.8,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[months]</OutArgument>
                       </Assign.To>
@@ -134,7 +148,7 @@
                         <InArgument x:TypeArguments="x:Int32">[if(Len(out_yearMonth)=4, 1, Integer.Parse(out_yearMonth.Substring(4,2)))]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="640.8,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_9">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[nextMonths]</OutArgument>
                       </Assign.To>
@@ -142,19 +156,57 @@
                         <InArgument x:TypeArguments="x:Int32">[if(Len(out_yearMonth) = 8, Integer.Parse(out_yearMonth.Substring(6,2)), if(Len(out_yearMonth)=6, Integer.Parse(out_yearMonth.Substring(4,2)), 12))]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[years &gt; Now.Year OrElse months &gt;12 OrElse nextMonths &gt; 12 OrElse months &gt; nextMonths OrElse months &lt; 1]" sap:VirtualizedContainerService.HintSize="640.8,209.6" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If Condition="[Len(out_yearMonth) = 8]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_10">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[custConfirm]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">No</InArgument>
-                          </Assign.Value>
-                        </Assign>
+                        <ui:MessageBox Buttons="YesNo" Caption="提示" ChosenButton="[out_isInterval]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;请确认是否区间查询？&quot;+vbCrLf+&quot;例：区间查询(&quot;+years.ToString+&quot;年&quot;+months.ToString+&quot;月~&quot;+years.ToString+&quot;年&quot;+nextMonths.ToString+&quot;月)&quot;+vbCrLf+&quot;       查询日期(&quot;+years.ToString+&quot;年&quot;+months.ToString+&quot;月&quot;+nextMonths.ToString+&quot;日)&quot;]" />
+                      </If.Then>
+                    </If>
+                    <If Condition="[&quot;Yes&quot;.Equals(out_isInterval)]" sap:VirtualizedContainerService.HintSize="483.2,52.8" sap2010:WorkflowViewState.IdRef="If_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <If Condition="[years &gt; Now.Year OrElse months &gt;12 OrElse nextMonths &gt; 12 OrElse months &gt; nextMonths OrElse months &lt; 1]" sap:VirtualizedContainerService.HintSize="640.8,209.6" sap2010:WorkflowViewState.IdRef="If_3">
+                          <If.Then>
+                            <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[custConfirm]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">No</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                          <If.Else>
+                            <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[custConfirm]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;查询区间：&quot;+years.ToString+&quot;年&quot;+months.ToString+&quot;月~&quot;+years.ToString+&quot;年&quot;+nextMonths.ToString+&quot;月&quot;]" />
+                          </If.Else>
+                        </If>
                       </If.Then>
                       <If.Else>
-                        <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[custConfirm]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;查询区间：&quot;+years.ToString+&quot;年&quot;+months.ToString+&quot;月~&quot;+years.ToString+&quot;年&quot;+nextMonths.ToString+&quot;月&quot;]" />
+                        <If Condition="[years &gt; Now.Year OrElse months &gt;12 OrElse nextMonths &gt; Integer.parse(New Date(years, months+1,1).AddDays(-1).toString(&quot;dd&quot;)) OrElse months &gt; nextMonths OrElse months &lt; 1]" sap:VirtualizedContainerService.HintSize="640.8,209.6" sap2010:WorkflowViewState.IdRef="If_6">
+                          <If.Then>
+                            <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[custConfirm]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">No</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                          <If.Else>
+                            <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[custConfirm]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;查询日期：&quot;+years.ToString+&quot;年&quot;+months.ToString+&quot;月&quot;+nextMonths.ToString+&quot;日&quot;]" />
+                          </If.Else>
+                        </If>
                       </If.Else>
                     </If>
                   </Sequence>

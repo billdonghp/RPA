@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1358.4,1346.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1196.8,1346.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>HflCheckCancel_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -62,10 +62,9 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="new Dictionary(of String ,String) from {{&quot;hceUrl&quot;,&quot;http://10.102.105.34:8080/&quot;},{&quot;browserType&quot;,&quot;Edge&quot;}}" DisplayName="HflCheckCancel" sap:VirtualizedContainerService.HintSize="475.2,1181.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="new Dictionary(of String ,Object) from {{&quot;hceUrl&quot;,&quot;http://10.102.105.24:8080/&quot;},{&quot;browserType&quot;,&quot;Edge&quot;}}" DisplayName="HflCheckCancel" sap:VirtualizedContainerService.HintSize="475.2,1181.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -140,7 +139,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'MessagePopUp'" sap:VirtualizedContainerService.HintSize="433.6,308.8" sap2010:WorkflowViewState.IdRef="BrowserScope_6" Selector="[&quot;&lt;html url='&quot;+in_Config(&quot;hceUrl&quot;).ToString+&quot;autocomm/inc/message_popup.jsp?gubun=information&amp;amp;msg=COMM0001&amp;amp;multi=undefined' /&gt;&quot;]">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'MessagePopUp_Close'" sap:VirtualizedContainerService.HintSize="433.6,308.8" sap2010:WorkflowViewState.IdRef="BrowserScope_6" Selector="[&quot;&lt;html url='&quot;+in_Config(&quot;hceUrl&quot;).ToString+&quot;autocomm/inc/message_popup.jsp?gubun=information&amp;amp;msg=COMM0001&amp;amp;multi=undefined' /&gt;&quot;]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>

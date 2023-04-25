@@ -6,11 +6,12 @@
     <x:Property Name="in_ContractNo" Type="InArgument(x:String)" />
     <x:Property Name="in_isReg" Type="InArgument(x:String)" />
     <x:Property Name="in_isSelect" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_lesimbcde" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1358.4,996.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1183.2,2956.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -67,22 +68,21 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Query Condition" sap:VirtualizedContainerService.HintSize="1100.8,832" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Query Condition" sap:VirtualizedContainerService.HintSize="1100.8,2792" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(&quot;Edge&quot;.Equals(in_browserType),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser 'TkafisSys'" sap:VirtualizedContainerService.HintSize="1059.2,52.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="a041d6a3415cb4531537def92c5771c4" Selector="&lt;html title='TKAFIS System' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(&quot;Edge&quot;.Equals(in_browserType),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser 'TkafisSys'" sap:VirtualizedContainerService.HintSize="1059.2,2012.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="a041d6a3415cb4531537def92c5771c4" Selector="&lt;html title='TKAFIS System' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="752.8,1520" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="752.8,1865.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -141,6 +141,33 @@
                 </ui:TypeInto>
               </If.Then>
             </If>
+            <If Condition="[Not String.IsNullOrEmpty(in_lesimbcde) AndAlso Not String.IsNullOrWhiteSpace(in_lesimbcde)]" sap:VirtualizedContainerService.HintSize="711.2,305.6" sap2010:WorkflowViewState.IdRef="If_7">
+              <If.Then>
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into '物编号'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="True" Text="[in_lesimbcde]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3290db02-f6d1-4306-809b-e1303e52205a" InformativeScreenshot="1013b69a61e2f70c645fbdef9262d4a3" Selector="&lt;webctrl name='LESIMBCDE' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+              </If.Then>
+              <If.Else>
+                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey '物编号'" sap:VirtualizedContainerService.HintSize="333.6,156" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="del" KeyModifiers="None" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="91d4e48b-6652-49f2-b831-4f00e712944d" InformativeScreenshot="1013b69a61e2f70c645fbdef9262d4a3" Selector="&lt;webctrl name='LESIMBCDE' tag='INPUT' type='text' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:SendHotkey.Target>
+                </ui:SendHotkey>
+              </If.Else>
+            </If>
             <If Condition="[Not String.IsNullOrEmpty(in_isReg) AndAlso Not String.IsNullOrWhiteSpace(in_isReg)]" sap:VirtualizedContainerService.HintSize="711.2,284.8" sap2010:WorkflowViewState.IdRef="If_4">
               <If.Then>
                 <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item '登记与否'" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[in_isReg]">
@@ -178,7 +205,7 @@
       </ui:BrowserScope.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
