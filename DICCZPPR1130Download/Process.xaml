@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234.4,5552.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>924,5592.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -156,7 +156,7 @@
             </If>
             <If Condition="[in_TransactionItem.Rows.IndexOf(row) mod 10 = 0]" sap:VirtualizedContainerService.HintSize="584.8,412" sap2010:WorkflowViewState.IdRef="If_10">
               <If.Then>
-                <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'Edge Home'" sap:VirtualizedContainerService.HintSize="433.6,262.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="f0e3adec5449945f8c046d951586e0fa" Selector="&lt;html htmlwindowname='WID*' title='Home * - SAP NetWeaver Portal' /&gt;">
+                <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'Edge Home'" sap:VirtualizedContainerService.HintSize="433.6,262.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="f0e3adec5449945f8c046d951586e0fa" Selector="&lt;html app='msedge.exe' htmlwindowname='WID*' title='Home * - SAP NetWeaver Portal' /&gt;">
                   <ui:BrowserScope.Body>
                     <ActivityAction x:TypeArguments="x:Object">
                       <ActivityAction.Argument>
@@ -199,7 +199,7 @@
                 <OutArgument x:TypeArguments="x:String">[resultFileName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[downFileName.Substring(0,downFileName.LastIndexOf("\"))+"\Result_"+Now.ToString("yyyyMMdd")+"_"+(in_TransactionItem.Rows.indexOf(row) \ 20).ToString+".xlsx"]</InArgument>
+                <InArgument x:TypeArguments="x:String">[downFileName.Substring(0,downFileName.LastIndexOf("\"))+"\Result_"+Now.ToString("yyyyMMdd")+"_"+(in_TransactionItem.Rows.indexOf(row) \ 10).ToString+".xlsx"]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="584.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;开始下载 Material:&quot; + row(&quot;Material&quot;).ToString]" />

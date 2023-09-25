@@ -12,7 +12,7 @@
     <x:Property Name="in_uniqueCode" Type="InArgument(x:String)" />
     <x:Property Name="out_identificationCode" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1196.8,902.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1289.6,902.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -71,6 +71,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="688.8,676.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -117,16 +118,16 @@
         <OutArgument x:TypeArguments="x:String">[out_matterDesc]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String" xml:space="preserve">["租赁财产名称： "+in_leaseName+ "[k(enter)]"+
-"租赁财产类型： "+in_leaseType+ "[k(enter)]"+
-"租赁财产数量： 1台 "+ "[k(enter)]"+
-"租赁财产租赁期限： "+in_leaseTerm+"个月 "+ "[k(enter)]"+
-"租赁财产合格证序号："+in_certificateNo+ "[k(enter)]"+
-"租赁财产标准号："+in_uniqueCode+ "[k(enter)]"+
-"租赁财产机型："+in_model+ "[k(enter)]"+
-"租赁财产编号（机号）："+in_machineNumber+ "[k(enter)]"+
-"租赁财产发动机编号："+in_engineNo+ "[k(enter)]"+
-"租赁财产交付日期："+in_deliveryDate]</InArgument>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">["租赁财产名称： " + in_leaseName + vbCrLf+
+"租赁财产类型： "+in_leaseType + vbCrLf+
+"租赁财产数量： 1台 " + vbCrLf +
+"租赁财产租赁期限： " + in_leaseTerm+"个月 " + vbCrLf +
+"租赁财产合格证序号：" + in_certificateNo + vbCrLf +
+"租赁财产标准号：" + in_uniqueCode + vbCrLf +
+"租赁财产机型：" + in_model + vbCrLf +
+"租赁财产编号（机号）：" + in_machineNumber + vbCrLf +
+"租赁财产发动机编号：" + in_engineNo + vbCrLf +
+"租赁财产交付日期：" + in_deliveryDate]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="647.2,60" sap2010:WorkflowViewState.IdRef="Assign_5">

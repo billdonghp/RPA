@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1220,902.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1396.8,902.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -67,6 +67,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="AdjustPivoitTable" sap:VirtualizedContainerService.HintSize="375.2,257.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -77,9 +78,15 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim Excel As Microsoft.Office.Interop.Excel.Application&#xA;Dim Workbook As Microsoft.Office.Interop.Excel.Workbook&#xA;Dim Worksheet As Microsoft.Office.Interop.Excel.Worksheet&#xA;Dim Range As Microsoft.Office.Interop.Excel.Range&#xA;Dim XlVAlign As Microsoft.Office.Interop.Excel.XlVAlign&#xA;Dim XlBordersIndex As Microsoft.Office.Interop.Excel.XlBordersIndex&#xA;&#xA;&#xA;Excel = New Microsoft.Office.Interop.Excel.Application&#xA;Workbook = Excel.Workbooks.Open(path)&#xA;Excel.Visible = True&#xA;&#xA;Worksheet = CType(Workbook.Sheets(sheet), Microsoft.Office.Interop.Excel.Worksheet)&#xA;Worksheet.Activate&#xA;&#xA;Range = Worksheet.Range(columnName)&#xA;Range.Columns.EntireColumn.Autofit()&#xA;Range.RowHeight = 25.5&#xA;Range.VerticalAlignment = XlVAlign.xlVAlignCenter&#xA;Range.Interior.ColorIndex = 15&#xA;Range.Borders().LineStyle = 1&#xA;&#xA;Workbook.Save&#xA;Workbook.Close&#xA;Excel.Quit" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
       <ui:InvokeCode.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="path">[in_path]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="sheet">[in_sheet]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="columnName">["A1:"+if(in_count \ 26 &gt; 0,chr(64 + in_count \ 26).ToString+ chr(64+in_count mod 26).ToString , chr(64+in_count).ToString)+"1"]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="path">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_path" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="sheet">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_sheet" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="columnName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;A1:&quot;+if((in_count-1) \ 26 &gt; 0,chr(64 + (in_count-1) \ 26).ToString+ chr(64+if(in_count mod 26 = 0, 26,in_count mod 26)).ToString , chr(64+in_count).ToString)+&quot;1&quot;" />
+        </InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
   </Sequence>
