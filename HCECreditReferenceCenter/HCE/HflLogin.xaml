@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1244.8,1956</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>664.8,1996</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence5_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -131,7 +131,7 @@
         </TryCatch>
       </If.Then>
     </If>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(in_Config.ContainsKey(&quot;browserType&quot;) AndAlso&quot;Edge&quot;.Equals(in_Config(&quot;browserType&quot;).ToString),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="618.4,217.6" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_Config(&quot;hceUrl&quot;).ToString]">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(in_Config.ContainsKey(&quot;browserType&quot;) AndAlso&quot;Edge&quot;.Equals(in_Config(&quot;browserType&quot;).ToString),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="618.4,217.6" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_Config(&quot;hceUrl&quot;).ToString+&quot;Login.jsp&quot;]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -154,7 +154,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OpenBrowser>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(in_Config.ContainsKey(&quot;browserType&quot;) AndAlso&quot;Edge&quot;.Equals(in_Config(&quot;browserType&quot;).ToString),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser '10.102.105.24Page'" sap:VirtualizedContainerService.HintSize="618.4,697.6" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="4e60922781bf5e6b2135115b7fe0fcfa" Selector="&lt;html url='http://10.102.105.24:8080/Login.jsp' /&gt;" TimeoutMS="5000">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(in_Config.ContainsKey(&quot;browserType&quot;) AndAlso&quot;Edge&quot;.Equals(in_Config(&quot;browserType&quot;).ToString),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser '10.102.105.24Page'" sap:VirtualizedContainerService.HintSize="618.4,697.6" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="4e60922781bf5e6b2135115b7fe0fcfa" Selector="&lt;html url='http://10.102.105.24:8080/Login.jsp' /&gt;" TimeoutMS="7000">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>

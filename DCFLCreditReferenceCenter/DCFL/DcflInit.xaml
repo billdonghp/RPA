@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1280,2043.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1085.6,2143.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflInit_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -70,6 +70,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="DcflInit" sap:VirtualizedContainerService.HintSize="828,1978.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -78,7 +79,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(&quot;Edge&quot;.Equals(in_browserType),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser '斗山融资租赁'" sap:VirtualizedContainerService.HintSize="786.4,1885.6" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="17132f4e0536a397286c80470ec26100" Selector="[&quot;&lt;html &quot;+if(&quot;Edge&quot;.Equals(in_browserType),&quot;app='msedge.exe' &quot;,&quot;&quot;)+&quot;title='斗山融资租赁' /&gt;&quot;]">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(&quot;Edge&quot;.Equals(in_browserType),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser '斗山融资租赁'" sap:VirtualizedContainerService.HintSize="786.4,1885.6" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="17132f4e0536a397286c80470ec26100" Selector="[&quot;&lt;html &quot;+if(&quot;Edge&quot;.Equals(in_browserType),&quot;app='msedge.exe' &quot;,&quot;&quot;)+&quot;title='HD现代融资' /&gt;&quot;]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>

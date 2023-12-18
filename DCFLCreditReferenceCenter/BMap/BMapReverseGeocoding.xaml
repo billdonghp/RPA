@@ -83,6 +83,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="20220513发生调用百度API失败&#xA;处理内容: &#xA;1. IF判断增加Not geoJson is Nothing&#xA;2. 新增InputLocationInfo,判断是否手动输入，否：Throw Exception&#xA;Next Step:&#xA;将BMapReverseGeocoding提到Process中，catch到Exception时跳过本条录入。" DisplayName="BmapApi" sap:VirtualizedContainerService.HintSize="1440,2748" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -252,7 +253,18 @@
                     </Assign>
                   </If.Then>
                 </If>
-                <If Condition="[&quot;菏泽市&quot;.Equals(addJson(&quot;city&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_2" />
+                <If Condition="[&quot;雄安新区&quot;.Equals(addJson(&quot;city&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_city]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">保定市</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
                 <If Condition="[&quot;&quot;.Equals(addJson(&quot;district&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="483.2,302.4" sap2010:WorkflowViewState.IdRef="If_3">
                   <If.Then>
                     <Sequence sap:VirtualizedContainerService.HintSize="304.8,152.8" sap2010:WorkflowViewState.IdRef="Sequence_2">

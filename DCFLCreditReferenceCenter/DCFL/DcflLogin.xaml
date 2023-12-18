@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>963.2,2274.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1085.6,2374.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DcflLogin_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -65,8 +65,8 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="new Dictionary(Of String, Object) from {{&quot;dcflUrl&quot;,&quot;http://10.40.128.182:8080/core&quot;},{&quot;browserType&quot;,&quot;&quot;}}" DisplayName="DcflLogin" sap:VirtualizedContainerService.HintSize="736.8,2169.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -94,7 +94,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <TryCatch.Try>
-                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '斗山融资租赁'" sap:VirtualizedContainerService.HintSize="433.6,262.4" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="3a90f16e6379461252e1b0feffe146ab" Selector="&lt;html app='msedge.exe' title='斗山融资租赁' /&gt;" TimeoutMS="2000">
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'HD现代融资'" sap:VirtualizedContainerService.HintSize="433.6,262.4" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="3a90f16e6379461252e1b0feffe146ab" Selector="&lt;html app='msedge.exe' title='HD现代融资' /&gt;" TimeoutMS="2000">
                     <ui:BrowserScope.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -160,7 +160,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OpenBrowser>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(&quot;Edge&quot;.Equals(in_Config(&quot;browserType&quot;).ToString),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser '斗山融资租赁'" sap:VirtualizedContainerService.HintSize="695.2,844.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="aa65fa60da17c3e6f1eb906d83d26233" Selector="[&quot;&lt;html &quot;+if(&quot;Edge&quot;.Equals(in_Config(&quot;browserType&quot;).ToString),&quot;app='msedge.exe' &quot;,&quot;&quot;)+&quot;title='斗山融资租赁' /&gt;&quot;]">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[if(&quot;Edge&quot;.Equals(in_Config(&quot;browserType&quot;).ToString),BrowserType.EDGE,BrowserType.IE)]" DisplayName="Attach Browser 'HD现代融资租赁管理平台'" sap:VirtualizedContainerService.HintSize="695.2,844.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="aa65fa60da17c3e6f1eb906d83d26233" Selector="[&quot;&lt;html &quot;+if(&quot;Edge&quot;.Equals(in_Config(&quot;browserType&quot;).ToString),&quot;app='msedge.exe' &quot;,&quot;&quot;)+&quot;title='HD现代融资租赁管理平台' /&gt;&quot;]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>

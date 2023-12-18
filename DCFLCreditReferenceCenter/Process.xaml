@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1400,6515.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1164.8,4538.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -74,20 +74,20 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1175.2,6310.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1175.2,4373.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1133.6,6173.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1133.6,4236.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1084,6024.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1084,4088" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(of String)from{&quot;正常结清&quot;,&quot;提前结清完成&quot;,&quot;代理商垫款结清&quot;,&quot;损失担保结清&quot;,&quot;回购结清&quot;,&quot;协商有损失结清&quot;,&quot;取消&quot;}]" Name="regTypeList" />
               <Variable x:TypeArguments="x:String" Name="matterDesc" />
@@ -240,7 +240,7 @@
               </If.Then>
             </If>
             <ui:Comment sap:VirtualizedContainerService.HintSize="1042.4,56" sap2010:WorkflowViewState.IdRef="Comment_4" Text="// 变更登记" />
-            <If Condition="[&quot;审批通过&quot;.Equals(row.item(&quot;changeStatus&quot;)) AndAlso Not String.IsNullOrEmpty(row.item(&quot;changeTime&quot;).ToString) AndAlso  DateTime.Compare(Convert.ToDateTime(row.item(&quot;changeTime&quot;)),Convert.ToDateTime(row.item(&quot;registerTime&quot;))) &gt; 0 AndAlso &quot;起租&quot;.Equals(row.item(&quot;contractStatus&quot;)) AndAlso ( &quot;初始登记&quot;.Equals(row.Item(&quot;registerType&quot;)) Or  &quot;变更登记&quot;.Equals(row.Item(&quot;registerType&quot;))) AndAlso  Not String.IsNullOrEmpty(row.item(&quot;registerNo&quot;).ToString) AndAlso changeTypeList.Contains(row.item(&quot;changeType&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="1042.4,2616.8" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[&quot;审批通过&quot;.Equals(row.item(&quot;changeStatus&quot;)) AndAlso Not String.IsNullOrEmpty(row.item(&quot;changeTime&quot;).ToString) AndAlso  DateTime.Compare(Convert.ToDateTime(row.item(&quot;changeTime&quot;)),Convert.ToDateTime(row.item(&quot;registerTime&quot;))) &gt; 0 AndAlso &quot;起租&quot;.Equals(row.item(&quot;contractStatus&quot;)) AndAlso ( &quot;初始登记&quot;.Equals(row.Item(&quot;registerType&quot;)) Or  &quot;变更登记&quot;.Equals(row.Item(&quot;registerType&quot;))) AndAlso  Not String.IsNullOrEmpty(row.item(&quot;registerNo&quot;).ToString) AndAlso changeTypeList.Contains(row.item(&quot;changeType&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="1042.4,680" sap2010:WorkflowViewState.IdRef="If_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -248,7 +248,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="变更登记审批通过" sap:VirtualizedContainerService.HintSize="894.4,2467.2" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                <Sequence DisplayName="变更登记审批通过" sap:VirtualizedContainerService.HintSize="894.4,530.4" sap2010:WorkflowViewState.IdRef="Sequence_21">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="changeNum" />
                   </Sequence.Variables>
@@ -257,7 +257,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="852.8,2281.6" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="852.8,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DcflContractFileUpload" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DcflContractFileUpload" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_contractFolder" Type="InArgument(x:String)" />
     <x:Property Name="in_contractText" Type="InArgument(x:String)" />
     <x:Property Name="in_machinePin" Type="InArgument(x:String)" />
     <x:Property Name="in_networkState" Type="InArgument(x:Int32)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1220,3057.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1176.8,3157.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -63,7 +63,6 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>UiPath.Java.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="DcflContractFileUpload" sap:VirtualizedContainerService.HintSize="731.2,2992.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
@@ -76,7 +75,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="689.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;合同执行交付证书、合格证、保单上传&quot;]" />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser '       Page'" sap:VirtualizedContainerService.HintSize="689.6,2767.2" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="9a60383330cb39540b5213b7e2d14bb5" Selector="&lt;html app='msedge.exe' title='斗山融资租赁' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'HD现代融资'" sap:VirtualizedContainerService.HintSize="689.6,2767.2" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="9a60383330cb39540b5213b7e2d14bb5" Selector="&lt;html app='msedge.exe' title='HD现代融资' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -110,7 +109,7 @@
             <ui:Comment sap:VirtualizedContainerService.HintSize="614.4,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 业务部门要求暂时停止附件上传" />
             <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data '附件信息上传'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='tr'/&gt;&lt;/row&gt;&lt;column exact='1' name='文档名称' attr='text'&gt;&lt;webctrl tag='tr'/&gt;&lt;webctrl tag='td' idx='1'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;/column&gt;&lt;column exact='1' name='附件名' attr='text'&gt;&lt;webctrl tag='tr'/&gt;&lt;webctrl tag='td' idx='2'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="614.4,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
               <ui:ExtractData.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="891f96d6-6817-48d1-85e8-7923217061f0" InformativeScreenshot="294ad81188e26607cac0feeebf7dda2c" Selector="&lt;webctrl src='/core/modules/cont/CON1100/con_contract_execution.lview' tag='IFRAME' /&gt;&lt;webctrl parentid='ext-gen*' tag='TBODY' innertext='信息调查表*' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="891f96d6-6817-48d1-85e8-7923217061f0" InformativeScreenshot="294ad81188e26607cac0feeebf7dda2c" Selector="&lt;webctrl src='/core/modules/cont/CON1100/con_contract_execution.lview' tag='IFRAME' /&gt;&lt;webctrl parentid='ext-gen*' tag='TBODY' innertext='融资附属文件*' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -156,34 +155,18 @@
                           </sap:WorkflowViewStateService.ViewState>
                           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFileUpload workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DCFL\DcflFileUpload.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">
-                                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="rowIndex" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_fileName">
-                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_contractFolder+&quot;\&quot;+in_contractText+&quot;FJ.pdf&quot;" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">
-                                <Literal x:TypeArguments="x:Int32" Value="2" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">
-                                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_networkState" />
-                              </InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">[rowIndex]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[in_contractFolder+"\"+in_contractText+"FJ.pdf"]</InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">2</InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">[in_networkState]</InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
                           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFileUpload workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DCFL\DcflFileUpload.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">
-                                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="rowIndex" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_fileName">
-                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_contractFolder+&quot;\&quot;+in_contractText+&quot;JJD.pdf&quot;" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">
-                                <Literal x:TypeArguments="x:Int32" Value="2" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">
-                                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_networkState" />
-                              </InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">[rowIndex]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[in_contractFolder+"\"+in_contractText+"JJD.pdf"]</InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">2</InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">[in_networkState]</InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
                         </Sequence>
@@ -199,18 +182,10 @@
                       <If.Then>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFileUpload workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="DCFL\DcflFileUpload.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">
-                              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="rowIndex" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_fileName">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_contractFolder+&quot;\&quot;+in_contractText+&quot;JJD.pdf&quot;" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">
-                              <Literal x:TypeArguments="x:Int32" Value="2" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">
-                              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_networkState" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">[rowIndex]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[in_contractFolder+"\"+in_contractText+"JJD.pdf"]</InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">2</InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">[in_networkState]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </If.Then>
@@ -225,18 +200,10 @@
                       <If.Then>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFileUpload workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DCFL\DcflFileUpload.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">
-                              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="rowIndex" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_fileName">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_contractFolder+&quot;\&quot;+in_contractText+&quot;HGZ.pdf&quot;" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">
-                              <Literal x:TypeArguments="x:Int32" Value="2" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">
-                              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_networkState" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">[rowIndex]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[in_contractFolder+"\"+in_contractText+"HGZ.pdf"]</InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">2</InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">[in_networkState]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </If.Then>
@@ -251,18 +218,10 @@
                       <If.Then>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DcflFileUpload workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="DCFL\DcflFileUpload.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">
-                              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="rowIndex" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_fileName">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_contractFolder+&quot;\&quot;+in_machinePin+&quot;.pdf&quot;" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">
-                              <Literal x:TypeArguments="x:Int32" Value="2" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">
-                              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_networkState" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_tableRow">[rowIndex]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_fileName">[in_contractFolder+"\"+in_machinePin+".pdf"]</InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_uploadType">2</InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="in_networkState">[in_networkState]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </If.Then>

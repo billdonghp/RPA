@@ -7,7 +7,7 @@
     <x:Property Name="dt_invoiceE" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="in_checkDate" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>999.2,1586.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1400,2350.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -81,7 +81,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SelectInvoiceFile" sap:VirtualizedContainerService.HintSize="425.6,1521.6" sap2010:WorkflowViewState.IdRef="Sequence_40">
+  <Sequence DisplayName="SelectInvoiceFile" sap:VirtualizedContainerService.HintSize="425.6,2185.6" sap2010:WorkflowViewState.IdRef="Sequence_40">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="jsonFile" />
       <Variable x:TypeArguments="njl:JObject" Name="jsonObject" />
@@ -104,6 +104,7 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;纸票导入成功&quot;]" />
     <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// dt_invoicePDetail" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
@@ -114,6 +115,7 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;纸票明细行导入成功&quot;]" />
     <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_7" Text="// dt_invoiceE" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
@@ -124,6 +126,7 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;电票导入成功&quot;]" />
     <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_4" Text="// dt_invoiceEDetail" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
@@ -134,6 +137,7 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;电票明细行导入成功&quot;]" />
     <ui:Comment sap:VirtualizedContainerService.HintSize="384,56" sap2010:WorkflowViewState.IdRef="Comment_5" Text="// dt_redInfo" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DCFLGetDataTable workflow" sap:VirtualizedContainerService.HintSize="384,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="DCFL\DCFLGetDataTable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
@@ -144,5 +148,6 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_checkDate">[in_checkDate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;红字发票导入成功&quot;]" />
   </Sequence>
 </Activity>

@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1350.4,11667.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1176.8,2178.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -77,10 +77,9 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. &#xA;System.Text.RegularExpressions.Regex.Matches(row(&quot;租赁财产描述&quot;).ToString.replace(&quot;，&quot;,&quot;,&quot;).split(&quot;,&quot;C)(0),&quot;[W|N]&quot;).Count=0&#xA;已登记合同全部进行展期登记，后台将“展期与否”全部更新Y&#xA;需要重新登记的合同，需要后台修改“登记”、“初始登记码”等&#xA;Dictionary.ContainsKey 确认是否存在&#xA;调用Retry Scope重复获得初始登记编号、修改码、变更登记码、展期登记码、注销登记码" DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1360.8,11462.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. &#xA;System.Text.RegularExpressions.Regex.Matches(row(&quot;租赁财产描述&quot;).ToString.replace(&quot;，&quot;,&quot;,&quot;).split(&quot;,&quot;C)(0),&quot;[W|N]&quot;).Count=0&#xA;已登记合同全部进行展期登记，后台将“展期与否”全部更新Y&#xA;需要重新登记的合同，需要后台修改“登记”、“初始登记码”等&#xA;Dictionary.ContainsKey 确认是否存在&#xA;调用Retry Scope重复获得初始登记编号、修改码、变更登记码、展期登记码、注销登记码" DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="752,1973.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="lastContractCode" />
     </Sequence.Variables>
@@ -90,13 +89,13 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1319.2,11261.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_TransactionItem]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="710.4,1740.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1269.6,11112.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="660.8,1592" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(of String)from{&quot;结束&quot;,&quot;退库&quot;}]" Name="regTypeList" />
               <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[new Dictionary(of String ,String)]" Name="locationInfo" />
@@ -111,20 +110,14 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke RowCheck workflow" sap:VirtualizedContainerService.HintSize="1228,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Utils\DataRowCheck.xaml">
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke RowCheck workflow" sap:VirtualizedContainerService.HintSize="619.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Utils\DataRowCheck.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="sd:DataRow" x:Key="in_row">
-                  <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="row" />
-                </InArgument>
-                <OutArgument x:TypeArguments="sc:ArrayList" x:Key="out_errorMsg">
-                  <mva:VisualBasicReference x:TypeArguments="sc:ArrayList" ExpressionText="errorMsg" />
-                </OutArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_contractCode">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="lastContractCode" />
-                </InArgument>
+                <InArgument x:TypeArguments="sd:DataRow" x:Key="in_row">[row]</InArgument>
+                <OutArgument x:TypeArguments="sc:ArrayList" x:Key="out_errorMsg">[errorMsg]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_contractCode">[lastContractCode]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <If Condition="[errorMsg.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1228,397.6" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[errorMsg.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="619.2,397.6" sap2010:WorkflowViewState.IdRef="If_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -144,7 +137,7 @@
                 </Sequence>
               </If.Then>
             </If>
-            <Assign sap:VirtualizedContainerService.HintSize="1228,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+            <Assign sap:VirtualizedContainerService.HintSize="619.2,60" sap2010:WorkflowViewState.IdRef="Assign_13">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[lastContractCode]</OutArgument>
               </Assign.To>
@@ -152,12 +145,19 @@
                 <InArgument x:TypeArguments="x:String">[row("合同号").ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[in_TransactionItem.Rows.IndexOf(row) &gt; 20]" sap:VirtualizedContainerService.HintSize="1228,209.6" sap2010:WorkflowViewState.IdRef="If_24" />
-            <ui:Comment sap:VirtualizedContainerService.HintSize="1228,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 登记流程" />
-            <If Condition="[(String.IsNullOrEmpty(row(&quot;登记&quot;).ToString) OrElse &quot;N&quot;.Equals(row(&quot;登记&quot;))) AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="1228,1980" sap2010:WorkflowViewState.IdRef="If_11">
+            <If Condition="[in_TransactionItem.Rows.IndexOf(row) &gt; 20]" sap:VirtualizedContainerService.HintSize="619.2,52.8" sap2010:WorkflowViewState.IdRef="If_24">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </If>
+            <ui:Comment sap:VirtualizedContainerService.HintSize="619.2,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 登记流程" />
+            <If Condition="[(String.IsNullOrEmpty(row(&quot;登记&quot;).ToString) OrElse &quot;N&quot;.Equals(row(&quot;登记&quot;))) AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="619.2,52.8" sap2010:WorkflowViewState.IdRef="If_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -353,11 +353,11 @@
                 </Sequence>
               </If.Then>
             </If>
-            <ui:Comment sap:VirtualizedContainerService.HintSize="1228,56" sap2010:WorkflowViewState.IdRef="Comment_8" Text="//变更登记" />
-            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso &quot;Y&quot;.Equals(row(&quot;承租人变更与否&quot;)) AndAlso &quot;N&quot;.Equals(row(&quot;承租人变更登记与否&quot;)）AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="1228,2752.8" sap2010:WorkflowViewState.IdRef="If_9">
+            <ui:Comment sap:VirtualizedContainerService.HintSize="619.2,56" sap2010:WorkflowViewState.IdRef="Comment_8" Text="//变更登记" />
+            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso &quot;Y&quot;.Equals(row(&quot;承租人变更与否&quot;)) AndAlso &quot;N&quot;.Equals(row(&quot;承租人变更登记与否&quot;)）AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="619.2,52.8" sap2010:WorkflowViewState.IdRef="If_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -624,11 +624,11 @@
                 </Sequence>
               </If.Then>
             </If>
-            <ui:Comment sap:VirtualizedContainerService.HintSize="1228,56" sap2010:WorkflowViewState.IdRef="Comment_9" Text="//展期登记" />
-            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso &quot;Y&quot;.Equals(row(&quot;展期与否&quot;)) AndAlso &quot;N&quot;.Equals(row(&quot;展期登记与否&quot;)）AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="1228,2369.6" sap2010:WorkflowViewState.IdRef="If_10">
+            <ui:Comment sap:VirtualizedContainerService.HintSize="619.2,56" sap2010:WorkflowViewState.IdRef="Comment_9" Text="//展期登记" />
+            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso &quot;Y&quot;.Equals(row(&quot;展期与否&quot;)) AndAlso &quot;N&quot;.Equals(row(&quot;展期登记与否&quot;)）AndAlso &quot;正常&quot;.Equals(row(&quot;起租状态&quot;))]" sap:VirtualizedContainerService.HintSize="619.2,52.8" sap2010:WorkflowViewState.IdRef="If_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -887,11 +887,11 @@
                 </Sequence>
               </If.Then>
             </If>
-            <ui:Comment sap:VirtualizedContainerService.HintSize="1228,56" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 注销流程" />
-            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso regTypeList.Contains(row(&quot;起租状态&quot;).ToString) AndAlso String.IsNullOrEmpty(row(&quot;注销登记编号&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="1228,2472.8" sap2010:WorkflowViewState.IdRef="If_4">
+            <ui:Comment sap:VirtualizedContainerService.HintSize="619.2,56" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 注销流程" />
+            <If Condition="[&quot;Y&quot;.Equals(row(&quot;登记&quot;)) AndAlso regTypeList.Contains(row(&quot;起租状态&quot;).ToString) AndAlso String.IsNullOrEmpty(row(&quot;注销登记编号&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="619.2,52.8" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>

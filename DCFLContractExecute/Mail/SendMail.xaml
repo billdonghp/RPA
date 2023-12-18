@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>660.8,1126.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1176.8,1186.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -146,13 +146,13 @@
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke MailTool workflow" sap:VirtualizedContainerService.HintSize="354.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Mail\MailTool.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="s:String[]" x:Key="in_to">
-                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;rui.xiu@hyundai-di.com&quot;}" />
+                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;rui.xiu@hd.com&quot;}" />
               </InArgument>
               <InArgument x:TypeArguments="s:String[]" x:Key="in_cc">
-                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;haipeng.dong@hyundai-di.com&quot;,&quot;hong.wang@hyundai-di.com&quot;,&quot;fei.wei@hyundai-di.com&quot;,&quot;ermei.yuan@hyundai-di.com&quot;}" />
+                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;haipeng.dong@hd.com&quot;,&quot;hong.wang@hd.com&quot;,&quot;fei.wei@hd.com&quot;,&quot;ermei.yuan@hd.com&quot;}" />
               </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_from">
-                <Literal x:TypeArguments="x:String">notice_cn@hyundai-di.com</Literal>
+                <Literal x:TypeArguments="x:String">notice_cn@hd.com</Literal>
               </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_title">
                 <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="System.Net.WebUtility. UrlEncode(&quot;RPA Execute Result(重要)&quot;)" />
