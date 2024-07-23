@@ -1,0 +1,154 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="UploadFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_fileName" Type="InArgument(x:String)" />
+    <x:Property Name="in_kb" Type="InArgument(x:Double)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1591,1481</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>UploadFile_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="UploadFile" sap:VirtualizedContainerService.HintSize="476,1416" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Edge: HCE销售助手" sap:VirtualizedContainerService.HintSize="434,1324" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="3e44adf8-36d0-45af-a805-ce31207ceb6d" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1106" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Click '上传文件'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e44adf8-36d0-45af-a805-ce31207ceb6d" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://hcesales.hd-infracore.cn/web_hcehelp/cloudFile/view/detail" DesignTimeRectangle="674, 409, 161, 48" ElementType="Button" FriendlyName="'上传文件'" FullSelectorArgument="&lt;webctrl aaname='上传文件' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='上传文件' tag='BUTTON' type='button' class='el-button el-button--success el-button--default' check:innerText='上传文件' /&gt;" Guid="d48def9b-6b2c-4cc1-a245-a865cfe506c8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKUAAAA0CAYAAADrEfg8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARVSURBVHhe7Z3LahRBFIZ9LsGlj6ALX0DEhSDoKgtfwI3RjSjoIooacDESiBLRXLyGQIiRCMbRXMx4IVHCuMmi7FPdp1Pdfar6NjNdk/l/+MDuqvRUUt+c6ppI+phCEM8CKRHvIko5vTmhxt6dUufmTqizs8cB6CnkFflFnklJSPnz35bufOHVSfFiAPQS8ox8I+/MJKSkDtIXA9BPyDszsZRUSlEhQROQd+ZSHkuJKgmaxKyWsZTY1IAmIf84sZRSRwAGCQdSAm/gQErgDRxICbyBAymBN3AgJfAGDqQcEua7wSR1W2LbUYEDKYeCltqJ5mmnI7UfDTgjLeXk3r7+3rt742J7ITpt+zVcbaVhMdtqXmzPIRqLS+rw51Hx+j2AM3Apry6fd5Luf23lonq6eS9gQo29P51pr0MvpNTLqmUiw+vvq7X1bFsV9PUOgutVqJbZcY6rtYPg1MGimozOjaSUJJ0r290v6srimbj/zY9j+vzq7hvV+npLrey+TlyvLvWljKqXeK8XTXqBSQ6F6WEy45HGGZ4zv/eRllJqS8NCvv0xrY9JzM9/lzP96lBbysSSyBKWiFGlTLSklrYkrjeFgbR063PJKg4pHbCQC53wh01iUm6sXs70rUNdKZ3yFLiHsxGOq8CyH72Ge/zZZZooV50HIyrHOylZyJffH+vjhc4TfUzn033rUkvK9UWl59VV7apOZnTtvHEVklccZ1hh028YVEoBFnJm+6E+ng3EpPRDSIKlzI0gXlxpRCkLLqtW5OpWvo9lnLrCZuWDlClYSPofyHT8fPuRPu6XkETlSsnVh6Inu8L9JMcmrnDPl23PuT2I+ujEUkZjFV4XUhpc/3BJn5/auKOP6eMfiimkuSvvFVWlDO8l22rHUqlqLd0xrmpbopIGYnfNvg7ZIaXBzNYD9enPkv731MZd3SddIenjIvpYyDxXl0pSxpNqE6Pu0m1gqYbhuN33kod90uMMjruyzJDSYPn3nJaSoEhLNsUHKelrwv4WKSORSt8SiHC1M0QpsQkKZba9ebJASoPWt9tq6dcL9Wzrvl7K0+0ExYtKGSNPNl+zSIp9XBRVXi1LlSqcHGe88SmbAlLXhePNRicPyjBImUu8SSpRkTIbK6GPFVRKJ7WlDCqq1FaVgUtZRUjC3EXrlPl6SOnk6EsZnZMmtpKQvHQbmxpD0GLjhpRORqVS8nXjCS4tJMtoH9vha+SNH1I6YSmrZtiWb1OcvI9wCLN/sU1Q6jXEsUDKXEisXIINTYxxXrqei6QU9ZOUt+xk2/u6f2VZlMPqmtydQ8oRovhkh0T9Bz7pkBKAynAgJfAGDqQE3sCBlMAbOJASeAMHUgJv4EBK4A0cSAm8gQMpgTdwYinxh/hBk4h/iB+PLAFNIj6yBA93Ak1hfbgTBdUSNIFZJSkJKfHAUDBIyDPyzfnAUA6VUuqMzQ/oB+QV+WUu2WZEKRGkyUBKxLMo9R/w2p9jsC98wAAAAABJRU5ErkJggg==" InformativeScreenshot="3671a2feabe832d02a598a65cf6ab6fb.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="727, 422, 84, 21" ElementType="Text" FriendlyName="'上传文件'" FullSelectorArgument="&lt;webctrl aaname='上传文件' parentid='app' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='上传文件' parentid='app' tag='SPAN' type='' class='' check:innerText='上传文件' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAZCAYAAAC1ken9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIXSURBVGhD7Vc7ksMgDN1z5UJ7oFwjXW6wkzIHSJNx6XQpMq5csOZrYSQQduywrDXzioCMH08P4Xx9/xzEjvVQpcCXTgjRndG5rVGhwGfRDvrKaB/Y/LZgC3x6vhTp7nlE51l4NPQasblsWJEbcUHnEzBcYgXSeqTX31RgdXQJUnr9l7jdw7k5UOv1w3ozXBzyPIpbPwz1V3EyYwUKbFyF9kazAQZhvfk3RsAH46nH4N7LE9g7dlbQjADugVCCE3M+YgUGwNqDGvNPV3ECR4Vg9DwKmhejtZh3xPmHrUAi79T4om8j8P0qFMeYCxluQGHWTvFiFQLlqZ0/Lf5qDk4GIqJzACow8+iSwF2Xn0PwVM4PhVxN4GwHW1fIUMRn9F8bVBGQHhnOJ1qQyVHhBDZckfcWI7DuvY1oCQctag8OsVOQ4fChSB3MjRSuDIEdQWqTS9sDAOFSzTvee8ecKc/hd4cXpgiB5TM6nxDYiJLddlBYF4JNZ1yAujCUEUIUIfAInLhdkxO8TzhzItTG55wOn6e79HID7POjAifhLsi0UxyCSxXJIVGZg6OYI64E/BpQkfN8VQKbMYzkLHFtewAXGhCbx7tCB9t1Hdlsca2wNLfxHSn+FQpsAUVIfVZJwHzeBTh5B8plRYH9DS4PvxC5xOnc+N9uLkbX+18ZH3TwMvCJa5h8dpt4F/6swP8Xu8ArYxd4VRzELzoRGZHWDU7WAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click '点击上传'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e44adf8-36d0-45af-a805-ce31207ceb6d" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://hcesales.hd-infracore.cn/web_hcehelp/cloudFile/view/detail" DesignTimeRectangle="1344, 697, 84, 23" FriendlyName="'点击上传'" FullSelectorArgument="&lt;webctrl tag='EM' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='EM' type='' class='' aaname='点击上传' check:innerText='点击上传' /&gt;" Guid="eed45f95-911f-4b28-a20b-ff2f1ee59d8c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAbCAYAAAD4WUj2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJESURBVGhD7ZixTsMwEIaz8CQ8AA/ACzDxBCAhBhbYYKjYC2JjqhALYmWBioUNMVMGBsSGBEsHUCsGWonF8If85eTajuPUqEX+pFMbN7mcv1zctJlKRCUJjkwSHJkkODJJcGQqCT45v1dzC/vqpvNcjNQHuZATuScBa6yTz1VT1XqTYAO7h9dqceVUvfYHxcgvyDu/1FKPT2/FiJtsMBgWb8th8T7hexGmTTCkQi4k63wMP9Vqo22VbyJbW99QF+3LYtMNi6/SwSyY4kOiSsfUFcwLjlcKlbWUBfbHcSQtERroXF0SkfJ9SYIFuEtwt9gEu9ZmG2NrcN1b2rR2uYgluCxMElG77TPX2uwi6/X6xdsfQhOFHjctHczupWDMB6/YrhrSwdgSMUnBvt3kGz7SQgWj7uXNszxs3Y35YZ5ViCrYh2noYNSA7u08dHO5uuDQuYEk+Bvsi4BUk+A6NVoFI2FImASjMNuzrKv4kIuGPLZ8ZdgEM6dPYD6SP+ngWRdcBr8gUStqlmSto2PvX3Kh/GfBLrkga+4dKEgmOGCreTU6AQXI1jeNUYYcI7MsmGMmgWVyQba90xh1MJNJGUwiJ2kae+m+Wx9xZlkwYV7K9JEL8j97bjt3+QaT6F2ICcpEtqtqk4XtWRdMmB9hm5Mk72D8muNETZPhZ1I8TyTHAI7XTyyLCglZU91cesgL4SOYsI6yfTMuD3zINrU7O0kWw1tEF4xx5MGSUZeQDq5DFcGA++t3smTsMS0xWZLgyCTBUVHqC4D/3rRK7h7SAAAAAElFTkSuQmCC" InformativeScreenshot="500335064bc60efb421e96379648eb37.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '文件名(&amp;N)'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,220" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="3e44adf8-36d0-45af-a805-ce31207ceb6d" Text="[in_fileName]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="312, 1008, 1487, 24" ElementType="InputBox" FriendlyName="'Edit'" FullSelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" Guid="5f10b4ab-6b62-4241-9359-4ca855b28a16" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABdMAAAAcCAYAAACK7ib6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADySURBVHhe7dgBAQAwDMOg+zfdO1gMgAzeAAAAAACAk0wHAAAAAIAg0wEAAAAAIMh0AAAAAAAIMh0AAAAAAIJMBwAAAACAINMBAAAAACDIdAAAAAAACDIdAAAAAACCTAcAAAAAgCDTAQAAAAAgyHQAAAAAAAgyHQAAAAAAgkwHAAAAAIAg0wEAAAAAIMh0AAAAAAAIMh0AAAAAAIJMBwAAAACAINMBAAAAACDIdAAAAAAACDIdAAAAAACCTAcAAAAAgCDTAQAAAAAgyHQAAAAAAAgyHQAAAAAAgkwHAAAAAIAg0wEAAAAAIMh0AAAAAAA4bR9XYum4xGQ4jgAAAABJRU5ErkJggg==" InformativeScreenshot="49a1690cb83e8b4e283dcd8668bb8958.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='打开' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="215, 1008, 85, 24" ElementType="Text" FriendlyName="'文件名(&amp;N)'" FullSelectorArgument="&lt;wnd ctrlid='1090' title='文件名(&amp;amp;N):' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1090' title='文件名(&amp;amp;N):' check:text='文件名(&amp;amp;N):' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAAcCAYAAAAKnhNwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKdSURBVGhD7ZftkYQgDECtynroxmLsxVrsgAMSNEAC8XOdOX68uVldArwksDes62o7z9Ilv0CX/AJd8gt0yS+gk7xMdhwGa2bmXaeJUvJiJzPYYTB25t6LzNa45IzTwrxzzOZwzPnUOn7LgeOiIYwjSBzttMRnEGPriKOSw/cvdBR25GDm9HMjJiR230f+ucUmGQZeJC6exhwnu8RnufQjklGwCjrnhuvGMXtHJNfWUUplYlXgK1mz+eY5nVWtY5lGRrpCsvJOCPGlCssT7MG4ozEgOyuSCFu5yjV5hOOiFFTQElS8x+z7zTRI5g1xLgp2FF3liZLdEciKRKR3bEwG8Uz2AWrnb5hAyPwulEjmktJIFIiLgiEmJxskVBIu3SdEcvwOJ02SDOunzzFGthb54qsJaLUKVh8dzyalNkfxzlcbSN9l4abEZCOFDCSRHL9XJkOUXHg4KlnKvqM4WxPosYCTSUmpSRaI1Q0wG2eAMcw8uWQH1xWi5IojSkWyg5PQqOJtQ3Ts4hZjmKSckAwbrnQRQxjDFQUjmesOWTIWVKOT6pJjkG2B7cz5BQUBGoEqybQzlGRCj0nO74LHJXtiZidVwA0iMG1xBU4I/IfpcZubvYwDR8NFyXtiYf0vSHYEYX6iA216WyU7gozzkrcjjDwLiJLTd7LkO85kDwreJ2tnLvAhyTAPM74m2QHJGd19An+l8a3CkyWj3EICBo7ikzGUL0mWZDYkp/cBM3+RPDxasz0Vkrdq5c4wCpHNfvdLkqMsrXxKWKPfZzl/edY3JEe51QlZSLbpMXK7ZJxDg5h0XaJU4Jo0d5Tu4jvD7ZKvVLIn/SXAJkeJH19Wscxzkr9I7Ajtz1AB6Hp9V/wvyT+iS36BLvkFuuTHWe0fepUj29dYkKsAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click '打开(&amp;O)'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e44adf8-36d0-45af-a805-ce31207ceb6d" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="1846, 1045, 132, 39" ElementType="Button" FriendlyName="'打开(&amp;O)'" FullSelectorArgument="&lt;wnd ctrlid='1' title='打开(&amp;amp;O)' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='打开(&amp;amp;O)' check:text='打开(&amp;amp;O)' /&gt;" Guid="696eadac-0292-4dd9-a01e-3c04afc58316" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAArCAYAAACjMsASAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI8SURBVHhe7ZfbsYMgFEXtyW5sxlZsIEVYih3YAVdec4WcB1F8JftjzWQEAT0rG2zmeTYAcEAQIAJBgEgiyOv1AkAWZJom8MNAECACQYAIBAEiEASIQBAgAkGACAQBIhAEiDxKkKFrTNMNZBs4hkcLMvataZrlmkbbm3EaTEe1FdOZYbUWx9ib1rZR0sa2hNb0Y9ZvwT0X03Y1X5ggo+nbpZ+TgmqPeGG6gWhzxdUKxs0TrlNjD50XhbtHXfP53F4QKSXI4p4liCv2ex81DbjUCdfpZ7oOJMhGQdxa8jlCQrT9mPTNidLnc5NjXgwE2SSIvzcXwacHcVbJ4VKESaUrgSBbBCEL6ccrSwBmjTfcZh4riItpUpbjBfFbRJ4UQRBVYEtYIzOGtkWdyfMEsUUQXyIlSCzITkLx3TreBKwhSLheNMY5PEKQ5EtGfXmUIBS2oExKKAkiCqLOa+HWCEE+Zr2trH/zFAoiSbBJkDDvnkMqBNlHVUHcQZMp5qYzyMJHn7nU+DiD7KKmIK5IXB9FEP5zNKaIcC+bHv9t+IrZSD1BlH+qJkgoJH1/lIQodEgY9hlY8a7jewVh+xUcJjVBSiSMMiTIxafPNtdyf0FiJAeo+HUvdtWHLUQcSyuCKshC7X97WNudthfLoxJkF+EfXVSAEkGypEoF/Qx7/x3Tw/I7ghxBTCR125PxCVgxjSoCQYAIBAEiEASIQBAgAkGACAQBIhAEiEAQIKIKAsDaiUQQAHIgCBCBIEBgNn/nXEpn1nL9WwAAAABJRU5ErkJggg==" InformativeScreenshot="55a201a05d88abccac827b58bb6da428.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='打开' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DelayAfter="[in_kb / 8000]" DisplayName="Click '确 定'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3e44adf8-36d0-45af-a805-ce31207ceb6d" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://hcesales.hd-infracore.cn/web_hcehelp/cloudFile/view/detail" DesignTimeRectangle="1585, 836, 95, 48" ElementType="Button" FriendlyName="'确 定'" FullSelectorArgument="&lt;webctrl aaname='确 定' idx='2' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='确 定' type='button' tag='BUTTON' class='el-button el-button--primary el-button--default' check:innerText='确 定' /&gt;" Guid="731e9a97-2cdf-4d51-b579-93129b245467" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGMAAAA0CAYAAACesIbaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK2SURBVHhe7ZwxaxVBFIVtBOv8inSCZX5AOv9DGn+FbUCEpEmlTbAQSxtruxQBm1R2UTCkkICBIIGIMHqCZ7lvvfuc5867e3XPgUPem529kz3f3tlq350ipZFgJJILY+/Fcdl8+Kzce/C03L3/RG5k5Ilcka+nBRinn77cTt7Y2neLyW2MfJEz8rZagIEJ3snyeoy8rToYaB11RKyRt92yOhjqimlsu6ODoYf1NEbuVAfDmyjHmBKMBKYEI4EpwUhgSjASmBKMBKYEI4GpdDDeHn8sN9++l93nR+7xFkbti8vrsvP4jXs82lQqGAgJIN6fXrjHWxnAoXWvU2sqBMb2o1fl/PPVr5UWxS5YNoc6fH3i1l/Vdq1WNceYCu8M3v24O+04vl99vflt68B3jCM8hGiPDZlrjNUqa44xFQ4Dd2L/mYAx78L/BgRMGGPuemxh/z2M/kUisFX1p5AFo8K80+2DE5+xRfUvnnPtdlYbsmBUmF3ghdQSxr9mKhQGAu8LYzzWAgbPayW7/rpMhcFgkDA+I3SEb2HUqkVnIGT+L97xSFNhMHDx0DIY69imUNcLfbYwGOKHs8vbgKNhoA7q2fHZwkB4CPrg5btQGFzD1qVRd5kiQVGhD3BcXCQMzrc16Nl2Bj0Eg59rVQuDd/9QZ8weBgKwAgyvC8Z2Rh+wrQMLxs8LZ2fYcYTbD2YsDMyB8Bc1IFtLMAZg9J8XsAfDBswxz+wKW5PnoiZqzx6GZ4ZkQ4ctDMCivP2/b8wfCprr1apmvbGmJofhdcUYD3VfZlOTw5AFI5UpwUhgSjASmBKMBKYEI4EpwUhgSjASmBKMBKY6GHrBchq7L1jq1eNp7L56rJfy4z34Uj6k7oi17QpoAYZ+yCXGyBc5L/0hFwqtg8l6qLc18kSudmuycmFI00gw0qiUHxC0B5biSM02AAAAAElFTkSuQmCC" InformativeScreenshot="d99ba27d4ecc1fa7845a6bfc92e7aa07.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1608, 849, 48, 21" ElementType="Text" FriendlyName="'确 定'" FullSelectorArgument="&lt;webctrl aaname='确 定' idx='2' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='确 定' type='' tag='SPAN' class='' check:innerText='确 定' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAZCAYAAAB+Sg0DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGoSURBVFhH7ZSxSgNBFEVt/B7/wu+w8StshfR2NlZiaWNtZyHYWNmphVhIikAIQkQYOYErL7Nv1tnM7KCSBxeTmcl99+ybdWd3bxL+k7ZA6Pr2OSw/PsPx6Y27X0N4T2fv4eDoyt1PaTAQjYB5eJy6+7XEQ6OG9vkG2j+8CK9v85VJXJpG3xnV2eV9p8kmsr2GeLoT0hR4Snad7/PFsnMN+M46AQhi91JSj9KKe7pAPJH4HWHNC7wJDBJQyUS5jllA8UGaDq2fgjYD0hO3LyOfuW6xgc7aq5kbtBmQpuE1qgk0ljpAhI6LNe3VANLvapXtvwakMIjPBAfAAuVWjQkRVFm8fU9rQBhQfUBjXDl8veBFQAry9DJbhWwNhA9+dr0IiACEPTm/awqkHtZXwrevPNjOPwUOtATSeeshFU1ISgHpc27lAmkKqQlVAcLEFkDeNEonFD8k64OqAWlCdp2AsXkpEGco/uJBWa9RgeL3B3lANqTWPGk61lO/xRPvKkCe1MgGRxYIYJX3PsTifCqs+uWW7ZcF5E2nRKlbUENZQH9JW6DfrUn4AsZ8nUbpuvDxAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="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" InformativeScreenshot="c46894c2ae5d9a54b8d8bbbd5ca360f1.png" Selector="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" Url="https://hcesales.hd-infracore.cn/web_hcehelp/cloudFile/view/detail" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

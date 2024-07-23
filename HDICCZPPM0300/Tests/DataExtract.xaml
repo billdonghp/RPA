@@ -1,0 +1,136 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DataExtract" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_ExtractDataTable" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <this:DataExtract.out_ExtractDataTable>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:DataExtract.out_ExtractDataTable>
+  <sap:VirtualizedContainerService.HintSize>1591,1185</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="33">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="512,941" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="2fc050ba-1836-4dd8-8cdc-bf65877d04f1" Version="V2">
+    <uix:NApplicationCard.Body>
+      <ActivityAction x:TypeArguments="x:Object">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+        </ActivityAction.Argument>
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="478,723" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,328" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[out_ExtractDataTable]" DelayBetweenPages="3" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0' IsDeleted='true'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='name' ReferenceIdx='1' Name='name'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='size' ReferenceIdx='2' Name='size'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='Column-3' IsDeleted='true'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column-4' ReferenceIdx='4' Name='Column-4' IsDeleted='true'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column-5' ReferenceIdx='5' Name='Column-5' IsDeleted='true'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='6' Name='Column-6' IsDeleted='true'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column-7' ReferenceIdx='7' Name='Column-7' IsDeleted='true'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='createtime' ReferenceIdx='8' Name='createtime'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataColumn' ReferenceName='Column-9' ReferenceIdx='9' Name='Column-9' IsDeleted='true'&gt;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&lt;Format xsi:type='TextColumnFormat' /&gt;&lt;/Column&gt;&lt;Column xsi:type='DataNextLink' /&gt;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='name' attr='text' /&gt;&lt;column name='size' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;column name='Column-6' attr='text' /&gt;&lt;column name='Column-7' attr='text' /&gt;&lt;column name='createtime' attr='text' /&gt;&lt;column name='Column-9' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="0" Timeout="5" Version="V1">
+                  <uix:NExtractData.NextLink>
+                    <uix:TargetAnchorable BrowserURL="https://hcesales.hd-infracore.cn/web_hcehelp/cloudFile/view/detail" DesignTimeRectangle="2292, 1476, 48, 48" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' idx='8' tag='BUTTON' /&gt;" FuzzyAccuracy="0.82" FuzzySelectorArgument="&lt;webctrl type='button' class='btn-next' tag='BUTTON' aaname='' /&gt;" Guid="b68529f3-6f73-4ce1-9798-8efb7cb91517" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVGhD7ZpLCgIxEAU9oujFFC+kC/cieA8/OOIq8hYvRMlGsZtO8wpqM5mBFJkJs8isJCN30PR4lsttKufrfQgxV8y5pQZhoPfQCLZRNWiklfkUcyc1qHfjSBIFRZUoKKpEQVElCooqUVBUiYKiShT0jdvdvnvdQmIaNF8sy2q96Y79W2IadDie3KKI+TfkFUVcNgWPKOISBK2jiFsQtIwiCvrVVK9cqk3BIwYS0yCvGEhMg7xiIDENSvdz6ilRUFSJgqJKFBRVoqCoEgVFlSgoqiRvULqjMekOLwEMjLRSmGsbA96CMpAsqJQX1+aaIxIvY44AAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                  </uix:NExtractData.NextLink>
+                  <uix:NExtractData.Target>
+                    <uix:TargetAnchorable DesignTimeRectangle="328, 532, 2228, 730" FriendlyName="'DSC_1357.jpg21.84MB上架是0…'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' tag='TABLE' /&gt;" Guid="8dd2ac1c-9563-4af5-b81c-002df3c80ba8" InformativeScreenshot="394ca61285095bf6930444e86cb10edd.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                  </uix:NExtractData.Target>
+                </uix:NExtractData>
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[out_ExtractDataTable]" DelayBetweenPages="5" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='name'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='size'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='createtime'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='tr' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='2' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='3' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='9' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="436,158" sap2010:WorkflowViewState.IdRef="NExtractData_2" MaximumResults="0" ScopeIdentifier="2fc050ba-1836-4dd8-8cdc-bf65877d04f1" Timeout="5" Version="V1">
+            <uix:NExtractData.NextLink>
+              <uix:TargetAnchorable BrowserURL="https://hcesales.hd-infracore.cn/web_hcehelp/cloudFile/view/detail" DesignTimeRectangle="2292, 1475, 48, 48" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' idx='8' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl type='button' class='btn-next' tag='BUTTON' aaname='' /&gt;" Guid="7ced4275-6fe4-4aa2-9fd8-95d4707de274" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVGhD7ZpBCsIwEEU9oujFFC+kC/cieA+tWHEV+YtfUslGcYbJ8B+8TdNCHmlDF1mUZCgoOrOg8fkqt/tYrsOjCzFXzLlmCsJA66EerKOmoJ5W5lPMnUxBrRt7kigoqkRBUSUKiipRUFSJgqJKFBRVoqBv3B+OzesWEtOg5WpdNttdc+zfEtOg0/niFkXMvyGvKOKyKXhEEZcgaB1F3IKgZRRR0K+meuVSbQoeMZCYBnnFQGIa5BUDiWlQup9TT4mCokoUFFWioKgSBUWVKCiqREFRJXmD0h2NSXd4CWCgp5XCXOsYMAvqn1LewASaI0ZXqCgAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+            </uix:NExtractData.NextLink>
+            <uix:NExtractData.Target>
+              <uix:TargetAnchorable BrowserURL="https://hcesales.hd-infracore.cn/web_hcehelp/cloudFile/view/detail" DesignTimeRectangle="328, 599, 2228, 730" FriendlyName="'R1250-9资料6.34MB上架-00管理员…'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' tag='TABLE' /&gt;&lt;webctrl tag='TBODY' /&gt;" Guid="5681df99-dcea-4fc2-9b7b-731498912ecb" InformativeScreenshot="1fab1c96bffa420e0ce7a1bf19f6dbbb.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+            </uix:NExtractData.Target>
+          </uix:NExtractData>
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="436,63" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="aa" />
+        </Sequence>
+      </ActivityAction>
+    </uix:NApplicationCard.Body>
+    <uix:NApplicationCard.TargetApp>
+      <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="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" InformativeScreenshot="07553d21c540856404fa5f7ceed523a7.png" Selector="&lt;html app='msedge.exe' title='HCE销售助手' /&gt;" Url="https://hcesales.hd-infracore.cn/web_hcehelp/cloudFile/view/detail" />
+    </uix:NApplicationCard.TargetApp>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+  </uix:NApplicationCard>
+</Activity>
