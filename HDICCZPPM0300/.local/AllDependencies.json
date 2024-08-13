@@ -39,6 +39,15 @@
           "lib/net45/CsvHelper.dll": {}
         }
       },
+      "DesktopNotification/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/DesktopNotification.dll": {}
+        }
+      },
       "DocumentFormat.OpenXml/2.5.0": {
         "type": "package",
         "compile": {
@@ -1807,6 +1816,15 @@
         },
         "runtime": {
           "lib/net45/CsvHelper.dll": {}
+        }
+      },
+      "DesktopNotification/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/DesktopNotification.dll": {}
         }
       },
       "DocumentFormat.OpenXml/2.5.0": {
@@ -3589,6 +3607,17 @@
         "lib/netstandard2.0/CsvHelper.xml",
         "lib/netstandard2.1/CsvHelper.dll",
         "lib/netstandard2.1/CsvHelper.xml"
+      ]
+    },
+    "DesktopNotification/1.0.0": {
+      "sha512": "URYOhqTa1IEuRkIUN9ytW4ma0f3r+j0/w4oNLHK13dqS1Nm4GKaHYd/0oF1WlKmXaXZcjISGTbwOzsGdBo5L9A==",
+      "type": "package",
+      "path": "desktopnotification/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "desktopnotification.1.0.0.nupkg.sha512",
+        "desktopnotification.nuspec",
+        "lib/DesktopNotification.dll"
       ]
     },
     "DocumentFormat.OpenXml/2.5.0": {
@@ -6358,6 +6387,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "DesktopNotification >= 1.0.0 <= 1.0.0",
       "UiPath.Excel.Activities >= 2.12.3 <= 2.12.3",
       "UiPath.System.Activities >= 22.4.1 <= 22.4.1",
       "UiPath.Testing.Activities >= 22.4.3 <= 22.4.3",
@@ -6378,6 +6408,11 @@
     "frameworks": {
       "net461": {
         "dependencies": {
+          "DesktopNotification": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.0, 1.0.0]"
+          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
