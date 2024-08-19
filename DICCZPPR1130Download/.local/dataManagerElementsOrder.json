@@ -1,0 +1,222 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TransactionItem&StateMachine_1",
+        "SystemError&StateMachine_1",
+        "BusinessRuleException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Config&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionData&StateMachine_1",
+        "inputUserName&StateMachine_1",
+        "inputPassword&StateMachine_1",
+        "dt_BOM&StateMachine_1",
+        "isFilter&StateMachine_1",
+        "ShouldStop&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "OrchestratorQueueName"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/SAP_Login.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Username&Sequence_25",
+        "Password&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_DooinsURL",
+        "in_UserName",
+        "in_Password"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/SAP_InputTCode.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "isInput&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_tCode"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/Sequence.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "downFileName&Sequence_1",
+        "resultFileName&Sequence_1",
+        "downCount&Sequence_1",
+        "downFolder&Sequence_1",
+        "errCount&Sequence_7"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem",
+        "in_Config",
+        "in_TransactionNumber"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/AdjustPivotTable.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_path",
+        "in_sheet",
+        "in_count"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test_Framework/Test_CreatePivotTable.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "isFilter&Sequence_1",
+        "filePath&Sequence_1",
+        "columnsCount&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/CreatePivotTable.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt&Sequence_1",
+        "dt_new&Sequence_1",
+        "msg&Sequence_1",
+        "dr&Sequence_1",
+        "i&Sequence_1",
+        "firstDr&Sequence_5",
+        "txt&Sequence_4"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_fileName",
+        "out_columnsCount",
+        "in_isFilter"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/InputAccount.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "custConfirm&Sequence_30"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_InputUser",
+        "out_InputPw"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_userName",
+        "in_password"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem",
+        "io_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/GetDataTable.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "cbtn&Sequence_37",
+        "confirmBtn&Sequence_37",
+        "ExcelFile&Sequence_37",
+        "books&Sequence_37",
+        "inputOptions&Sequence_37",
+        "haveError&TryCatch_1",
+        "sheets&Sequence_40",
+        "execlSheet&Sequence_40"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_dataTable"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test_Framework/TestInputTCode.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/BOMDownload.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_filename",
+        "in_material",
+        "in_valid",
+        "in_plant",
+        "in_type",
+        "in_isSum"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SAP/CreateResultTemplate.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_fileName"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="out_dataTable" Type="OutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1173.6,1340.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>869.6,1438.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -67,9 +67,10 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DCFLGetDataTable" sap:VirtualizedContainerService.HintSize="703.2,1236" sap2010:WorkflowViewState.IdRef="Sequence_37">
+  <Sequence DisplayName="DCFLGetDataTable" sap:VirtualizedContainerService.HintSize="643.2,1373.6" sap2010:WorkflowViewState.IdRef="Sequence_37">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="cbtn" />
       <Variable x:TypeArguments="x:String" Name="confirmBtn" />
@@ -82,16 +83,16 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="661.6,800.8" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+    <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="580.8,859.2" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
       <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="626.4,633.6" sap2010:WorkflowViewState.IdRef="Sequence_38">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="545.6,692" sap2010:WorkflowViewState.IdRef="Sequence_38">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MessageBox Buttons="Ok" Caption="请选择文件" ChosenButton="[cbtn]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="584.8,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;请选择BOM下载明细文件&quot;]" />
-          <If Condition="[&quot;Ok&quot;.Equals(cbtn)]" sap:VirtualizedContainerService.HintSize="584.8,440.8" sap2010:WorkflowViewState.IdRef="If_8">
+          <ui:MessageBox Buttons="Ok" Caption="请选择文件" ChosenButton="[cbtn]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;请选择BOM下载明细文件&quot;]" />
+          <If Condition="[&quot;Ok&quot;.Equals(cbtn)]" sap:VirtualizedContainerService.HintSize="483.2,480" sap2010:WorkflowViewState.IdRef="If_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -110,7 +111,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <TryCatch.Try>
-                  <ui:SelectFile DisplayName="Select File" Filter="All files (*.*)|*.*" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[ExcelFile]" />
+                  <ui:SelectFile DisplayName="Select File" Filter="All files (*.*)|*.*" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[ExcelFile]" />
                 </TryCatch.Try>
                 <TryCatch.Catches>
                   <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
@@ -124,7 +125,7 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
                         <Assign.To>
                           <OutArgument x:TypeArguments="s:Exception">[haveError]</OutArgument>
                         </Assign.To>
@@ -157,7 +158,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleDoWhile>
-    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="661.6,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[books]" WorkbookPath="[ExcelFile]">
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="580.8,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[books]" WorkbookPath="[ExcelFile]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -228,9 +229,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <If Condition="[Now &gt; DateTime.Parse(&quot;2023-10-01&quot;)]" sap:VirtualizedContainerService.HintSize="661.6,209.6" sap2010:WorkflowViewState.IdRef="If_10">
+    <If Condition="[Now &gt; DateTime.Parse(&quot;2024-10-01&quot;)]" sap:VirtualizedContainerService.HintSize="580.8,269.6" sap2010:WorkflowViewState.IdRef="If_10">
       <If.Then>
-        <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_7">
           <Assign.To>
             <OutArgument x:TypeArguments="sd:DataTable">[out_dataTable]</OutArgument>
           </Assign.To>
